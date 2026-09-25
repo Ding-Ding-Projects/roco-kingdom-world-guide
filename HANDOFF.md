@@ -27,15 +27,20 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 
 ## Verification and publication state
 
-- The roster comparison update is source commit `9bab3d7fcd51de0d5821bd463686a3bb0ba33fa3`. `node --check dist/assets/app.js` passed; all seven `dist/data/*.json` files parse; the current dataset has 21 articles and 20 source records; `git diff --check` passed with only line-ending notices.
-- At publication time, the configured source repository's `main` ref was verified at that commit with `git ls-remote`.
-- The public Site saved version 2 from that source commit and deployed successfully at [Roco Kingdom: World Atlas & Dex](https://roco-kingdom-world-field-atlas.dewlook123.chatgpt.site). The earlier version 1 deployment was the original public baseline.
+- Public version 2 was saved from source commit `9bab3d7fcd51de0d5821bd463686a3bb0ba33fa3` and deployed successfully at [Roco Kingdom: World Atlas & Dex](https://roco-kingdom-world-field-atlas.dewlook123.chatgpt.site). The earlier version 1 deployment was the original public baseline. Its earlier checks do not cover later source changes.
+- Before the compact-header change in this continuation, the configured `main` ref was verified at `c349bf8dbc694ac77eda5a5e62652bfc4460a1fe` when the bundled Sites workflow reopened the existing checkout. That commit contains the September 25 Flower Seed article and source updates.
 - The public-language scan checked 39 tracked and new files. The only four hits are in unchanged `dist/data/creature-details.json`, `dist/data/creatures.json`, `dist/data/training-reference.json`, and `scripts/import_bwiki_details.py`; they are existing game-name/description text and the required HTML data attribute. No changed file had a hit.
-- No test suite was run. No new rendered-page, keyboard, screen-reader, or narrow-viewport review was completed. The available capture route was unavailable, so no current screenshot is claimed.
+- No test suite was run for the latest source change. No new rendered-page, keyboard, screen-reader, or narrow-viewport review was completed. The direct lowlevel CLI and native capture backend are callable, but no target desktop launch or current screenshot is claimed yet.
 - Historical version 1 baseline only: source SHA `ecfc27f8ca5182465df891a0f516278f9af9fb7f` was verified before saving. At that baseline, unauthenticated GET requests returned HTTP 200 for `/`, the public assets, and all seven `/data/*.json` files; every JSON response parsed successfully without credentials or cookies.
+
+## Current responsive header adjustment
+
+- The compact-header CSS hides the repeated secondary wordmark up to 520 px, keeps the primary label on one line, and reduces the gaps around the brand and utility controls. The edition label remains in the mobile context row. This source-only adjustment is not visual acceptance: no built-page capture has been produced or inspected. The preferred design flow was unavailable in this run, so the change follows the existing static HTML/CSS route.
+- The Sites package wrapper selected a WSL Bash launcher that could not start `/bin/bash`. Calling the bundled `package-site.sh` through Git Bash produced a valid archive for the earlier `c349bf8dbc694ac77eda5a5e62652bfc4460a1fe` source, but that archive predates this CSS adjustment and must not be reused. Regenerate the archive from the final pushed source before saving a new version.
+- The public-language scan reviewed 22 authored Markdown files. Its only match is line 36 of `docs/current-season/season-4.md`, inside an unchanged creature name; that is an unrelated proper noun, not an assistant-model reference. None of the changed Markdown files produced a match.
 
 ## Remaining work
 
-1. Review the rendered page, keyboard behavior, and narrow viewport when the approved headless capture route is available. No substitute capture is claimed.
+1. Use the callable approved headless capture route to review the rendered page, keyboard behavior, and narrow viewport. Recheck the compact header at 390 px and the 320 px minimum after the local CSS adjustment. The Lowlevel CLI is callable; its target desktop has not yet been launched. No substitute capture is claimed.
 2. Add coordinates and route geometry only when a reusable source provides verified data and reuse terms.
 3. Refresh time-sensitive season facts and the pinned community snapshot after material updates.

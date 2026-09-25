@@ -301,3 +301,14 @@
 @layer responsive {
   @media(max-width:600px){.type-card-grid{grid-template-columns:1fr}.type-result-grid{gap:.42rem}.type-result-grid section{padding:.55rem}.location-index{grid-template-columns:1fr}.location-creature-list{grid-template-columns:1fr}.habitat-entry>summary{align-items:flex-start}.habitat-entry>summary .badge{flex:none}}
 }
+
+@layer responsive {
+  @media(max-width:520px){
+    .topbar{gap:.45rem}
+    .brand{flex:0 1 auto;gap:.55rem}
+    .brand-copy{min-width:0}
+    .brand-copy strong{font-size:.64rem;letter-spacing:.06em;white-space:nowrap}
+    .brand-copy small{display:none}
+    .topbar-right{flex:none;gap:.12rem}
+  }
+}

@@ -13,7 +13,7 @@
 - [x] Register the public hosting project, preserve its source ID, and set its audience to public.
 - [x] Push the exact source, save version 1, and deploy the static build publicly.
 - [x] Verify the production address and all eleven required responses with unauthenticated GET requests; parse all seven JSON responses.
-- [ ] Capture and review the built page at desktop and narrow viewport sizes using the required approved capture route.
+- [ ] Capture and review the built page at desktop and narrow viewport sizes using the required approved capture route. Recheck the compact header at 390 px and the 320 px minimum after the CSS adjustment; no new capture has yet been produced or reviewed.
 - [ ] Add a complete S4 coordinate atlas only when a reusable source provides verified geometry and access data.
 
 ## Ongoing upkeep
