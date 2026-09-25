@@ -1,0 +1,146 @@
+[
+  {
+    "id": "official-taptap",
+    "title": "Official TapTap game listing and forum",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/app/188212?os=pc",
+    "checkedOn": "2026-09-24",
+    "scope": "Game identity, launch context, and current official posts. Read each linked notice for its own date and limits."
+  },
+  {
+    "id": "s4-opening",
+    "title": "Season 4 opening announcement",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/moment/847022426351994538?group_id=228326",
+    "checkedOn": "2026-09-24",
+    "scope": "Season launch and Moon-surface destination. Not a complete region map or full creature export."
+  },
+  {
+    "id": "s4-notes",
+    "title": "Official S4 version notes",
+    "kind": "Official",
+    "url": "https://apps.apple.com/cn/app/%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD-%E4%B8%96%E7%95%8C/id6478654994?platform=ipad",
+    "checkedOn": "2026-09-24",
+    "scope": "Season feature names and broad additions. Confirm date-sensitive details in the current client."
+  },
+  {
+    "id": "s4-schedule",
+    "title": "Season 4 schedule and activity notes",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/moment/843861121864568519",
+    "checkedOn": "2026-09-24",
+    "scope": "Published season window and named schedule details."
+  },
+  {
+    "id": "s4-sept24",
+    "title": "Official September 24 update notice",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/moment/851922582704753293?group_id=228326",
+    "checkedOn": "2026-09-24",
+    "scope": "Latest update pointer found. The detailed attached infographic was not available as readable text during review."
+  },
+  {
+    "id": "cocoa",
+    "title": "Cocoa Harvest Festival announcement",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/app/188212/topic",
+    "checkedOn": "2026-09-24",
+    "scope": "Official forum index announced a September 25 start and up to 480 free Cocoa Fruit Balls. Event end date and detailed conditions were not confirmed from extracted text."
+  },
+  {
+    "id": "flower-seed",
+    "title": "Destined Flower Seed event notice",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/moment/847120033397081827?group_id=228326",
+    "checkedOn": "2026-09-24",
+    "scope": "Notice states Magic Level 40 and Spirit Scholar rank requirements, plus a September 10 to September 25 04:00 window."
+  },
+  {
+    "id": "academy",
+    "title": "Academy enrollment guide",
+    "kind": "Community wiki",
+    "url": "https://wiki.biligame.com/nrc/%E5%8A%A0%E5%85%A5%E5%88%86%E5%AD%A6%E9%99%A2%21",
+    "checkedOn": "2026-09-24",
+    "scope": "Academy names and guide details. Transfer cooldown and reward rules are community-transcribed and should be checked in-client."
+  },
+  {
+    "id": "creature-list",
+    "title": "Creature and form index",
+    "kind": "Community wiki",
+    "url": "https://wiki.biligame.com/nrc/%E7%B2%BE%E7%81%B5%E5%88%97%E8%A1%A8",
+    "checkedOn": "2026-09-24",
+    "scope": "625 list rows across 466 catalog numbers in the saved page reviewed for this edition. Community data, not an official export."
+  },
+  {
+    "id": "map-index",
+    "title": "S3 world map index",
+    "kind": "Community wiki",
+    "url": "https://wiki.biligame.com/rocom/%E5%A4%A7%E5%9C%B0%E5%9B%BE",
+    "checkedOn": "2026-09-24",
+    "scope": "S3 layer and named-marker reference. Page update shown as August 26, 2026. CC BY-NC-SA 4.0."
+  },
+  {
+    "id": "map-viewer",
+    "title": "Community interactive map",
+    "kind": "Community tool",
+    "url": "https://rocokingdomworld.org/maps/",
+    "checkedOn": "2026-09-24",
+    "scope": "External map viewer reports 7,148 markers across seven categories. Its marker data and artwork are not reproduced here."
+  },
+  {
+    "id": "community-data",
+    "title": "Rocom Wiki Data project",
+    "kind": "Community data mirror",
+    "url": "https://github.com/JayeGT002/rocom-wiki-data",
+    "checkedOn": "2026-09-24",
+    "scope": "Pinned commit 71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2, version s4-2026-09-24, published 2026-09-24 15:55:24 UTC+8. Joined handbook, habitat, task, skill, learnset, evolution, type-chart, ecology, and historical training fields. The maintainer states records may lag the client. CC BY-NC-SA 4.0."
+  },
+  {
+    "id": "starter",
+    "title": "August 2026 starter guide",
+    "kind": "Community guide",
+    "url": "https://gachia.com/zh/roco-cn/guides/starter-guide-cn",
+    "checkedOn": "2026-09-24",
+    "scope": "Community advice; useful as a starting point, not a canonical rules source."
+  },
+  {
+    "id": "battle-video",
+    "title": "Official battle and team-building lesson collection",
+    "kind": "Official video",
+    "url": "https://www.bilibili.com/video/BV1iMuh66EiP/",
+    "checkedOn": "2026-09-24",
+    "scope": "Official lessons on battle, teams, PvP, weather, and related systems."
+  },
+  {
+    "id": "breeding",
+    "title": "Egg and breeding guide",
+    "kind": "Community guide",
+    "url": "https://www.gamersky.com/handbook/202604/2116160.shtml",
+    "checkedOn": "2026-09-24",
+    "scope": "April 2026 community reference. Recheck every number and inheritance rule in-client."
+  },
+  {
+    "id": "egg-index",
+    "title": "Community egg index",
+    "kind": "Community tool",
+    "url": "https://rocokingdomworld.org/zh/",
+    "checkedOn": "2026-09-24",
+    "scope": "Its landing page reports 278 creatures and 14 egg groups. Those are the index's own coverage figures."
+  },
+  {
+    "id": "unlock-video",
+    "title": "Official beginner lesson",
+    "kind": "Official video",
+    "url": "https://www.taptap.cn/moment/786984034843495021",
+    "checkedOn": "2026-09-24",
+    "scope": "March 2026 instruction on leveling, Wish Stars, and exploration; older than current S4."
+  },
+  {
+    "id": "resource-changes",
+    "title": "Official resource changes notice",
+    "kind": "Official",
+    "url": "https://www.taptap.cn/moment/847871522038089934",
+    "checkedOn": "2026-09-24",
+    "scope": "Season 4 resource and recovery features named in the notice."
+  }
+]

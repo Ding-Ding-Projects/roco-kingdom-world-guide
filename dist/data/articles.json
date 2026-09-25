@@ -1,0 +1,734 @@
+[
+  {
+    "id": "first-sessions",
+    "category": "Progression",
+    "title": "Your first sessions: a low-regret route",
+    "titleZh": "新手开局：先行稳阵",
+    "summary": "Follow the story and Magic Manual, then build a flexible roster before spending limited items.",
+    "summaryZh": "先跟剧情同魔法手册走，砌队先求灵活，珍贵道具留到规则睇清楚先用。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official systems plus community strategy",
+    "sections": [
+      {
+        "heading": "Start with the in-game route",
+        "headingZh": "先跟住游戏指引",
+        "text": "Use the main story and Magic Manual as the opening route. The launch notes describe a teaching index for growth, skills, elemental matchups, and battle basics, and say many early hard stops were reduced. Older walkthroughs that demand a fixed level or chapter can be stale. If a feature is still locked, read its current in-game prompt instead of grinding an old threshold.",
+        "textZh": "开局跟主线同魔法手册最稳。官方开服资料提到教学索引会讲成长、技能、属性克制同战斗基础，亦提到早期好多硬性卡关已减少。旧攻略写死等级或章节好易过时；系统仲锁住，就睇游戏内最新提示，唔好照旧数字盲刷。",
+        "sources": [
+          "official-taptap",
+          "unlock-video"
+        ]
+      },
+      {
+        "heading": "Keep options open",
+        "headingZh": "先留返转身位",
+        "text": "Raise a small group with different jobs rather than pouring every resource into one creature. Keep one reliable story team, note which matchups slow you down, and level a counter when a real encounter calls for it. Treat starter rankings as recommendations, not rules.",
+        "textZh": "先养一队分工唔同嘅伙伴，唔好一开头将所有资源塞落同一只。留低一队过剧情，记低边种对局最难，再按实际遇到嘅关卡养反制。新手榜单只系建议，唔系圣旨。",
+        "sources": [
+          "starter"
+        ]
+      },
+      {
+        "heading": "Before spending",
+        "headingZh": "用稀有道具之前",
+        "text": "Read the item's current description, event window, and eligibility first. Capture guarantees, breeding percentages, pity rules, and season conversions are patch-sensitive; this guide omits exact numbers unless a dated primary source states them.",
+        "textZh": "用稀有道具前，先睇清用途、活动期限同参加条件。捕捉保证率、繁育百分比、保底规则同赛季兑换都可能改；除非有注明日期嘅官方资料，否则呢份指南唔会乱写数字。",
+        "sources": [
+          "s4-notes",
+          "official-taptap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "battle-basics",
+    "category": "Combat",
+    "title": "Battle basics: read the matchup first",
+    "titleZh": "战斗基础：先睇对局",
+    "summary": "Use the battle tutorial, type information, creature roles, and encounter goals to make decisions.",
+    "summaryZh": "先用游戏教学理解属性，再按队伍职责同关卡目标出手。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official teaching references; exact formulas not reproduced",
+    "sections": [
+      {
+        "heading": "A repeatable decision loop",
+        "headingZh": "每回合都用到嘅判断法",
+        "text": "Before choosing a move, check the opponent's element, your creature's job, and the encounter objective. Ask whether the current creature can pressure the target, absorb the next threat, or create a useful opening. If none apply, switching or choosing a safer action may be better than repeating the strongest-looking attack.",
+        "textZh": "出招前先睇对手属性、自己只伙伴嘅职责，同埋关卡要你完成乜。谂下目前呢只可唔可以压制目标、顶住下一下，或者制造好机会；三样都唔啱，就转场或稳阵行动，未必次次都要揿睇落最大力嗰招。",
+        "sources": [
+          "official-taptap",
+          "battle-video"
+        ]
+      },
+      {
+        "heading": "Separate verified rules from claims",
+        "headingZh": "官方规则同玩家推测要分开",
+        "text": "Use the game's own teaching pages for effectiveness and battle instructions. Do not treat unverified damage multipliers, action order, status duration, or one-shot builds as permanent rules. Record the game version and encounter when testing a strategy.",
+        "textZh": "属性效果同战斗指引先用游戏内教学核对。未核实嘅伤害倍率、出手次序、状态持续时间或者一击配队，都唔好当永恒规律。测试心得要连同游戏版本同关卡一齐记低。",
+        "sources": [
+          "battle-video"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "team-building",
+    "category": "Training",
+    "title": "Build a team for the job",
+    "titleZh": "按关卡砌队",
+    "summary": "Plan by role and matchup. Keep story, boss, and PvP advice separate.",
+    "summaryZh": "按职责同对局砌队；剧情、首领同玩家对战心得唔好混为一谈。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Strategy framework; balance changes over time",
+    "sections": [
+      {
+        "heading": "Start from the encounter",
+        "headingZh": "由关卡目标开始",
+        "text": "Write down the target's element, whether the fight is a boss or ordinary story battle, any team restriction, and the win condition. Choose creatures that cover different jobs and bring a matchup answer instead of copying a universal tier list.",
+        "textZh": "先记低目标属性、系首领定普通剧情战、有冇队伍限制，同埋胜利条件。揀职责互补嘅伙伴，带一只针对关键对手嘅答案，唔好照抄一张话包打天下嘅榜单。",
+        "sources": [
+          "battle-video"
+        ]
+      },
+      {
+        "heading": "Keep recommendations dated",
+        "headingZh": "配队心得记埋日期",
+        "text": "Balance and available forms change. Label a build with the version, season, encounter, and the role it serves. A PvP choice may be a poor story pick, and a fast story clear does not prove a PvP build is sound.",
+        "textZh": "平衡同形态会变，配队建议要写埋版本、赛季、关卡同职责。玩家对战好用嘅伙伴未必适合剧情；剧情速通到亦唔代表玩家对战配队一定掂。",
+        "sources": [
+          "official-taptap",
+          "s4-notes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "capture-planning",
+    "category": "Capture",
+    "title": "Plan a creature hunt without trusting a rumour",
+    "titleZh": "计划捕捉：传闻先核实",
+    "summary": "Confirm current encounter conditions in-game and use the Dex to organize what to check.",
+    "summaryZh": "游戏内核对出现条件，再用图鉴整理目标同出处。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Event notices establish named systems; odds remain unverified",
+    "sections": [
+      {
+        "heading": "Check the live rule",
+        "headingZh": "先睇当期规则",
+        "text": "Before travelling or spending a limited capture item, check the creature's current encounter page and the live event notice. Season 4 introduced the Starfall Light system and seasonal creatures, but the available notice does not establish every trigger, guarantee, or probability. This guide makes no catch-rate or pity promise.",
+        "textZh": "出发或用限时捕捉道具前，先睇伙伴资料同当期活动规则。第四赛季引入流星之光系统同赛季精灵，但目前查到嘅公告未讲晒每个触发条件、保证率或机率。呢份指南唔会承诺捕捉率或保底。",
+        "sources": [
+          "s4-opening",
+          "s4-notes"
+        ]
+      },
+      {
+        "heading": "Use a hunt note",
+        "headingZh": "开个狩猎备忘",
+        "text": "Save the target's displayed name, form, source page, any current event window, and the date you checked it. If the page omits habitat or conditions, mark them unknown and verify in the client. Similar names can refer to separate catalog forms.",
+        "textZh": "记低游戏显示嘅名字、形态、资料出处、活动期限同核对日期。页面冇写栖息地或条件，就标示未知再入游戏确认。名字好似嘅记录可能系分开嘅图鉴形态。",
+        "sources": [
+          "creature-list",
+          "s4-notes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eggs-breeding",
+    "category": "Breeding",
+    "title": "Eggs and breeding: separate the steps",
+    "titleZh": "蛋同繁育：分开处理每一步",
+    "summary": "Track egg access, parent compatibility, hatching, and inherited results separately.",
+    "summaryZh": "将取得蛋、亲代组合、孵化同遗传结果分开记，唔好混埋啲旧数字。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Community references; numeric rules require in-game verification",
+    "sections": [
+      {
+        "heading": "Make a four-part record",
+        "headingZh": "用四格备忘",
+        "text": "Record where the egg came from, which compatibility rule the current client shows, any incubation action or timer, and the result after hatching. Keep observed outcomes distinct from a guaranteed rule. A small personal log is more useful than a copied percentage with no version.",
+        "textZh": "分四项记：蛋点样取得、游戏显示边条亲代规则、孵化操作或计时、孵出结果。亲身观察要同保证规则分开；自己嘅小记录，比冇版本日期嘅百分比更实用。",
+        "sources": [
+          "breeding",
+          "egg-index"
+        ]
+      },
+      {
+        "heading": "Treat numbers as dated",
+        "headingZh": "所有数字都要有日期",
+        "text": "The community egg guide is from April 2026 and the community index reports its own coverage. Recheck compatibility, inheritance, timing, and any item interaction in the current client before committing scarce resources.",
+        "textZh": "社区繁育攻略来自 2026 年 4 月，蛋索引显示嘅覆盖数量亦只代表佢自己。花稀有资源前，要喺当前游戏版本重新确认亲代兼容、遗传、孵化时间同道具效果。",
+        "sources": [
+          "breeding",
+          "egg-index"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "world-map",
+    "category": "Exploration",
+    "title": "World atlas: what this map can and cannot prove",
+    "titleZh": "世界索引：地图可以同唔可以证明乜",
+    "summary": "Browse 43 named S3 community-index markers and open the external interactive map for coordinates.",
+    "summaryZh": "浏览 43 个 S3 社区索引名称；要睇坐标请开外部互动地图。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Exact labels observed; current routes and completeness unverified",
+    "sections": [
+      {
+        "heading": "A named index, not a surveyed map",
+        "headingZh": "呢度系名称索引，唔系测绘地图",
+        "text": "The local atlas lists 40 Magic Source marker labels and three Eternal Night labels transcribed from an S3 community index. It contains no coordinates or region polygons and does not claim that every marker is available in Season 4. Original Chinese labels are kept because a verified official English equivalent was not found.",
+        "textZh": "本索引收录 S3 社区资料入面 40 个魔力之源标记名称同 3 个永夜标记名称。冇坐标、区域边界，亦唔会话每个标记喺第四赛季都用到。未找到经核实嘅官方英文名，所以保留原有中文标签。",
+        "sources": [
+          "map-index"
+        ]
+      },
+      {
+        "heading": "Use the live viewer for location geometry",
+        "headingZh": "要睇位置同楼层请开互动地图",
+        "text": "The community viewer reports thousands of markers and multiple layers. It is linked as an external reference; its map tiles, coordinates, and marker records are not copied into this atlas. Check the current game client before relying on an unlock or travel route.",
+        "textZh": "社区互动地图自述收录大量标记同多个楼层。本指南只提供外连，冇复制地图图片、坐标或标记记录。真要开传送点或按路线走之前，请先睇当前游戏内资料。",
+        "sources": [
+          "map-viewer",
+          "map-index"
+        ]
+      },
+      {
+        "heading": "Season 4 destination",
+        "headingZh": "第四赛季新去处",
+        "text": "The official Season 4 opening notice confirms the Moon surface as a season destination. It does not provide a full subarea coordinate map or a complete unlock table. Follow the current season assignment and map labels in-game for exact access steps.",
+        "textZh": "官方第四赛季开启公告确认月面系赛季目的地，但冇提供完整分区坐标图或解锁表。准确进入方法要跟当前赛季任务同游戏内地图标签。",
+        "sources": [
+          "s4-opening",
+          "s4-notes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "manual-progression",
+    "category": "Progression",
+    "title": "Magic Manual and unlock checklist",
+    "titleZh": "魔法手册同解锁清单",
+    "summary": "Use the manual as the current checklist and re-read live prompts when a system is locked.",
+    "summaryZh": "用魔法手册做当前清单；系统仍锁住时，以即时提示为准。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official launch information; individual unlocks vary by current client",
+    "sections": [
+      {
+        "heading": "A practical loop",
+        "headingZh": "实用循环",
+        "text": "Open the Magic Manual, choose one incomplete task, check its exact reward and requirement, then continue the story or activity that advances it. Revisit the manual after major story milestones because feature access may change as you progress.",
+        "textZh": "打开魔法手册，拣一项未完成任务，睇清奖励同要求，再做能推进它嘅剧情或活动。过咗重要剧情节点之后返去再睇，系统开放情况会随进度改变。",
+        "sources": [
+          "official-taptap",
+          "unlock-video"
+        ]
+      },
+      {
+        "heading": "Avoid old hard gates",
+        "headingZh": "唔好盲跟旧卡等",
+        "text": "The official launch summary says the revised manual reduced many early hard-stop assignments and surfaced core systems earlier. A guide written before that revision may describe an obsolete level gate. The live prompt wins.",
+        "textZh": "官方开服资料讲到新版手册减少早期硬性卡关，并提早显示核心系统。改版前嘅攻略可能仲写住旧等级门槛；游戏即时提示先系准则。",
+        "sources": [
+          "official-taptap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "weekly-routine",
+    "category": "Planning",
+    "title": "A safe daily and weekly routine",
+    "titleZh": "稳阵每日同每周安排",
+    "summary": "Use a short priority loop, then verify resets and limited rewards in the current client.",
+    "summaryZh": "先做重要期限内容，再核对当期重置同限时奖励。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Routine is editorial advice; current checklist image text was not verified",
+    "sections": [
+      {
+        "heading": "Priority order",
+        "headingZh": "建议次序",
+        "text": "First check a limited event and its eligibility; next take rewards that expire or have a published cap; then complete progression tasks that also build a creature or account system. Leave optional farming for the end. This order limits wasted effort when a deadline is close.",
+        "textZh": "先睇限时活动同参加条件；再领会过期或有公开上限嘅奖励；之后做可以同时养伙伴或推进系统嘅任务。可选刷资源留到最后，期限将到时先唔会做错重点。",
+        "sources": [
+          "s4-schedule",
+          "flower-seed"
+        ]
+      },
+      {
+        "heading": "Verify reset time",
+        "headingZh": "重置时间要自己核实",
+        "text": "Do not assume a daily reset timezone. The official weekly checklist was presented as an infographic that could not be reliably read from extracted page text during this review. Check the in-game timer and official notice before planning a deadline.",
+        "textZh": "唔好估每日几时重置。今次查阅时，官方周任务清单系图片，文字提取未能可靠确认内容。安排期限前请睇游戏倒数同官方公告。",
+        "sources": [
+          "official-taptap",
+          "s4-sept24"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "season-four",
+    "category": "Season 4",
+    "title": "Season 4: Moonlit Reverie field notes",
+    "titleZh": "第四赛季：月涌狂想实用笔记",
+    "summary": "A dated S4 overview, with the Moon surface, season systems, and freshness limits separated.",
+    "summaryZh": "有日期嘅第四赛季总览，将月面、赛季系统同资料时效分开。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official season notice and version notes",
+    "sections": [
+      {
+        "heading": "Season window and destination",
+        "headingZh": "赛季期限同目的地",
+        "text": "The official schedule lists Season 4 from 2026-09-10 04:00 through 2026-11-05 04:00. The notice's time context should be checked in the game client before setting a personal deadline. The opening post confirms the Moon surface as a seasonal destination.",
+        "textZh": "官方赛程列出第四赛季由 2026-09-10 04:00 至 2026-11-05 04:00。设个人期限前，时区要再喺游戏内确认。开启公告亦确认月面系赛季目的地。",
+        "sources": [
+          "s4-schedule",
+          "s4-opening"
+        ]
+      },
+      {
+        "heading": "What the notes establish",
+        "headingZh": "公告确认到嘅内容",
+        "text": "Official notes name the Visitor from Beyond assignment, 银月狼王, Starfall Light, eight new creature families, and 16 season-variant families. These are broad feature claims; use the current client for exact objectives, encounter triggers, rewards, and eligible forms.",
+        "textZh": "官方资料点名异界来客任务、银月狼王、流星之光、8 个新精灵家族同 16 个赛季变体家族。呢啲系大方向；具体目标、触发条件、奖励同可遇形态要以当前游戏内资料为准。",
+        "sources": [
+          "s4-notes",
+          "s4-opening"
+        ]
+      },
+      {
+        "heading": "Keep a dated plan",
+        "headingZh": "活动计划记埋日期",
+        "text": "Write down the notice date and your check date beside each reward. A season post is not a promise that every linked event remains available for the full season. Recheck notices when an activity is near its end.",
+        "textZh": "每个奖励旁边记低公告日期同自己核对日期。赛季公告唔代表相关活动由头到尾一直开放；活动临近结束时再核对一次。",
+        "sources": [
+          "s4-schedule",
+          "official-taptap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "current-events",
+    "category": "Events",
+    "title": "Event desk: September 2026 notices",
+    "titleZh": "活动台：2026 年 9 月公告",
+    "summary": "The September 25 Cocoa Harvest Festival starts after this edition's review date; verify live terms before planning.",
+    "summaryZh": "可可丰收节于本版核对日期翌日开始；计划前再睇最新条件。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official forum notices; detailed attached images were not fully text-readable",
+    "sections": [
+      {
+        "heading": "Cocoa Harvest Festival",
+        "headingZh": "可可丰收节",
+        "text": "The official forum index announces a September 25 start and advertises up to 480 free Cocoa Fruit Balls across the event. The extracted notice did not establish the end date or every reward condition. Check the event panel before using this estimate to plan a route or resource budget.",
+        "textZh": "官方论坛索引公布可可丰收节于 9 月 25 日开始，整场活动最多派 480 个可可果球。文字提取未确认结束日期同全部奖励条件；计划路线或资源前先睇活动面板。",
+        "sources": [
+          "cocoa"
+        ]
+      },
+      {
+        "heading": "Destined Flower Seed",
+        "headingZh": "命定花种",
+        "text": "The official September notice says this activity requires Magic Level 40 and Spirit Scholar rank, with a stated window from September 10 to September 25 at 04:00. Check the notice and in-game timer because the window is close to ending at this edition date.",
+        "textZh": "官方 9 月公告写明活动要求魔法等级 40 同精灵学者段位，期限列为 9 月 10 日至 9 月 25 日 04:00。本版日期接近结束，请再核对公告同游戏倒数。",
+        "sources": [
+          "flower-seed"
+        ]
+      },
+      {
+        "heading": "Latest patch pointer",
+        "headingZh": "最新版本提示",
+        "text": "An official September 24 update post exists, but its detailed image was not available as readable text in this review. This page therefore does not claim a full patch-note summary. Open the notice before relying on a balance or event change.",
+        "textZh": "官方 9 月 24 日有更新公告，但本次查阅未能读出附图细节，所以呢页唔会假装已经完整总结更新。判断平衡或活动变动之前请直接打开公告。",
+        "sources": [
+          "s4-sept24"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "academies",
+    "category": "Social",
+    "title": "Academies: choose for the activities you enjoy",
+    "titleZh": "分学院：按你常玩嘅内容拣",
+    "summary": "Four S4 academies are listed. Verify reward timing and transfer conditions in-client.",
+    "summaryZh": "第四赛季资料列出四个学院；奖励同转院条件请喺游戏内核实。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official feature names with community guide details",
+    "sections": [
+      {
+        "heading": "Four listed academies",
+        "headingZh": "四个学院",
+        "text": "Season 4 materials list Spirit, Battle, Alchemy, and Ritual academies. Choose based on the activities you expect to do, then read the current enrollment page for term tasks and rewards.",
+        "textZh": "第四赛季资料列出精灵、战斗、炼金、仪式四个学院。按平时真会做嘅活动拣，再睇当前报名页面嘅学期任务同奖励。",
+        "sources": [
+          "s4-notes",
+          "academy"
+        ]
+      },
+      {
+        "heading": "Transfer and term rules",
+        "headingZh": "转院同学期规则",
+        "text": "The community enrollment guide describes a transfer cooldown and final-academy reward conditions. Those details may change, so verify the exact cooldown and reward attribution in the current client before switching.",
+        "textZh": "社区报名指南提到转院冷却同按期末学院结算奖励。细节可能会改；转之前先喺游戏确认冷却时间同奖励归属。",
+        "sources": [
+          "academy"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "currencies",
+    "category": "Economy",
+    "title": "Currencies and shops: check source, expiry, and conversion",
+    "titleZh": "货币同商店：先查来源、期限、兑换",
+    "summary": "Use the current item panel and dated notices; shop stock and conversion advice can expire.",
+    "summaryZh": "用当前道具页同有日期嘅公告；商店库存同兑换建议会过期。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official feature notices plus dated community snapshots",
+    "sections": [
+      {
+        "heading": "A four-field ledger",
+        "headingZh": "四项资源记录",
+        "text": "For each resource, note how it is earned, what it buys, whether it expires or has a cap, and what happens at season rollover. Do not assume a currency keeps the same conversion between seasons.",
+        "textZh": "每种资源记四样：点样取得、用来买乜、有冇期限或上限、赛季结束会点。唔好估每季兑换方式都一样。",
+        "sources": [
+          "resource-changes",
+          "s4-notes"
+        ]
+      },
+      {
+        "heading": "Treat stock as a snapshot",
+        "headingZh": "库存只系某日快照",
+        "text": "Merchant stock and prices are time-sensitive. Community archive entries can help locate a past listing, but they do not establish current inventory. Check the shop before spending and keep the observation date beside any price.",
+        "textZh": "商人货品同价格会变。社区档案可以帮你搵旧记录，但证明唔到今日仲有货。消费前睇商店，并为每个价格注明观察日期。",
+        "sources": [
+          "official-taptap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bosses",
+    "category": "Challenges",
+    "title": "Boss and trial preparation",
+    "titleZh": "首领同试炼准备",
+    "summary": "Read entry conditions, team limits, and reward deadlines before building a counter team.",
+    "summaryZh": "砌反制队之前，先睇准入条件、队伍限制同奖励期限。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Official notices for dated events; strategy changes by encounter",
+    "sections": [
+      {
+        "heading": "Before entering",
+        "headingZh": "入场前",
+        "text": "Capture the event name, entry requirement, permitted team, reward list, and end time from the current notice. Save a screenshot for your own reminder if useful, but never treat an old build guide as proof that the current encounter has the same rules.",
+        "textZh": "由当期公告抄低活动名、参加要求、队伍限制、奖励同结束时间。需要的话自己留张提示图；但旧配队攻略证明唔到今次规则相同。",
+        "sources": [
+          "flower-seed",
+          "s4-notes"
+        ]
+      },
+      {
+        "heading": "Adjust after a real attempt",
+        "headingZh": "实际打过先调整",
+        "text": "When a team fails, note what happened: survival, matchup, timing, or an unmet objective. Change one role at a time so the next attempt teaches you something. Community one-shot claims need a version and encounter context.",
+        "textZh": "队伍输咗就记低原因：生存、属性、时机，定目标未完成。每次先改一个职责，下次尝试先有得比较。玩家一击攻略要有版本同关卡背景。",
+        "sources": [
+          "battle-video"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "smart-tips",
+    "category": "Tips",
+    "title": "Ten low-regret tips",
+    "titleZh": "十个唔易后悔嘅小贴士",
+    "summary": "A compact set of habits that survive more patches than a fixed tier list.",
+    "summaryZh": "呢啲习惯通常比死记榜单更耐改版。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Editorial strategy derived from dated official and community references",
+    "sections": [
+      {
+        "heading": "Before you play",
+        "headingZh": "开玩之前",
+        "text": "1. Check the active event and entry rules. 2. Follow the Magic Manual rather than an old level-gate list. 3. Check whether a creature page describes a form or a family. 4. Save the source and review date beside a fact you plan to rely on. 5. Confirm the current reset timer instead of assuming its timezone.",
+        "textZh": "1. 先睇活动同资格。2. 跟魔法手册，唔好盲追旧等级清单。3. 分清精灵形态同家族。4. 重要资料旁边记低出处同日期。5. 睇当前倒数，唔好估重置时区。",
+        "sources": [
+          "official-taptap",
+          "creature-list",
+          "s4-schedule"
+        ]
+      },
+      {
+        "heading": "While you play",
+        "headingZh": "游玩之中",
+        "text": "6. Build a flexible story team before chasing specialized PvP builds. 7. Unlock convenient travel options when the game offers them. 8. Treat capture and breeding odds as unknown until the current client confirms them. 9. Keep premium items for a goal you can name. 10. Recheck a guide after a patch rather than defending an old screenshot.",
+        "textZh": "6. 先砌灵活剧情队，再追求玩家对战专队。7. 游戏开放方便移动方式时顺手解锁。8. 当前客户端未确认前，捕捉同繁育机率当未知。9. 稀有道具留俾讲得出目标嘅场合。10. 更新后重睇攻略，旧图唔系护身符。",
+        "sources": [
+          "starter",
+          "battle-video",
+          "s4-notes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sources-method",
+    "category": "Reference",
+    "title": "How this guide handles sources and uncertainty",
+    "titleZh": "资料来源同不确定性点样处理",
+    "summary": "Official notices support dated claims; community indexes support lookup coverage, with attribution.",
+    "summaryZh": "官方公告支持有日期嘅事实；社区索引用来查找，并保留授权说明。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Editorial policy",
+    "sections": [
+      {
+        "heading": "Source priority",
+        "headingZh": "来源次序",
+        "text": "Use the current game client and official notices for live requirements and event facts. Use community references for names, lookup coverage, and historical snapshots. Each Dex row links to its source page where available; missing habitat, capture, skill, or evolution facts remain explicitly undocumented here.",
+        "textZh": "即时要求同活动事实以当前游戏同官方公告为先；社区资料用来查名称、索引覆盖同旧快照。图鉴每条记录尽量连返来源页；未收录嘅栖息地、捕捉、技能或进化资料会清楚标示未有记录。",
+        "sources": [
+          "official-taptap",
+          "creature-list",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Attribution and reuse",
+        "headingZh": "鸣谢同再使用",
+        "text": "The creature list and S3 map index identify CC BY-NC-SA 4.0 licensing. This site includes the list's text fields and named marker labels only, with source links and attribution. It does not copy artwork, map tiles, coordinates, or third-party map markers. Derived community data must retain attribution, noncommercial use, and share-alike terms.",
+        "textZh": "精灵列表同 S3 地图索引列明 CC BY-NC-SA 4.0。本页只收录列表文字栏位同命名标记，并附来源；冇复制插画、地图图块、坐标或第三方地图标记。再用衍生社区资料时要保留署名、非商业同相同方式分享条款。",
+        "sources": [
+          "creature-list",
+          "map-index",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Edition date",
+        "headingZh": "本版日期",
+        "text": "This edition was checked on 2026-09-24. The BWiki creature list displayed a September 13, 2026 update date in the saved source reviewed for this edition. The S3 map page displayed August 26, 2026, with a mirror manifest generated August 28, 2026. These dates do not prove that each individual fact was updated then.",
+        "textZh": "本版于 2026-09-24 核对。今次保存嘅精灵列表显示 2026-09-13 更新；S3 地图页显示 2026-08-26，镜像清单生成于 2026-08-28。呢啲日期唔代表每项资料都喺当日更新。",
+        "sources": [
+          "creature-list",
+          "map-index"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dex-records",
+    "category": "Reference",
+    "title": "How to read a Dex record",
+    "titleZh": "点样睇一条精灵图鉴记录",
+    "summary": "Separate a form row from a catalog family, then follow each field back to its dated source.",
+    "summaryZh": "先分清形态记录同目录编号，再逐栏追返注明日期嘅来源。",
+    "updatedOn": "2026-09-24",
+    "confidence": "BWiki text list plus pinned community data snapshot",
+    "sections": [
+      {
+        "heading": "A row is a form record",
+        "headingZh": "每一行代表一个形态记录",
+        "text": "This edition joins 625 saved list rows to 466 catalog numbers. Alternate forms can share a catalog number, so row totals and catalog totals answer different questions. Use the catalog number to group related forms, and the record ID to identify one exact row. Neither total is described as the game's official complete roster.",
+        "textZh": "本版将625条已保存列表记录连接到466个目录编号。同一精灵家族的不同形态可能共用编号，所以记录行数同目录编号数回答的并非同一问题。用目录编号查看同一家族，用记录编号定位单一形态。本指南没有将任何一个总数称为游戏官方完整精灵数量。",
+        "sources": [
+          "creature-list",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "What the record contains",
+        "headingZh": "一条记录包含乜",
+        "text": "The imported list carries names, form labels, types, base stats where listed, traits, evolution labels, egg groups, size, rideability, and descriptions. Joined reference data adds handbook tasks, habitat labels, skill references, evolution conditions, affinity notes, ecology fields, and listed type matchups when an exact key can be matched. Open the source links in the record to inspect the underlying page.",
+        "textZh": "原始列表记录名称、形态标签、属性、已列出的基础数值、特性、进化标签、蛋组、体型、骑乘资料同描述。关联资料会在准确配对的情况下补上图鉴任务、栖息地标签、技能、进化条件、喜好、生态字段和属性克制。打开记录内的来源链接，可以直接检查原始页面。",
+        "sources": [
+          "creature-list",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "An empty field is not a game rule",
+        "headingZh": "空白栏位唔等于游戏规则",
+        "text": "“Not documented” means the indexed sources used for this edition did not provide a value. It does not prove that a creature has no habitat, capture method, skill, evolution path, or special property. Use the linked source and the current client before spending limited resources or planning a hunt.",
+        "textZh": "“未有记录”只表示本版采用的索引来源没有提供数值，并不证明精灵没有栖息地、捕捉方式、技能、进化路线或特殊属性。花费珍贵资源或计划捕捉前，请查看来源页面和当前游戏客户端。",
+        "sources": [
+          "sources-method",
+          "official-taptap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "skills-evolution",
+    "category": "Reference",
+    "title": "Skills, learnsets, and evolution conditions",
+    "titleZh": "技能、学习表同进化条件",
+    "summary": "Find the full linked skill text and distinguish a recorded path from a guaranteed live-game rule.",
+    "summaryZh": "查看已关联嘅完整技能资料，并分清索引路线同当前游戏保证嘅规则。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Pinned community snapshot; exact identifier joins",
+    "sections": [
+      {
+        "heading": "Skills are linked by source identifiers",
+        "headingZh": "技能按来源编号关联",
+        "text": "Creature details include feature skills, native learnsets, bloodline skills, skill stones, and their available descriptions. A skill can be shared by many creatures, while a form can have several learnset records. The interface lists the level or stage included by the snapshot where supplied. Missing timing, damage formulas, or current balance details remain unfilled.",
+        "textZh": "精灵详情会列出特色技能、原生技能学习表、血脉技能、技能石，以及资料快照内已有的技能说明。一项技能可能属于多只精灵，同一形态也可能有多条学习表记录。来源有提供时，页面会标出等级或阶段。未记录的时机、伤害公式或当前平衡资料不会靠估计补上。",
+        "sources": [
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Read every evolution step",
+        "headingZh": "逐步阅读进化条件",
+        "text": "Open the evolution disclosure to see the listed chain, stage title, type, level, and condition text. Some source groups also include leader branches and named items. A transcribed condition is evidence of what this snapshot records, not a guarantee that a later patch kept the same requirement. Follow the current in-game prompt before consuming an item.",
+        "textZh": "展开进化资料，可查看已列出的路线、阶段名称、属性、等级和条件文字。部分来源分组也会列出首领分支和道具名称。转录条件说明的是这个资料快照记录了什么，不保证后续更新仍使用相同要求。消耗道具前请先看当前游戏提示。",
+        "sources": [
+          "community-data",
+          "official-taptap"
+        ]
+      },
+      {
+        "heading": "Use the source date",
+        "headingZh": "留意资料日期",
+        "text": "The detailed community snapshot is pinned to commit 71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2 and labeled s4-2026-09-24. Its maintainer warns that its records may lag the client. The Dex keeps links to that exact revision so a reader can check what was available when this guide was assembled.",
+        "textZh": "详细社区快照固定在提交编号71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2，版本标记为s4-2026-09-24。维护者提醒，资料可能落后于游戏客户端。图鉴保留该版本的准确链接，方便读者核对本指南制作时采用的内容。",
+        "sources": [
+          "community-data"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "type-matchups",
+    "category": "Combat",
+    "title": "Using the type matchup table",
+    "titleZh": "点样用属性克制表",
+    "summary": "Search 120 indexed combinations, then confirm the current encounter's special rules.",
+    "summaryZh": "搜索120种已索引组合，再确认当前关卡有没有特殊规则。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Pinned community type-chart snapshot",
+    "sections": [
+      {
+        "heading": "Search a single or combined type",
+        "headingZh": "搜索单一或复合属性",
+        "text": "The table contains 120 type combinations from the pinned reference snapshot. Search either type name or a combined key to compare the listed weaknesses and resistances. The same matchup table is included in a creature record when the form's type key matches exactly.",
+        "textZh": "克制表收录固定资料快照中的120种属性组合。输入单一属性或复合属性名称，即可查看已列出的弱点和抵抗。精灵形态的属性编号准确配对时，相同资料也会显示在精灵详情内。",
+        "sources": [
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Multipliers are only one part of a battle",
+        "headingZh": "倍率只系对战其中一部分",
+        "text": "This is a lookup table, not a battle simulator. It does not calculate move strength, energy, action priority, weather, team effects, status, turn order, or encounter-specific exceptions. Read the current battle tutorial and combat notice when a result differs from the table.",
+        "textZh": "本页只是一张查询表，并非战斗模拟器。它不会计算技能威力、能量、行动优先级、天气、队伍效果、状态、出手顺序或关卡专属例外。实际结果与表格不同时，请查看当前战斗教学和关卡公告。",
+        "sources": [
+          "community-data",
+          "battle-video",
+          "s4-notes"
+        ]
+      },
+      {
+        "heading": "Treat missing entries carefully",
+        "headingZh": "谨慎处理未列出的组合",
+        "text": "A missing row means this snapshot did not provide a matching key. It is not a claim that the combination is immune, neutral, or impossible. The source revision and date appear below the table; check the game client before making a high-cost team change.",
+        "textZh": "没有对应记录只表示此快照没有提供可配对编号，并不代表该组合免疫、无效或不存在。表格下方列出来源版本和日期。大幅调整队伍前，先在游戏客户端确认。",
+        "sources": [
+          "sources-method",
+          "official-taptap"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "habitats-map",
+    "category": "Exploration",
+    "title": "How to use the habitat and location index",
+    "titleZh": "点样用栖息地同地点索引",
+    "summary": "Use source labels to narrow a search, then confirm access and encounter timing in the current season.",
+    "summaryZh": "用来源标签缩窄搜索范围，再到当前赛季确认通行方式同出现时间。",
+    "updatedOn": "2026-09-24",
+    "confidence": "S3 map index labels plus dated handbook snapshot",
+    "sections": [
+      {
+        "heading": "Three kinds of information",
+        "headingZh": "三类地点资料",
+        "text": "The local atlas separates 43 named S3 map markers, 57 handbook habitat labels, and three handbook index areas. A label opens the Dex forms linked to that exact source entry. Handbook sections are catalog categories, not verified regional borders.",
+        "textZh": "本地地图索引分开显示43个S3地图名称、57个图鉴栖息地标签和三个图鉴索引区域。每项标签会打开准确关联到该来源记录的精灵形态。图鉴章节是目录分类，不是已核实的地理边界。",
+        "sources": [
+          "map-index",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Why this page does not draw routes",
+        "headingZh": "点解本页唔会画路线",
+        "text": "The S3 source provides names without coordinates. The indexed handbook supplies habitat phrases, not verified points, travel links, or S4 unlock coverage. The external coordinate viewer reports its own marker counts, but its marker set and artwork are not redistributed here because a reuse license was not identified.",
+        "textZh": "S3来源提供名称，但没有坐标。关联图鉴提供栖息地文字，没有已核实点位、移动连接路线或完整S4解锁范围。外部坐标地图会显示自己的标记数量；由于未找到再用授权，本指南不会重新发布它的标记资料或美术。",
+        "sources": [
+          "map-index",
+          "map-viewer",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Verify a hunt in-game",
+        "headingZh": "捕捉前喺游戏内确认",
+        "text": "Use a habitat label to find candidates, then check the current season assignment, event notice, and map prompt for access and appearance. The label alone does not verify time of day, weather, spawn rate, capture chance, or whether a form remains available after an update.",
+        "textZh": "先按栖息地标签寻找目标，再查看当前赛季任务、活动公告和地图提示，确认通行方式和精灵出现状态。标签本身不会证明时段、天气、出现率、捕捉率，或更新后该形态是否仍可取得。",
+        "sources": [
+          "official-taptap",
+          "s4-notes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "training-snapshot",
+    "category": "Training",
+    "title": "What the historical training sample can tell you",
+    "titleZh": "历史训练样本可以说明乜",
+    "summary": "Open the S3 sample on demand, and read it as dated community submissions rather than a current tier list.",
+    "summaryZh": "按需展开S3样本，并将它当作有日期嘅社区投稿，而唔系当前强度榜。",
+    "updatedOn": "2026-09-24",
+    "confidence": "Historical community submission sample, Season 3",
+    "sections": [
+      {
+        "heading": "Why it loads only when opened",
+        "headingZh": "点解要展开先载入",
+        "text": "The 1 MB training reference is separate from the main creature data and loads only after a reader opens the disclosure in a creature record. This keeps the everyday index lighter and makes the historical scope visible before any sample is loaded.",
+        "textZh": "约1MB的训练资料与主要精灵数据分开保存，读者展开精灵详情内的资料栏后才会载入。这样日常索引会轻一些，而且读者能在载入前看到它的历史范围。",
+        "sources": [
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Counts are submissions",
+        "headingZh": "计数代表投稿",
+        "text": "The sample is from S3 season 铅字幻梦. Counts represent records in that historical community dataset. They are not official win rates, popularity ratings, current recommendations, or evidence that one skill will perform the same way after balance changes.",
+        "textZh": "样本来自S3「铅字幻梦」赛季。计数反映该历史社区数据集中的记录，并非官方胜率、热门排名、当前建议，也不证明平衡调整后某项技能表现相同。",
+        "sources": [
+          "community-data",
+          "battle-video"
+        ]
+      },
+      {
+        "heading": "Use it as a question generator",
+        "headingZh": "用来提出问题，而唔系抄答案",
+        "text": "A sample can suggest which moves or equipment records are worth investigating. Compare the listed choice with the creature's current skill text, your encounter objective, and any recent official changes. If those disagree, use the current client and dated official notice.",
+        "textZh": "历史样本可以提示哪些技能或装备值得进一步查阅。把样本选择与精灵当前技能说明、关卡目标和近期官方改动比较；有冲突时以当前客户端和有日期的官方公告为准。",
+        "sources": [
+          "official-taptap",
+          "s4-notes",
+          "battle-video"
+        ]
+      }
+    ]
+  }
+]

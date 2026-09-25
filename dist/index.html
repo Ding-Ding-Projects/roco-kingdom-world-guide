@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#111a2c">
+  <meta name="description" content="An independently researched Roco Kingdom: World field guide with a sourced creature Dex, location index, season notes, and practical articles.">
+  <title>Roco Kingdom: World Field Guide</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="site-frame">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Roco Kingdom field guide home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 2 37 12v16L20 38 3 28V12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 8 10 6v12l-10 6-10-6V14z" fill="currentColor" opacity=".18"/><path d="M14 25V15h6a4 4 0 0 1 1 7l4 3m-11-5h7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
+        <span class="brand-copy"><strong>FIELD NOTES</strong><small>ROCO KINGDOM · WORLD</small></span>
+      </a>
+      <div class="topbar-right">
+        <span class="edition-pill"><i></i> COMMUNITY EDITION · 24 SEP 2026</span>
+        <label class="icon-button header-file-pick" title="Choose a local vocabulary JSON file" aria-label="Choose a local vocabulary JSON file">Aa<span class="sr-only">Choose local vocabulary JSON</span><input id="topbar-vocabulary-file" type="file" accept="application/json,.json" aria-label="Choose local vocabulary JSON"></label>
+        <button class="icon-button" id="fieldkit-toggle" type="button" aria-label="Open saved notes" title="Saved notes">◇</button>
+        <button class="icon-button" id="notifications-toggle" type="button" aria-label="Open notifications" title="Notifications">♧<span id="notification-count" class="notification-count" hidden>0</span></button>
+        <button class="icon-button" id="palette-open" type="button" aria-label="Open command palette" title="Command palette · Ctrl+Shift+F">⌕</button>
+      </div>
+    </header>
+
+    <section class="search-deck" aria-label="Search the field guide">
+      <div class="search-intro">
+        <div class="eyebrow"><span class="eyebrow-line"></span> ATLAS / INDEX / FIELD MANUAL</div>
+        <h1>Know the world.<br><em>Find your next move.</em></h1>
+        <p>A detailed, source-linked companion for <span lang="zh-Hans">洛克王国：世界</span>. Search creatures, forms, locations, and practical guides in one place.</p>
+      </div>
+      <form class="global-search" id="global-search-form" role="search">
+        <label class="sr-only" for="global-search">Search creatures, locations, and articles</label>
+        <span class="search-symbol" aria-hidden="true">⌕</span>
+        <input id="global-search" name="q" type="search" placeholder="Try a name, catalog number, type, or topic…" autocomplete="off">
+        <button class="search-go" type="submit">Search <span aria-hidden="true">↗</span></button>
+        <button class="search-tool" id="regex-open" type="button" aria-label="Open regular expression builder" title="Pattern builder">.*</button>
+      </form>
+      <div class="search-foot"><span><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd> search all</span><span>English · 廣東話 · bilingual</span><span class="local-tag"><i></i> Runs in your browser</span></div>
+      <div id="search-results" class="search-results" hidden aria-live="polite"></div>
+    </section>
+
+    <div class="app-layout">
+      <aside class="rail" aria-label="Guide navigation">
+        <div class="rail-heading">EXPLORE <span>✳</span></div>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary"></nav>
+        <div class="rail-divider"></div>
+        <div class="rail-heading">YOUR FIELD KIT</div>
+        <button class="rail-action" id="open-bookmarks" type="button"><span>◇</span><span>Saved notes</span><b id="bookmark-count">0</b></button>
+        <button class="rail-action" id="open-history" type="button"><span>↺</span><span>Recent places</span><b>›</b></button>
+        <div class="rail-card">
+          <span class="rail-card-kicker">CURRENT SEASON</span>
+          <strong>Moonlit<br>Reverie</strong>
+          <span class="rail-card-date">10 SEP — 05 NOV 2026*</span>
+          <small>*Check the in-game timer for timezone.</small>
+          <button type="button" class="text-button" data-go="article:season-four">Open season notes <span>↗</span></button>
+        </div>
+        <div class="rail-footer"><span class="privacy-dot"></span> Your settings stay on this device.<br><a href="#sources" data-go="sources">How sources are checked</a></div>
+      </aside>
+
+      <main id="main" tabindex="-1">
+        <div class="mobile-context"><span>FIELD GUIDE</span><span id="mobile-edition">ROCO KINGDOM · WORLD</span></div>
+        <div id="app-view" aria-busy="true">
+          <div class="loading-state"><span class="loading-orbit" aria-hidden="true"></span><p>Opening the field notebook…</p></div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <span>Independent fan-made reference · Not affiliated with Tencent or 4399</span>
+      <span>Sources checked 24 Sep 2026 · <a href="#sources" data-go="sources">Editorial notes</a></span>
+    </footer>
+  </div>
+
+  <dialog id="detail-dialog" class="modal detail-modal" aria-labelledby="detail-title"><div class="modal-top"><span class="eyebrow">FIELD RECORD</span><button class="icon-button" data-close-dialog aria-label="Close details">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="settings-dialog" class="modal" aria-labelledby="settings-title"><div class="modal-top"><div><span class="eyebrow">PERSONALIZE THIS NOTEBOOK</span><h2 id="settings-title">Settings</h2></div><button class="icon-button" data-close-dialog aria-label="Close settings">×</button></div><div id="settings-content"></div></dialog>
+  <dialog id="regex-dialog" class="modal small-modal" aria-labelledby="regex-title"><div class="modal-top"><div><span class="eyebrow">SEARCH TOOL</span><h2 id="regex-title">Pattern builder</h2></div><button class="icon-button" data-close-dialog aria-label="Close pattern builder">×</button></div><div id="regex-content"></div></dialog>
+  <dialog id="palette-dialog" class="modal palette-modal" aria-labelledby="palette-title"><div class="modal-top"><div><span class="eyebrow">QUICK JUMP</span><h2 id="palette-title">Find a page</h2></div><button class="icon-button" data-close-dialog aria-label="Close quick jump">×</button></div><label class="sr-only" for="palette-search">Search tabs, articles, and saved notes</label><input class="field-control" id="palette-search" type="search" placeholder="Search four ways: pages, guides, saved, recent…"><div class="palette-modes"><button type="button" data-palette-mode="pages" aria-pressed="true">Pages</button><button type="button" data-palette-mode="guides" aria-pressed="false">Guides</button><button type="button" data-palette-mode="saved" aria-pressed="false">Saved</button><button type="button" data-palette-mode="recent" aria-pressed="false">Recent</button><button type="button" data-open-regex="palette" aria-label="Pattern search">.*</button></div><div id="palette-results" class="palette-results"></div></dialog>
+  <dialog id="confirm-dialog" class="modal small-modal" aria-labelledby="confirm-title"><div class="modal-top"><div><span class="eyebrow">LOCAL SETTINGS ONLY</span><h2 id="confirm-title">Confirm reset</h2></div><button class="icon-button" data-close-dialog aria-label="Close confirmation">×</button></div><div id="confirm-content"></div></dialog>
+  <dialog id="notifications-dialog" class="modal small-modal" aria-labelledby="notifications-title"><div class="modal-top"><div><span class="eyebrow">LOCAL NOTICE CENTER</span><h2 id="notifications-title">Notifications</h2></div><button class="icon-button" data-close-dialog aria-label="Close notifications">×</button></div><div id="notifications-content"></div></dialog>
+  <dialog id="quick-list-dialog" class="modal small-modal" aria-labelledby="quick-list-title"><div class="modal-top"><div><span class="eyebrow">YOUR FIELD KIT</span><h2 id="quick-list-title">Saved notes</h2></div><button class="icon-button" data-close-dialog aria-label="Close saved notes">×</button></div><div id="quick-list-content"></div></dialog>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
