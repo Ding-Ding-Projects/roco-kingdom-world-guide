@@ -171,9 +171,9 @@
     "category": "Exploration",
     "title": "World atlas: what this map can and cannot prove",
     "titleZh": "世界索引：地图可以同唔可以证明乜",
-    "summary": "Browse 43 named S3 community-index markers and open the external interactive map for coordinates.",
-    "summaryZh": "浏览 43 个 S3 社区索引名称；要睇坐标请开外部互动地图。",
-    "updatedOn": "2026-09-24",
+    "summary": "Compare 43 locally indexed S3 markers with the external viewer’s self-reported 7,148 points. They are separate snapshots, not a completeness test.",
+    "summaryZh": "对照本地 43 个 S3 名称同外部地图自报 7,148 个点位；两组数字系唔同资料快照，唔代表完整度比较。",
+    "updatedOn": "2026-09-25",
     "confidence": "Exact labels observed; current routes and completeness unverified",
     "sections": [
       {
@@ -188,8 +188,8 @@
       {
         "heading": "Use the live viewer for location geometry",
         "headingZh": "要睇位置同楼层请开互动地图",
-        "text": "The community viewer reports thousands of markers and multiple layers. It is linked as an external reference; its map tiles, coordinates, and marker records are not copied into this atlas. Check the current game client before relying on an unlock or travel route.",
-        "textZh": "社区互动地图自述收录大量标记同多个楼层。本指南只提供外连，冇复制地图图片、坐标或标记记录。真要开传送点或按路线走之前，请先睇当前游戏内资料。",
+        "text": "The linked Roco Kingdom World homepage reports 7,148 map points across seven categories (checked 2026-09-25). This is the viewer’s own count, not an audit. Its marker records, tiles, and artwork are not copied into this atlas. Use the viewer for coordinates and layers, then confirm seasonal access in the game. The external point count is not comparable to the 43 S3 names above.",
+        "textZh": "外部 Roco Kingdom World 首页自报有 7,148 个地图点位，分为七类（2026-09-25 查阅）。呢个系地图服务自己的数量，本指南冇审核或复制其标记、地图图块同美术。坐标同图层可喺外部地图查看；赛季通行条件仍要喺游戏内确认。外部点位数同上面 43 个 S3 名称唔可以直接比较。",
         "sources": [
           "map-viewer",
           "map-index"
@@ -317,34 +317,44 @@
     "category": "Events",
     "title": "Event desk: September 2026 notices",
     "titleZh": "活动台：2026 年 9 月公告",
-    "summary": "The September 25 Cocoa Harvest Festival starts after this edition's review date; verify live terms before planning.",
-    "summaryZh": "可可丰收节于本版核对日期翌日开始；计划前再睇最新条件。",
-    "updatedOn": "2026-09-24",
-    "confidence": "Official forum notices; detailed attached images were not fully text-readable",
+    "summary": "The Cocoa Harvest Festival is announced for September 25, the Flower Seed schedule has rotated, and the Pika photo notice lists a September 25 04:00 cutoff. Confirm current entry and expiry times in the game.",
+    "summaryZh": "可可丰收节公布于 9 月 25 日开始，命定花种已换期，皮卡摄影公告列出 9 月 25 日 04:00 截止时间。实际入场同期限请以游戏内资料为准。",
+    "updatedOn": "2026-09-25",
+    "confidence": "Official Cocoa and Pika announcements; community Flower Seed archive; live entry state is not independently confirmed",
     "sections": [
       {
         "heading": "Cocoa Harvest Festival",
         "headingZh": "可可丰收节",
-        "text": "The official forum index announces a September 25 start and advertises up to 480 free Cocoa Fruit Balls across the event. The extracted notice did not establish the end date or every reward condition. Check the event panel before using this estimate to plan a route or resource budget.",
-        "textZh": "官方论坛索引公布可可丰收节于 9 月 25 日开始，整场活动最多派 480 个可可果球。文字提取未确认结束日期同全部奖励条件；计划路线或资源前先睇活动面板。",
+        "text": "The official September 25 preview says each player can receive up to 480 free Cocoa Fruit Balls across the event. Using a ball to catch a creature during the event is stated to trigger the Starfall encounter, 星陨流光. The readable post does not give the event end date, delivery pace, or every reward condition. Treat 480 as a cumulative maximum, not an immediate inventory count. Check the in-game event, mail, and merchant pages for the actual claim route and expiry before planning catches.",
+        "textZh": "官方 9 月 25 日预告话，每位玩家整个活动期间最多可免费取得 480 个可可果球。活动期间用果球捕捉精灵，公告称必定触发「星陨流光」奇遇。可读取的公告文字没有写活动结束日期、果球派发节奏或全部奖励条件。480 是累计上限，唔系即刻放入背包的数量。安排捕捉前，先喺游戏内活动、邮件同商人页面核对领取方法同期限。",
         "sources": [
           "cocoa"
         ]
       },
       {
-        "heading": "Destined Flower Seed",
-        "headingZh": "命定花种",
-        "text": "The official September notice says this activity requires Magic Level 40 and Spirit Scholar rank, with a stated window from September 10 to September 25 at 04:00. Check the notice and in-game timer because the window is close to ending at this edition date.",
-        "textZh": "官方 9 月公告写明活动要求魔法等级 40 同精灵学者段位，期限列为 9 月 10 日至 9 月 25 日 04:00。本版日期接近结束，请再核对公告同游戏倒数。",
+        "heading": "Destined Flower Seed cycle",
+        "headingZh": "命定花种换期",
+        "text": "The BiliWiki community archive lists the next cycle from 2026-09-25 04:00 through 2026-10-09 03:59 China Standard Time (UTC+08:00), and its readable entry labels participation requirements as “未解锁” (not unlocked). Its linked infographic could not be transcribed in this review, so the next-cycle roster, access requirements, repeat limits, and rewards remain unverified. This is a community archive, not an official notice. Check the pinned challenge and its live rules before building a team. The prior September 10 official phase named 寂灭骨龙 (固执), 星星眼 (沉默), and 智辉章脑 (胆小); it required Magic Level 40 and Spirit Scholar rank and listed a matching creature plus first-clear rewards including 400 分光水晶 and 灵魂环印. That notice also describes a “命定勇者” medal for winning solo with one creature, one real player, no creature swap, and no exhaustion. These are prior-phase details only; the community archive does not confirm they carry into the September 25 cycle.",
+        "textZh": "BiliWiki 社区档案列出新一期为 2026-09-25 04:00 至 2026-10-09 03:59（北京时间，UTC+08:00），可读文字把参与条件标为「未解锁」。本次无法可靠转写其关联长图，所以本指南不确认新一期的精灵名单、开放条件、重复次数或奖励。呢份系社区档案，唔系官方公告；配队前先看置顶挑战同游戏内规则。\n9 月 10 日的官方公告只讲上一期：列出寂灭骨龙（固执）、星星眼（沉默）同智辉章脑（胆小），要求魔法等级 40 级同精灵学士段位；成功挑战可获得对应性格精灵及首通奖励，包括 400 分光水晶同灵魂环印等。公告亦讲明，用一只精灵、一位真人玩家、不换精灵、全程不力竭并取得胜利，可获「命定勇者」奖牌。以上只属上一期，社区档案未确认这些规则会否沿用到 9 月 25 日新一期。",
         "sources": [
+          "flower-seed-next-cycle",
           "flower-seed"
         ]
       },
       {
-        "heading": "Latest patch pointer",
-        "headingZh": "最新版本提示",
-        "text": "An official September 24 update post exists, but its detailed image was not available as readable text in this review. This page therefore does not claim a full patch-note summary. Open the notice before relying on a balance or event change.",
-        "textZh": "官方 9 月 24 日有更新公告，但本次查阅未能读出附图细节，所以呢页唔会假装已经完整总结更新。判断平衡或活动变动之前请直接打开公告。",
+        "heading": "Pika Photography Commission",
+        "headingZh": "皮卡摄影委托",
+        "text": "The official notice lists this commission from the September 10 update through 2026-09-25 04:00. The extracted post does not state a time zone. Because the listed cutoff falls on this edition date, check the in-game timer instead of assuming the task is open or closed. This notice does not confirm a later window.",
+        "textZh": "官方公告列出本期委托由 9 月 10 日更新完成后开放，至 2026-09-25 04:00 截止。可读取的公告文字冇注明时区；截止时间正好落喺本版日期，请看游戏内倒数，唔好假设委托仍然开放或已经关闭。此公告亦冇确认下一期安排。",
+        "sources": [
+          "pika-photo-window"
+        ]
+      },
+      {
+        "heading": "September 24 patch pointer",
+        "headingZh": "9 月 24 日更新提示",
+        "text": "An official September 24 update post exists, but its detailed image was not available as readable text in this review. This page does not claim a full patch-note summary. Open the notice before relying on a balance or event change.",
+        "textZh": "官方 9 月 24 日有更新公告，但本次查阅未能读出附图细节，所以呢页唔会声称已完整总结更新。判断平衡或活动变动之前，请直接打开公告。",
         "sources": [
           "s4-sept24"
         ]

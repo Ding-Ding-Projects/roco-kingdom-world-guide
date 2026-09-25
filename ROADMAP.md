@@ -18,6 +18,7 @@
 
 ## Ongoing upkeep
 
+- [ ] Review the September 25 event and map-count refresh from the published page when the approved capture route is available; no new rendered-page capture is claimed.
 - [ ] Recheck season, event, currency, academy, shop, encounter, and breeding facts after material updates.
 - [ ] Complete a row-level reconciliation of the 625 saved local rows, 621 current BiliWiki results, and 644 Roco Kingdom World entries; do not infer missing records from index totals alone.
 - [ ] Refresh the pinned community snapshot and re-review exact joins, license, missing fields, and source dates.

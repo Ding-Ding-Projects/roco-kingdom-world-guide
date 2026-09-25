@@ -14,7 +14,7 @@ Search place labels, habitat phrases, or creature names. Expand a habitat or han
 
 The local files contain no coordinates, polygons, route lines, map tiles, point IDs, or third-party marker records. The source labels do not prove S4 availability, travel prerequisites, encounter time, weather, spawn rate, or completeness. The source index is a name lookup, not a live route map.
 
-For coordinates and layers, open the external [Roco Kingdom World map](https://rocokingdomworld.org/maps/). Its displayed 7,148-marker, seven-category count is the viewer's claim checked on 2026-09-24. Its reuse license was not identified, so the local guide links to it without redistributing its marker data or imagery.
+For coordinates and layers, open the external [Roco Kingdom World map](https://rocokingdomworld.org/maps/). Its homepage reported 7,148 points across seven categories when checked on 2026-09-25. This is the viewer's own count, not an audited total. Its reuse license was not identified, so the local guide links to it without redistributing its marker data or imagery.
 
 ## Season 4
 

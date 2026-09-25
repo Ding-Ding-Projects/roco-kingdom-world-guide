@@ -41,19 +41,19 @@
   },
   {
     "id": "cocoa",
-    "title": "Cocoa Harvest Festival announcement",
-    "kind": "Official",
-    "url": "https://www.taptap.cn/app/188212/topic",
-    "checkedOn": "2026-09-24",
-    "scope": "Official forum index announced a September 25 start and up to 480 free Cocoa Fruit Balls. Event end date and detailed conditions were not confirmed from extracted text."
+    "title": "Official Cocoa Harvest Festival preview",
+    "kind": "Official TapTap post",
+    "url": "https://www.taptap.cn/moment/849231723693606703",
+    "checkedOn": "2026-09-25",
+    "scope": "Official preview announces a September 25 start, up to 480 free Cocoa Fruit Balls per player, and the Starfall encounter trigger when used to catch a creature during the event. The readable text does not state the end date or every reward condition."
   },
   {
     "id": "flower-seed",
     "title": "Destined Flower Seed event notice",
     "kind": "Official",
     "url": "https://www.taptap.cn/moment/847120033397081827?group_id=228326",
-    "checkedOn": "2026-09-24",
-    "scope": "Notice states Magic Level 40 and Spirit Scholar rank requirements, plus a September 10 to September 25 04:00 window."
+    "checkedOn": "2026-09-25",
+    "scope": "The September 10 official phase named 寂灭骨龙（固执）, 星星眼（沉默）, and 智辉章脑（胆小）; it stated Magic Level 40 and Spirit Scholar rank requirements, matching-creature and first-clear rewards including 400 分光水晶 and 灵魂环印, and a solo-medal condition. These are prior-phase details, not confirmation of the September 25 cycle."
   },
   {
     "id": "academy",
@@ -100,8 +100,8 @@
     "title": "Community interactive map",
     "kind": "Community tool",
     "url": "https://rocokingdomworld.org/maps/",
-    "checkedOn": "2026-09-24",
-    "scope": "External map viewer reports 7,148 markers across seven categories. Its marker data and artwork are not reproduced here."
+    "checkedOn": "2026-09-25",
+    "scope": "Its homepage reports 7,148 map points across seven categories. This count is the viewer’s own claim, not an audit. Marker data, map tiles, and artwork are not reproduced here."
   },
   {
     "id": "community-data",
@@ -158,5 +158,21 @@
     "url": "https://www.taptap.cn/moment/847871522038089934",
     "checkedOn": "2026-09-24",
     "scope": "Season 4 resource and recovery features named in the notice."
+  },
+  {
+    "id": "flower-seed-next-cycle",
+    "title": "Destined Flower Seed cycle archive (September 25, 2026)",
+    "kind": "Community activity archive",
+    "url": "https://wiki.biligame.com/nrc/%E5%91%BD%E5%AE%9A%E8%8A%B1%E7%A7%8D%EF%BC%882026-09-25%EF%BC%89",
+    "checkedOn": "2026-09-25",
+    "scope": "Community archive lists 2026-09-25 04:00 through 2026-10-09 03:59 China Standard Time (UTC+08:00). Readable page text marks participation requirements as “未解锁” (not unlocked); its linked infographic was not transcribed. The next-cycle roster, access requirements, repeat limits, and rewards remain unverified."
+  },
+  {
+    "id": "pika-photo-window",
+    "title": "Official Pika Photography Commission notice",
+    "kind": "Official TapTap post",
+    "url": "https://www.taptap.cn/moment/847117678085670466",
+    "checkedOn": "2026-09-25",
+    "scope": "Official notice lists a September 10 post-update opening through 2026-09-25 04:00. The extracted text does not state a time zone; the listed cutoff falls on this edition date, so live status is not independently confirmed. A later window is not confirmed."
   }
 ]
