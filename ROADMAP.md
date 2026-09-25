@@ -23,6 +23,7 @@
 - [x] Publish version 3 from source commit `4fd2a35e94683079f98fec3cd7d99a9085615707` without changing the public audience; verify the production deployment and HTTP 200 responses for the page shell and four declared same-origin assets.
 - [x] Inspect the deployed overview, Season 4 article, September event desk, and habitat/location article in the browser; confirm rendered counts, dated event caveats, and the absence of unsupported map coordinates.
 - [x] Open one deployed Dex detail panel and confirm that the record exposes its source fields, stats, joined references, and provenance. This sample does not verify all 625 form rows.
+- [x] Load the deployed Dex list through its final catalog entry and search for catalog 466; the summary reports 625 forms and the final record is reachable. The browser accessibility snapshot truncated its expanded row controls at 500.
 - [ ] Recheck season, event, currency, academy, shop, encounter, and breeding facts after material updates.
 - [ ] Complete a row-level reconciliation of the 625 saved local rows, 621 current BiliWiki results, and 644 Roco Kingdom World entries; do not infer missing records from index totals alone.
 - [ ] Refresh the pinned community snapshot and re-review exact joins, license, missing fields, and source dates.
