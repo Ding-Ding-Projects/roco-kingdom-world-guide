@@ -27,18 +27,12 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 
 ## Verification and publication state
 
-The 2026-09-25 roster-comparison edits are local and have not yet been runtime-reviewed or published. The static source checks below are current; the version 1 capture and deployment notes remain baseline evidence only.
-
-- Current static review: `node --check dist/assets/app.js` passed; `dist/data/articles.json` and `dist/data/sources.json` parse with 21 articles and 20 source records; `git diff --check` passed with only line-ending notices.
-- Current publication vocabulary scan checked 38 tracked and new files. The only four hits are in unchanged `dist/data/creature-details.json`, `dist/data/creatures.json`, `dist/data/training-reference.json`, and `scripts/import_bwiki_details.py`; they are existing game-name/description text and the required HTML data attribute. No changed file had a hit.
-
-- Final static validation passed: `node --check dist/assets/app.js`; all seven `dist/data/*.json` files parse; 20 articles, 625 catalog form rows, 466 catalog numbers, 43 map anchors, 57 habitat labels, and three handbook areas are present; the stylesheet has 456 opening and 456 closing braces.
-- Final publication review scanned 36 text files. Four files had lexical matches: the Chinese terms occur in original game names or descriptions, and the importer match is a required HTML data attribute.
-- No test suite has been run.
-- The required low-level headless capture tools are unavailable in this session. No replacement capture is claimed. Desktop, narrow-viewport, keyboard, screen-reader, and rendered-page review remain unverified.
-- The public hosting project uses URL label `roco-kingdom-world-field-atlas` and grants public access. Production version 1 is live at [Roco Kingdom: World Atlas & Dex](https://roco-kingdom-world-field-atlas.dewlook123.chatgpt.site); deployment `appgdep_6ab5de65b7d48191a9c98e2202637567` reports `succeeded`.
-- Version 1 was built from source SHA `ecfc27f8ca5182465df891a0f516278f9af9fb7f`. The source workflow verified the exact remote head before saving the version.
-- Unauthenticated GET requests returned HTTP 200 for `/`, `/assets/app.js`, `/assets/site.css`, `/assets/favicon.svg`, and all seven `/data/*.json` files. Every JSON response parsed successfully; the requests used no credentials or cookies.
+- The roster comparison update is source commit `9bab3d7fcd51de0d5821bd463686a3bb0ba33fa3`. `node --check dist/assets/app.js` passed; all seven `dist/data/*.json` files parse; the current dataset has 21 articles and 20 source records; `git diff --check` passed with only line-ending notices.
+- At publication time, the configured source repository's `main` ref was verified at that commit with `git ls-remote`.
+- The public Site saved version 2 from that source commit and deployed successfully at [Roco Kingdom: World Atlas & Dex](https://roco-kingdom-world-field-atlas.dewlook123.chatgpt.site). The earlier version 1 deployment was the original public baseline.
+- The public-language scan checked 39 tracked and new files. The only four hits are in unchanged `dist/data/creature-details.json`, `dist/data/creatures.json`, `dist/data/training-reference.json`, and `scripts/import_bwiki_details.py`; they are existing game-name/description text and the required HTML data attribute. No changed file had a hit.
+- No test suite was run. No new rendered-page, keyboard, screen-reader, or narrow-viewport review was completed. The available capture route was unavailable, so no current screenshot is claimed.
+- Historical version 1 baseline only: source SHA `ecfc27f8ca5182465df891a0f516278f9af9fb7f` was verified before saving. At that baseline, unauthenticated GET requests returned HTTP 200 for `/`, the public assets, and all seven `/data/*.json` files; every JSON response parsed successfully without credentials or cookies.
 
 ## Remaining work
 
