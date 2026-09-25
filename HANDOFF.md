@@ -28,12 +28,12 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 - Final publication review scanned 36 text files. Four files had lexical matches: the Chinese terms occur in original game names or descriptions, and the importer match is a required HTML data attribute.
 - No test suite has been run.
 - The required low-level headless capture tools are unavailable in this session. No replacement capture is claimed. Desktop, narrow-viewport, keyboard, screen-reader, and rendered-page review remain unverified.
-- The public hosting project is registered with URL label `roco-kingdom-world-field-atlas`, and its access policy is public. Its generated address, `https://roco-kingdom-world-field-atlas.tart-bison-9386.chatgpt.site`, is an expected origin, not a verified live address.
-- The hosting source repository is initialized on `main` in this project folder. It has no source commit yet; synchronization, version save, deployment, and unauthenticated asset delivery remain pending.
+- The public hosting project uses URL label `roco-kingdom-world-field-atlas` and grants public access. Production version 1 is live at [Roco Kingdom: World Atlas & Dex](https://roco-kingdom-world-field-atlas.dewlook123.chatgpt.site); deployment `appgdep_6ab5de65b7d48191a9c98e2202637567` reports `succeeded`.
+- Version 1 was built from source SHA `ecfc27f8ca5182465df891a0f516278f9af9fb7f`. The source workflow verified the exact remote head before saving the version.
+- Unauthenticated GET requests returned HTTP 200 for `/`, `/assets/app.js`, `/assets/site.css`, `/assets/favicon.svg`, and all seven `/data/*.json` files. Every JSON response parsed successfully; the requests used no credentials or cookies.
 
-## Next steps
+## Remaining work
 
-1. Create the bilingual source commit, push the exact source to the hosting repository's default branch, and prove the exact remote revision.
-2. Package the static build from that revision, save a version, and deploy with the requested public access.
-3. Verify the public address and every required data asset from unauthenticated requests.
-4. Record the exact source revision, deployment state, public URL, remaining capture blocker, and updated roadmap.
+1. Review the rendered page, keyboard behavior, and narrow viewport when the approved headless capture route is available. No substitute capture is claimed.
+2. Add coordinates and route geometry only when a reusable source provides verified data and reuse terms.
+3. Refresh time-sensitive season facts and the pinned community snapshot after material updates.

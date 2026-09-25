@@ -11,8 +11,8 @@
 - [x] Run JavaScript syntax validation and parse all seven data JSON files after the final edits; verify the article and map counts and balanced stylesheet braces.
 - [x] Scan all 36 text files for publication safety; review source game-text and required markup-attribute matches in context.
 - [x] Register the public hosting project, preserve its source ID, and set its audience to public.
-- [ ] Push the exact source, save a version, and deploy the static build.
-- [ ] Verify the public address and every required data asset from an unauthenticated request.
+- [x] Push the exact source, save version 1, and deploy the static build publicly.
+- [x] Verify the production address and all eleven required responses with unauthenticated GET requests; parse all seven JSON responses.
 - [ ] Capture and review the built page at desktop and narrow viewport sizes using the required approved capture route.
 - [ ] Add a complete S4 coordinate atlas only when a reusable source provides verified geometry and access data.
 
