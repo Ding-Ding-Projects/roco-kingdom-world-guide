@@ -1,0 +1,73 @@
+{
+  "evidenceVersion": 1,
+  "sourceCommit": "bf90e1fd30e1bec271620479e03d95c353646633",
+  "sourceOutputManifestSha256": "22eead75ee226f52e5d5cd0abd6ac3e7602e9b623be7b743e1d870c89c960e5a",
+  "sourceBuildReceiptSha256": "1c8dce6d1d45a13d7ebd151cb29ed705ee6f82e62a02ec44c0fe7e004ae32c2d",
+  "captureMethod": "Chromium DevTools Protocol Page.captureScreenshot against an isolated Microsoft Edge target verified by verify-edge-target.mjs",
+  "browser": {
+    "name": "Microsoft Edge",
+    "version": "153.0.4234.48",
+    "sha256": "9a84277c86316b975e5927a12f2355001b2e46f274c7a61b2fa0278aaf435996"
+  },
+  "privacy": {
+    "authenticationRequired": false,
+    "thirdPartyRequestsExpected": false,
+    "rawPageTextRetained": false,
+    "personalDataVisible": false
+  },
+  "captures": [
+    {
+      "file": "roco-320x568-light.png",
+      "sha256": "88311a662122c6abf1402b9523b0f382263d050018e7fdac91e5c5058ccee771",
+      "viewport": {
+        "width": 320,
+        "height": 568,
+        "scale": 1,
+        "deviceScaleFactor": 1,
+        "theme": "light",
+        "language": "en-US",
+        "touchEmulation": true
+      },
+      "targetReceiptSha256": "dc80c8aab91023f3786f78d561be5d485c078475d7d4d380cb880f4d8336d24f",
+      "targetCount": 1,
+      "targetVerifiedAt": "2026-09-25T06:06:04.396Z",
+      "captureDate": "2026-09-25",
+      "captureTimezone": "UTC",
+      "capturedAt": null,
+      "captureTimeStatus": "unavailable",
+      "metricsFile": "layout-320.json",
+      "keyboardPathVerified": false
+    },
+    {
+      "file": "roco-390x844-light.png",
+      "sha256": "ee73bf0e3aa4a94d7402e5fdb99231bbf3fba5108cfa5e215b706a80455f7ef8",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1,
+        "deviceScaleFactor": 1,
+        "theme": "light",
+        "language": "en-US",
+        "touchEmulation": true
+      },
+      "targetReceiptSha256": "b919e5246cc235e50590d6ec0b4708924b2cabb8afd959cecbd6854fd59c64bf",
+      "targetCount": 1,
+      "targetVerifiedAt": "2026-09-25T06:00:17.872Z",
+      "captureDate": "2026-09-25",
+      "captureTimezone": "UTC",
+      "capturedAt": "2026-09-25T06:00:25.889Z",
+      "captureTimeStatus": "recorded",
+      "metricsFile": "layout-390.json",
+      "keyboardPathVerified": false
+    }
+  ],
+  "scope": {
+    "narrowViewportReview": "320×568 and 390×844, 100% scale, light theme, English",
+    "fullLanguageThemeScaleMatrix": "not completed",
+    "desktopViewport": "not captured",
+    "keyboardPath": "not verified",
+    "automatedSuites": "not run"
+  },
+  "sourceOutputManifestFile": "source-output-manifest.json",
+  "sourceBuildSummaryFile": "source-build-summary.json"
+}

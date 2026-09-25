@@ -1,0 +1,120 @@
+{
+  "sourceCommit": "bf90e1fd30e1bec271620479e03d95c353646633",
+  "viewport": {
+    "width": 320,
+    "height": 568,
+    "scale": 1,
+    "mobile": true,
+    "touchEmulated": true,
+    "theme": "light",
+    "language": "en-US"
+  },
+  "layout": {
+    "readyState": "complete",
+    "viewport": {
+      "width": 320,
+      "height": 568,
+      "scale": 1
+    },
+    "body": {
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "overflow": false
+    },
+    "header": {
+      "topbar": {
+        "left": 0,
+        "right": 320,
+        "top": 0,
+        "bottom": 58,
+        "width": 320,
+        "height": 58,
+        "display": "flex",
+        "fontSize": "16px",
+        "whiteSpace": "normal",
+        "gap": "7.2px",
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      "brand": {
+        "left": 12,
+        "right": 121.828125,
+        "top": 12.5,
+        "bottom": 44.5,
+        "width": 109.828125,
+        "height": 32,
+        "display": "flex",
+        "fontSize": "16px",
+        "whiteSpace": "normal",
+        "gap": "8.8px",
+        "scrollWidth": 110,
+        "clientWidth": 110
+      },
+      "brandCopy": {
+        "left": 52.796875,
+        "right": 121.828125,
+        "top": 22.671875,
+        "bottom": 34.328125,
+        "width": 69.03125,
+        "height": 11.65625,
+        "display": "grid",
+        "fontSize": "16px",
+        "whiteSpace": "normal",
+        "gap": "normal",
+        "scrollWidth": 69,
+        "clientWidth": 69
+      },
+      "secondary": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0,
+        "display": "none",
+        "fontSize": "10.4px",
+        "whiteSpace": "nowrap",
+        "gap": "7.2px",
+        "scrollWidth": 0,
+        "clientWidth": 0
+      },
+      "utilities": {
+        "left": 174.28125,
+        "right": 308,
+        "top": 12.5,
+        "bottom": 44.5,
+        "width": 133.71875,
+        "height": 32,
+        "display": "flex",
+        "fontSize": "16px",
+        "whiteSpace": "normal",
+        "gap": "1.92px",
+        "scrollWidth": 134,
+        "clientWidth": 134
+      }
+    },
+    "searchHint": {
+      "placeholderLength": 17,
+      "clientWidth": 141,
+      "scrollWidth": 141
+    }
+  },
+  "accessibility": {
+    "rootFound": true,
+    "nodeCount": 338,
+    "unnamedInteractiveCount": 0,
+    "keyboardPathVerified": false
+  },
+  "events": {
+    "exceptions": 0,
+    "consoleErrors": 0,
+    "failedResources": 0,
+    "badStatus": 0,
+    "loaded": 1
+  },
+  "privacy": {
+    "pageHasAuthentication": false,
+    "thirdPartyRequestsExpected": false,
+    "rawPageTextNotRetained": true
+  }
+}

@@ -8,13 +8,21 @@ An independent, source-linked reference for **Roco Kingdom: World**. This editio
 - **Reference snapshot:** commit `71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2`, version `s4-2026-09-24`, published 2026-09-24 15:55:24 UTC+8. It contains 824 skills, 311 learnsets, 275 evolution groups, 466 handbook entries, 2,342 handbook task topics, and 120 type combinations. It is community data, may lag the live client, and is licensed CC BY-NC-SA 4.0.
 - **World index:** 43 named S3 map labels, 57 handbook habitat labels, and three handbook index areas. The linked external viewer reported 7,148 points across seven categories on its homepage when checked on 2026-09-25. That self-reported count is not audited or comparable to the local label index. The sources do not provide local verified coordinates, routes, or a complete S4 access map, and the external map data and artwork are linked, not copied.
 - **Articles:** 21 original English and written-Cantonese articles covering first sessions, combat, team building, capture, breeding, exploration, progression, currencies, bosses, event notes, source methods, roster-count differences, and how to use each data section.
-- **Narrow screens:** the compact header hides its repeated secondary wordmark below 520 px and keeps the edition label in the context row below. Rendered review at 390 px and 320 px remains pending; the approved headless capture route is callable, but no new screenshots have been produced or inspected yet.
+- **Narrow screens:** the compact header hides its repeated secondary wordmark below 520 px and keeps the edition label in the context row below. The built page was captured and reviewed at 390×844 and 320×568 in English, light theme, and 100% scale. The body fits each viewport without horizontal overflow, and the shorter global search hint fits at both widths. These two captures do not establish desktop layout, keyboard-path behavior, or the full language, theme, and scale matrix.
 - **Artwork:** no creature portraits, game map tiles, or external map imagery are included.
 - **Privacy:** the public edition is static and anonymous. Saved notes and preferences stay in the current browser. No analytics, trackers, remote fonts, or third-party scripts are used.
 
 ## Open the guide
 
 The static entry point is [`dist/index.html`](dist/index.html). Serve the `dist/` directory over HTTP so its JSON data can be fetched from the same origin. Opening the file directly with a `file:` URL is not supported by browser fetch rules. No package installation or build step is required.
+
+## Responsive review
+
+The current source revision was captured from the built page at 320×568 and 390×844. The capture records, layout measurements, browser version, and content hashes are in [`evidence/responsive-header/`](evidence/responsive-header/). Only the two English, light-theme, 100%-scale narrow viewports were reviewed. Desktop rendering, keyboard navigation, and the full language, theme, and display-scale matrix remain unverified.
+
+![Roco Kingdom field guide at 320 by 568, light theme](evidence/responsive-header/roco-320x568-light.png)
+
+![Roco Kingdom field guide at 390 by 844, light theme](evidence/responsive-header/roco-390x844-light.png)
 
 ## Documentation
 

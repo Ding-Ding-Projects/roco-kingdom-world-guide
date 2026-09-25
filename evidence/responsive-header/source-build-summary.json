@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "sourceCommit": "bf90e1fd30e1bec271620479e03d95c353646633",
+  "revisionVerified": true,
+  "buildMethod": "Serve the checked-in static dist tree without transformation.",
+  "outputManifest": "source-output-manifest.json",
+  "outputManifestSha256": "22eead75ee226f52e5d5cd0abd6ac3e7602e9b623be7b743e1d870c89c960e5a",
+  "serverScope": "loopback only"
+}

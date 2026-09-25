@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "sourceCommit": "bf90e1fd30e1bec271620479e03d95c353646633",
+  "files": [
+    {
+      "path": "dist/assets/app.js",
+      "sizeBytes": 123749,
+      "sha256": "cecc31602b2de7ca021ef2a4d75f95211e0337bd4d31bc0e5719ee6b0f4eae12"
+    },
+    {
+      "path": "dist/assets/favicon.svg",
+      "sizeBytes": 369,
+      "sha256": "a87a555c14339c72dd6e4ffa4524a0948b321f780df976daef57e8d49bf5c153"
+    },
+    {
+      "path": "dist/assets/site.css",
+      "sizeBytes": 39611,
+      "sha256": "930d407cd3432f916ad5f1f6f68e6c5cb60e3f4913f8a8cd8dba21b98831935f"
+    },
+    {
+      "path": "dist/data/articles.json",
+      "sizeBytes": 53630,
+      "sha256": "830860609f3094a9d1da59dcb1274b0aa7f97407f055d92cb2ef5d8b7efe38a4"
+    },
+    {
+      "path": "dist/data/creature-details.json",
+      "sizeBytes": 2955516,
+      "sha256": "59a174beebc2774e8e71d228efdb00ad8c42e0d3dbbba1d2a35873715c979d0d"
+    },
+    {
+      "path": "dist/data/creatures.json",
+      "sizeBytes": 937905,
+      "sha256": "97d9ac082dd211e432bec197c050e8f1d35c52b4d0d39c32344a35316c16e49f"
+    },
+    {
+      "path": "dist/data/locations.json",
+      "sizeBytes": 24275,
+      "sha256": "d6346338bd6650b9daf60f487f6befc9fee5eca7befe8a504e190eb429ba48fa"
+    },
+    {
+      "path": "dist/data/sources.json",
+      "sizeBytes": 8574,
+      "sha256": "7d116fd4f4d762eb6b436df1a39d2757a8ef1d95b5906387f58430bd2a95f831"
+    },
+    {
+      "path": "dist/data/training-reference.json",
+      "sizeBytes": 1085882,
+      "sha256": "23354e85ade4a19c82b17365b63a13286d4f610673d38a1745714450c99ddfea"
+    },
+    {
+      "path": "dist/data/type-chart.json",
+      "sizeBytes": 46896,
+      "sha256": "2fec2da012937c8cea021dd41b563564af6b530b22c4a812c78e63719d6367a0"
+    },
+    {
+      "path": "dist/index.html",
+      "sizeBytes": 8727,
+      "sha256": "e44f4a32af15f27021f48585c3606217dd9a9711be70f693e247010359568c4c"
+    }
+  ]
+}
