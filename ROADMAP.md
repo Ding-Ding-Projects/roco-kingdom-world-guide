@@ -19,6 +19,6 @@
 ## Ongoing upkeep
 
 - [ ] Recheck season, event, currency, academy, shop, encounter, and breeding facts after material updates.
-- [ ] Reconcile creature totals by documenting each index's inclusion method rather than choosing the largest count.
+- [ ] Complete a row-level reconciliation of the 625 saved local rows, 621 current BiliWiki results, and 644 Roco Kingdom World entries; do not infer missing records from index totals alone.
 - [ ] Refresh the pinned community snapshot and re-review exact joins, license, missing fields, and source dates.
 - [ ] Add personal vocabulary application only after authentication and the local-file contract can be implemented safely.

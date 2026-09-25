@@ -24,18 +24,21 @@
 ## Creatures and source data
 
 13. How to read a Dex record
-14. Skills, learnsets, and evolution conditions
-15. What the historical training sample can tell you
-16. How this guide handles sources and uncertainty
+14. Why the creature indexes show different totals
+15. Skills, learnsets, and evolution conditions
+16. What the historical training sample can tell you
+17. How this guide handles sources and uncertainty
 
 ## Current season and resources
 
-17. Season 4: Moonlit Reverie field notes
-18. Event desk: September 2026 notices
-19. Academies: choose for the activities you enjoy
-20. Currencies and shops: check source, expiry, and conversion
+18. Season 4: Moonlit Reverie field notes
+19. Event desk: September 2026 notices
+20. Academies: choose for the activities you enjoy
+21. Currencies and shops: check source, expiry, and conversion
 
 The live guide stores article text and references in `dist/data/articles.json` and source records in `dist/data/sources.json`. Each article has English and written-Cantonese content, dated sources, a confidence note, and explicit limits. External source links open in a new tab with `noopener noreferrer`; references to another guide article remain internal links. Markdown exports preserve both kinds of reference.
+
+- [Roster count comparison and unresolved form keys](roster-counts.md)
 
 ## Editorial rules
 

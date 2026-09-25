@@ -69,7 +69,23 @@
     "kind": "Community wiki",
     "url": "https://wiki.biligame.com/nrc/%E7%B2%BE%E7%81%B5%E5%88%97%E8%A1%A8",
     "checkedOn": "2026-09-24",
-    "scope": "625 list rows across 466 catalog numbers in the saved page reviewed for this edition. Community data, not an official export."
+    "scope": "This edition's saved source snapshot yields 625 form rows across 466 catalog numbers, reviewed 2026-09-24. See creature-list-live for the page's current displayed result count. Community data, not an official export."
+  },
+  {
+    "id": "creature-list-live",
+    "title": "Current BiliWiki creature-list index",
+    "kind": "Community wiki",
+    "url": "https://wiki.biligame.com/nrc/%E7%B2%BE%E7%81%B5%E5%88%97%E8%A1%A8",
+    "checkedOn": "2026-09-25",
+    "scope": "The current page displayed 621 results and labels itself updated 2026-09-13. This is the index's displayed count, not official completeness and not a row-by-row reconciliation with this edition's saved snapshot."
+  },
+  {
+    "id": "roco-dex-index",
+    "title": "Roco Kingdom World creature index",
+    "kind": "Community fan index",
+    "url": "https://rocokingdomworld.org/pokedex/",
+    "checkedOn": "2026-09-25",
+    "scope": "The independent index reported 644 entries with type, stats, form, skills, and evolution data. Its count and NO keys have no proven one-to-one mapping to this edition's saved rows or catalog numbers. No index data or artwork is reproduced here."
   },
   {
     "id": "map-index",

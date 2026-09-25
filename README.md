@@ -4,10 +4,10 @@ An independent, source-linked reference for **Roco Kingdom: World**. This editio
 
 ## Edition contents
 
-- **Creature Dex:** 625 source rows across 466 catalog numbers, imported from the BWiki list reviewed on 2026-09-24. Open a record for its original catalog fields and linked handbook tasks, habitat, skills, evolution paths, affinity, ecology, and type matchup data where the pinned source provides an exact match.
+- **Creature Dex:** this edition's saved snapshot has 625 form rows across 466 catalog numbers, reviewed on 2026-09-24. The live [BiliWiki list](https://wiki.biligame.com/nrc/%E7%B2%BE%E7%81%B5%E5%88%97%E8%A1%A8) displayed 621 results when checked on 2026-09-25 and carries a 2026-09-13 update date; the independent [Roco Kingdom World index](https://rocokingdomworld.org/pokedex/) reported 644 entries. Their snapshot dates, row labels, and numbering rules do not establish a one-to-one roster comparison or an official total. Open a local record for its original catalog fields and linked handbook tasks, habitat, skills, evolution paths, affinity, ecology, and type matchup data where the pinned source provides an exact match.
 - **Reference snapshot:** commit `71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2`, version `s4-2026-09-24`, published 2026-09-24 15:55:24 UTC+8. It contains 824 skills, 311 learnsets, 275 evolution groups, 466 handbook entries, 2,342 handbook task topics, and 120 type combinations. It is community data, may lag the live client, and is licensed CC BY-NC-SA 4.0.
 - **World index:** 43 named S3 map labels, 57 handbook habitat labels, and three handbook index areas. The sources do not provide local verified coordinates, routes, or a complete S4 access map. An external coordinate viewer is linked, not copied.
-- **Articles:** 20 original English and written-Cantonese articles covering first sessions, combat, team building, capture, breeding, exploration, progression, currencies, bosses, event notes, source methods, and how to use each new data section.
+- **Articles:** 21 original English and written-Cantonese articles covering first sessions, combat, team building, capture, breeding, exploration, progression, currencies, bosses, event notes, source methods, roster-count differences, and how to use each data section.
 - **Artwork:** no creature portraits, game map tiles, or external map imagery are included.
 - **Privacy:** the public edition is static and anonymous. Saved notes and preferences stay in the current browser. No analytics, trackers, remote fonts, or third-party scripts are used.
 

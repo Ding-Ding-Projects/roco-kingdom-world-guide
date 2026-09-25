@@ -18,7 +18,9 @@ Joined details appear when an exact form key links to a record in the pinned sna
 
 ## Freshness and missing values
 
-The BWiki list was reviewed on 2026-09-24 and displayed a 2026-09-13 update date. The added community snapshot is pinned to commit `71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2`, version `s4-2026-09-24`, published 2026-09-24 15:55:24 UTC+8. The upstream maintainer warns the data can lag the client. Each record links to the list page and the joined snapshot revision.
+The saved edition list snapshot was reviewed on 2026-09-24 and yields 625 form rows across 466 catalog numbers. When checked on 2026-09-25, the live BiliWiki `精灵列表` page displayed 621 results and showed a 2026-09-13 update date. The independent Roco Kingdom World index reported 644 entries on the same check date. These community indexes use different snapshots and displayed keys; this edition has not proven a row-by-row identity mapping between them, and no count is presented as the official complete roster.
+
+The saved local data includes form keys `047-02`, `048-02`, `048-04`, and `162-02`. Name and index-key comparison still leaves unresolved differences, including family and form labels. Retain those records and their source notes until exact identities can be compared against a reusable source. The added community detail snapshot is pinned to commit `71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2`, version `s4-2026-09-24`, published 2026-09-24 15:55:24 UTC+8. Its maintainer warns the data can lag the client. Each record links to the saved list page and joined snapshot revision.
 
 An empty or unavailable field means the referenced data did not supply that value. It is not evidence of absence in the game. Current unlock requirements, timing, catch rates, battle exceptions, and other patch-sensitive rules must be checked in the current client.
 

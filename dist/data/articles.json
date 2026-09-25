@@ -730,5 +730,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "roster-snapshots",
+    "category": "Reference",
+    "title": "Why the creature indexes show different totals",
+    "titleZh": "点解精灵索引会有唔同总数",
+    "summary": "Compare dated snapshots without treating a larger count as an official complete roster.",
+    "summaryZh": "比较注明日期嘅资料快照，唔好将较大数字当成官方完整总数。",
+    "updatedOn": "2026-09-25",
+    "confidence": "Community index counts; exact row-level reconciliation remains incomplete",
+    "sections": [
+      {
+        "heading": "Three totals, different scopes",
+        "headingZh": "三个总数，三套范围",
+        "text": "This edition's saved list snapshot has 625 form rows across 466 catalog numbers and was reviewed on 2026-09-24. On 2026-09-25, the BiliWiki creature-list page displayed 621 results and carried an update date of 2026-09-13. The Roco Kingdom World fan index reported 644 entries. These are community indexes with different snapshot dates and counting rules. None is an official export or a confirmed total of every creature currently available.",
+        "textZh": "本版保存嘅列表快照共有625条形态记录，分属466个目录编号，核对日期为2026年9月24日。2026年9月25日查看时，BiliWiki精灵列表显示621条结果，页面标注更新日期为2026年9月13日。Roco Kingdom World粉丝索引则显示644条记录。三者都系更新时间同计算方式唔同嘅社区索引；冇一个系官方导出，亦冇一个可以确认系当前全部精灵总数。",
+        "sources": [
+          "creature-list",
+          "creature-list-live",
+          "roco-dex-index"
+        ]
+      },
+      {
+        "heading": "Keep unmatched forms visible",
+        "headingZh": "未能配对嘅形态要继续列明",
+        "text": "This edition's saved data contains the local form keys 047-02, 048-02, 048-04, and 162-02. Comparing names and displayed index keys still leaves unresolved differences, including family and form labels. The public indexes do not provide a proven one-to-one key for every local row. Keep these records and the mismatch note; do not remove a row or call it a missing creature until its exact identity can be checked against a reusable source.",
+        "textZh": "本版保存资料包含本地形态编号047-02、048-02、048-04同162-02。比较名称同索引显示编号后，仍有未解决差异，包括家族名称同形态名称。公开索引未有可证明同每条本地记录一对一对应嘅编号。保留现有记录同差异说明；未能用可再利用来源核实精确身份之前，不要删记录，亦不要断言某只精灵缺失。",
+        "sources": [
+          "creature-list",
+          "creature-list-live",
+          "roco-dex-index",
+          "community-data"
+        ]
+      },
+      {
+        "heading": "Check the form, not just the number",
+        "headingZh": "核对形态，唔好只睇编号",
+        "text": "Search by name or catalog number, open the detail drawer, and follow the source links. Compare the form label and source update date instead of relying on row order alone. For current unlocks, live stats, or whether a form is still obtainable, confirm in the current client.",
+        "textZh": "用名称或目录编号搜索，打开详情栏，再跟随来源链接核对。要比较形态标签同来源更新日期，唔好只靠列表顺序。至于当前解锁条件、实时数值，或者某个形态仲可唔可以取得，要以当前客户端为准。",
+        "sources": [
+          "creature-list-live",
+          "roco-dex-index",
+          "official-taptap",
+          "s4-notes"
+        ]
+      }
+    ]
   }
 ]

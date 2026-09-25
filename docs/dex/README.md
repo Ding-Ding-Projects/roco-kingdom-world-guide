@@ -1,6 +1,6 @@
 # Creature Dex
 
-The Dex is a searchable, community-derived form index. It currently joins 625 saved BWiki form rows to 466 catalog numbers. A row identifies one source-list form; it does not claim one unique base creature.
+The Dex is a searchable, community-derived form index. This edition's saved snapshot joins 625 form rows to 466 catalog numbers. A row identifies one saved form entry; it does not claim one unique base creature or an official roster total. As checked on 2026-09-25, the live BiliWiki list displayed 621 results (page updated 2026-09-13), while the independent Roco Kingdom World index reported 644 entries. The snapshots and numbering schemes are not reconciled row by row. See [Why the creature indexes show different totals](../../dist/index.html#article/roster-snapshots) and review the local form keys and unresolved matches.
 
 ## Features
 
