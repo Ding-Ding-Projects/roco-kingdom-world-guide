@@ -10,7 +10,7 @@ An independent, source-linked reference for **Roco Kingdom: World**. This editio
 - **Articles:** 21 original English and written-Cantonese articles covering first sessions, combat, team building, capture, breeding, exploration, progression, currencies, bosses, event notes, source methods, roster-count differences, and how to use each data section.
 - **Narrow screens:** the compact header hides its repeated secondary wordmark below 520 px and keeps the edition label in the context row below. The built page was captured and reviewed at 390×844 and 320×568 in English, light theme, and 100% scale. The body fits each viewport without horizontal overflow, and the shorter global search hint fits at both widths. These two captures do not establish desktop layout, keyboard-path behavior, or the full language, theme, and scale matrix.
 - **Artwork:** no creature portraits, game map tiles, or external map imagery are included.
-- **Privacy:** the public edition is static and anonymous. Saved notes and preferences stay in the current browser. No analytics, trackers, remote fonts, or third-party scripts are used.
+- **Privacy:** the public edition is static and anonymous. Saved notes and preferences stay in the current browser. The project source declares no analytics, trackers, remote fonts, or third-party scripts. The hosting layer may inject a same-origin challenge script outside the project bundle.
 
 ## Open the guide
 
