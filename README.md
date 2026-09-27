@@ -10,15 +10,17 @@ An independent, source-linked reference for **Roco Kingdom: World**. This editio
 - **Articles:** 21 original English and written-Cantonese articles covering first sessions, combat, team building, capture, breeding, exploration, progression, currencies, bosses, event notes, source methods, roster-count differences, and how to use each data section.
 - **Narrow screens:** the compact header hides its repeated secondary wordmark below 520 px and keeps the edition label in the context row below. The built page was captured and reviewed at 390×844 and 320×568 in English, light theme, and 100% scale. The body fits each viewport without horizontal overflow, and the shorter global search hint fits at both widths. These two captures do not establish desktop layout, keyboard-path behavior, or the full language, theme, and scale matrix.
 - **Artwork:** no creature portraits, game map tiles, or external map imagery are included.
-- **Privacy:** the public edition is static and anonymous. Saved notes and preferences stay in the current browser. The project source declares no analytics, trackers, remote fonts, or third-party scripts. The hosting layer may inject a same-origin challenge script outside the project bundle.
+- **Privacy:** the browser edition is static and anonymous. Saved notes and preferences stay in the current browser. The desktop companion reports session status only after an explicit opt-in and only when its private Status Hub configuration is present. Search terms, saved notes, bookmarks, and reading history are never reported. The project source declares no analytics, trackers, remote fonts, or third-party scripts. The hosting layer may inject a same-origin challenge script outside the project bundle.
 
 ## Open the guide
 
-The static entry point is [`dist/index.html`](dist/index.html). Serve the `dist/` directory over HTTP so its JSON data can be fetched from the same origin. Opening the file directly with a `file:` URL is not supported by browser fetch rules. No package installation or build step is required.
+- **Planned public edition:** the guide will be available at `https://ding-ding-projects.github.io/roco-kingdom-world-guide/` after the first verified Pages deployment.
+- **Local browser copy:** the static entry point is [`dist/index.html`](dist/index.html). Serve the `dist/` directory over HTTP so its JSON data can be fetched from the same origin. Opening the file directly with a `file:` URL is not supported by browser fetch rules. No package installation or build step is required.
+- **Offline desktop companion:** a Windows installer and update package will be linked here after a verified desktop release. It bundles the same `dist/` guide and keeps working without a network connection. Optional status reporting stays off until enabled by the user.
 
 ## Responsive review
 
-The current source revision was captured from the built page at 320×568 and 390×844. The capture records, layout measurements, browser version, and content hashes are in [`evidence/responsive-header/`](evidence/responsive-header/). Only the two English, light-theme, 100%-scale narrow viewports were reviewed. Desktop rendering, keyboard navigation, and the full language, theme, and display-scale matrix remain unverified.
+The existing captures in [`evidence/responsive-header/`](evidence/responsive-header/) document a prior source revision at 320×568 and 390×844. They are historical evidence and do not verify the current GitHub Pages or desktop build. Only the two English, light-theme, 100%-scale narrow viewports were reviewed at that revision. Current desktop rendering, keyboard navigation, and the full language, theme, and display-scale matrix remain unverified.
 
 ![Roco Kingdom field guide at 320 by 568, light theme](evidence/responsive-header/roco-320x568-light.png)
 
@@ -32,6 +34,9 @@ The current source revision was captured from the built page at 320×568 and 390
 - [Field articles](docs/guides/README.md)
 - [Current season notes](docs/current-season/README.md)
 - [Privacy, settings, and exports](docs/tools/README.md)
+- [GitHub Pages and desktop distribution](docs/distribution/README.md)
+- [Status reporting](docs/tools/status-reporting.md)
+- [Design handoff and limits](design/README.md)
 - [Data attribution and reuse](DATA-LICENSE.md)
 - [Project handoff](HANDOFF.md)
 - [Roadmap](ROADMAP.md)

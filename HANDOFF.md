@@ -53,3 +53,32 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 1. Capture a desktop viewport and verify keyboard navigation. Complete the full language, theme, and scale review; the two narrow English captures do not cover those states.
 2. Add coordinates and route geometry only when a reusable source provides verified data and reuse terms.
 3. Refresh time-sensitive season facts and the pinned community snapshot after material updates.
+
+## GitHub Pages and desktop companion task
+
+The active delivery work is on `codex/roco-pages-guide`. The planned public address is
+`https://ding-ding-projects.github.io/roco-kingdom-world-guide/`; the source workflow and
+desktop Squirrel.Windows packaging are being added to the default-branch delivery path.
+The offline companion serves the same `dist/` content through a restricted local protocol.
+Its optional Status Hub integration is disabled until the user explicitly enables it and a
+private ingest configuration is present. No token is embedded in the public build or exposed to
+the page renderer. This checkout has no Status Hub configuration, so a live Hub record has not
+been created.
+
+The package and deployment work remain unverified until the final source is pushed to `main`,
+GitHub Actions finishes, the public address serves the expected page and data, and the desktop
+release assets are read back from GitHub. One local Squirrel build completed from the uncommitted
+task source, but its generated provenance identifies baseline revision
+`7d019d89e6c507261468c729c908b30c8dc14491` and `local-build`. It also predates the HTTPS lockfile
+correction. Those files are diagnostic output only and will not be published. A fresh build must
+run from the preserved final source. The Lowlevel headless capture route is unavailable in this
+session, so the historic 320×568 and 390×844 captures are not evidence for the current changes.
+Keyboard navigation, desktop layout,
+accessibility, and the complete language, theme, and scale matrix remain open.
+
+The Material Designer handoff is also unavailable in this session. The current HTML and CSS
+design remains the implementation source; no design prototype or parity result is claimed.
+
+The GitHub Pages and offline desktop delivery workflow is tracked in
+[`docs/distribution/README.md`](docs/distribution/README.md). Status-sharing scope and failure
+handling are in [`docs/tools/status-reporting.md`](docs/tools/status-reporting.md).

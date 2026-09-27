@@ -28,3 +28,12 @@
 - [ ] Complete a row-level reconciliation of the 625 saved local rows, 621 current BiliWiki results, and 644 Roco Kingdom World entries; do not infer missing records from index totals alone.
 - [ ] Refresh the pinned community snapshot and re-review exact joins, license, missing fields, and source dates.
 - [ ] Add personal vocabulary application only after authentication and the local-file contract can be implemented safely.
+
+## GitHub Pages and desktop distribution
+
+- [ ] Complete interaction and accessibility review of the desktop-only, explicit opt-in Status Hub surface. The implementation and feature article are in place; the current built surface has no capture or interaction evidence.
+- [ ] Rebuild and verify the Squirrel.Windows installer from the clean task source. The lockfile and pinned toolchain are in place, while the only local package came from uncommitted source and is diagnostic only.
+- [ ] Publish a unique non-draft desktop release with the installer, update package, and update manifest; verify every asset is downloadable.
+- [ ] Enable GitHub Pages with the Actions source, push the completed source to `main`, and verify the live page plus its required same-origin data and assets.
+- [ ] Capture the current built page and desktop companion through the approved headless route. The route is unavailable in this session; the older narrow-view captures do not verify these changes.
+- [ ] Complete keyboard, accessibility, language, theme, and supported-scale review on the current built surfaces.

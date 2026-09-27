@@ -1,0 +1,67 @@
+name: Publish guide and desktop package
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: guide-delivery-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish-pages:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Set up the pinned Node.js release
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.19.0
+      - name: Generate the application mark and build provenance
+        run: |
+          node scripts/generate-app-icon.mjs
+          node scripts/write-build-provenance.mjs
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - name: Upload the static guide
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
+
+  desktop-package:
+    runs-on: windows-2025
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Set up the pinned Node.js release
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.19.0
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build the Squirrel.Windows package
+        run: npm run make
+      - name: Preserve package output even when an earlier step fails
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: roco-kingdom-world-guide-desktop-${{ github.sha }}
+          path: out/make/squirrel.windows/x64/
+          if-no-files-found: warn
+          retention-days: 30

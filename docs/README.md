@@ -8,3 +8,4 @@ The site and its feature documentation share the same source dates and evidence 
 - [Field articles](guides/README.md)
 - [Season 4 and events](current-season/README.md)
 - [Settings, privacy, and exports](tools/README.md)
+- [GitHub Pages and desktop distribution](distribution/README.md)
