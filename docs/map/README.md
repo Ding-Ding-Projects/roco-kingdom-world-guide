@@ -1,8 +1,8 @@
 # World location and habitat index
 
-The local atlas combines three distinct community reference groups: 43 named S3 map labels, 57 habitat labels from the detailed Dex snapshot, and three handbook index areas. Search across labels and linked creature forms, then open a Dex record directly from each group.
+The local atlas indexes three community source groups. It preserves all 43 named S3 map labels, all 57 distinct handbook habitat phrases with their linked Dex form-row IDs, and all three handbook index areas with their linked rows. Each inventory entry records its source URL, source date, license, and limits.
 
-- [Coverage, source dates, and map limits](locations.md)
-- [Habitat index and linked Dex records](habitats.md)
+- [Complete location inventory, coverage, sources, and map limits](locations.md)
+- [All habitat labels, linked form rows, and handbook areas](habitats.md)
 
-The local page does not draw coordinates, travel routes, or region borders because the sources reviewed for this edition do not establish that geometry. The linked external viewer reported 7,148 points across seven categories on its homepage when checked on 2026-09-25. That is the viewer's own count, not an audited total; its data and artwork are not redistributed here. A separately licensed complete S4 atlas remains future work.
+The atlas is a source-linked lookup, not a coordinate map. The reviewed local sources contain no verified coordinates, routes, or boundaries. A complete Season 4 access map and a confirmed reuse license for the external viewer's geometry remain unavailable.
