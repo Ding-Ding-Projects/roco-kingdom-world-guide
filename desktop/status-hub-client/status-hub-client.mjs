@@ -782,7 +782,9 @@ export class StatusHubClient {
   async pollAtCheckpoint(partial = {}) {
     try {
       const update = await this.update(partial);
+      if (!update.ok) return update;
       const replies = await this.pollReplies();
+      if (!replies.ok) return { ...replies, update };
       return ok({ update, replies });
     } catch (error) {
       return fail(error?.code || 'CLIENT', error?.message || 'The client could not poll the checkpoint.');

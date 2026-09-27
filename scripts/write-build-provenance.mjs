@@ -15,21 +15,26 @@ if (providedTime) {
   builtAt = new Date().toISOString();
 }
 
-const revision = process.env.GITHUB_SHA || (() => {
-  const result = spawnSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8", windowsHide: true });
+function gitOutput(args) {
+  const result = spawnSync("git", args, { cwd: root, encoding: "utf8", windowsHide: true });
   return result.status === 0 ? result.stdout.trim() : null;
-})();
-const sourceBranch = process.env.GITHUB_REF_NAME || (() => {
-  const result = spawnSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], { cwd: root, encoding: "utf8", windowsHide: true });
-  return result.status === 0 ? result.stdout.trim() : null;
-})();
+}
+
+const headRevision = gitOutput(["rev-parse", "--verify", "HEAD"]);
+const checkoutStatus = gitOutput(["status", "--porcelain", "--untracked-files=normal"]);
+const eventRevision = process.env.GITHUB_SHA || null;
+const sourceAvailable = Boolean(headRevision && checkoutStatus === "" && (!eventRevision || eventRevision === headRevision));
+const revision = sourceAvailable ? headRevision : null;
+const sourceBranch = sourceAvailable
+  ? process.env.GITHUB_REF_NAME || gitOutput(["rev-parse", "--abbrev-ref", "HEAD"])
+  : null;
 const provenance = {
   schemaVersion: 1,
   version: packageJson.version,
   builtAt,
   sourceRevision: revision,
   sourceBranch: sourceBranch && sourceBranch !== "HEAD" ? sourceBranch : null,
-  sourceState: process.env.GITHUB_SHA ? "clean-checkout" : "local-build",
+  sourceState: sourceAvailable ? (eventRevision ? "clean-checkout" : "local-build") : "unavailable",
   source: process.env.GITHUB_RUN_ID ? "GitHub Actions" : "local build process"
 };
 
