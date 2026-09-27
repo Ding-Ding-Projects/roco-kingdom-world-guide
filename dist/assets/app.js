@@ -62,9 +62,71 @@
     try { const url = new URL(value, location.href); return url.protocol === "https:" ? url.href : "#"; }
     catch { return "#"; }
   }
+  const BILINGUAL_START = "\uE000";
+  const BILINGUAL_MIDDLE = "\uE001";
+  const BILINGUAL_END = "\uE002";
+  function syncDocumentLanguage() {
+    document.documentElement.lang = state.lang === "zh" ? "zh-Hans" : state.lang === "both" ? "mul" : "en";
+  }
+  function localizeBilingualTextNode(node) {
+    const text = node.nodeValue || "";
+    const pattern = /\uE000([\s\S]*?)\uE001([\s\S]*?)\uE002/gu;
+    const fragment = document.createDocumentFragment();
+    let match;
+    let offset = 0;
+    let found = false;
+    while ((match = pattern.exec(text))) {
+      found = true;
+      if (match.index > offset) fragment.append(document.createTextNode(text.slice(offset, match.index)));
+      const english = document.createElement("span");
+      english.lang = "en";
+      english.textContent = match[1];
+      const chinese = document.createElement("span");
+      chinese.lang = "zh-Hans";
+      chinese.textContent = match[2];
+      fragment.append(english, document.createTextNode(" · "), chinese);
+      offset = pattern.lastIndex;
+    }
+    if (!found) return;
+    if (offset < text.length) fragment.append(document.createTextNode(text.slice(offset)));
+    node.replaceWith(fragment);
+  }
+  function localizeBilingualTree(root) {
+    if (!root) return;
+    if (root.nodeType === Node.TEXT_NODE) {
+      localizeBilingualTextNode(root);
+      return;
+    }
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    for (const node of textNodes) localizeBilingualTextNode(node);
+    const elements = root.nodeType === Node.ELEMENT_NODE ? [root, ...root.querySelectorAll("*")] : [...(root.querySelectorAll?.("*") || [])];
+    for (const element of elements) {
+      for (const name of ["aria-label", "title", "placeholder", "alt", "value"]) {
+        const value = element.getAttribute(name);
+        if (!value || !value.includes(BILINGUAL_START)) continue;
+        const plain = value.replace(/\uE000([\s\S]*?)\uE001([\s\S]*?)\uE002/gu, "$1 · $2");
+        element.setAttribute(name, plain);
+      }
+    }
+  }
+  function watchLocalizedContent() {
+    if (!document.body || typeof MutationObserver !== "function") return;
+    const observer = new MutationObserver(records => {
+      const roots = new Set();
+      for (const record of records) {
+        if (record.type === "attributes" || record.type === "characterData") roots.add(record.target);
+        else for (const node of record.addedNodes) roots.add(node);
+      }
+      for (const root of roots) localizeBilingualTree(root);
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["aria-label", "title", "placeholder", "alt", "value"], characterData: true, childList: true, subtree: true });
+    localizeBilingualTree(document.body);
+  }
   function local(en, zh) {
     if (state.lang === "zh") return zh || en;
-    if (state.lang === "both") return `${en} · ${zh || en}`;
+    if (state.lang === "both") return `${BILINGUAL_START}${en}${BILINGUAL_MIDDLE}${zh || en}${BILINGUAL_END}`;
     return en;
   }
   function renderBuildProvenance() {
@@ -180,6 +242,7 @@
   }
 
   function renderNav() {
+    syncDocumentLanguage();
     const nav = $("#primary-nav");
     if (!nav) return;
     nav.classList.add("nav-bottom");
@@ -194,6 +257,7 @@
     }
     nav.innerHTML = [...groups.entries()].map(([group, entries]) => `<div class="nav-group-label">${esc(local(group, group === "Atlas" ? "索引" : group === "Field notes" ? "实用笔记" : "工具"))}</div>${entries.map(item => `<button class="nav-item" type="button" data-route="${item.id}" ${route.page === item.id ? 'aria-current="page"' : ""}><span class="nav-icon" aria-hidden="true">${esc(item.icon)}</span><span>${esc(navTitle(item))}</span>${state.pinned.includes(item.id) ? '<span class="pin" aria-label="Pinned">◆</span>' : ""}</button>`).join("")}`).join("");
     renderNotificationBadge();
+    localizeBilingualTree(nav);
   }
 
   function sourceById(id) { return DB.sources?.find(item => item.id === id); }
@@ -220,13 +284,13 @@
     const article = DB.articles?.find(item => item.id === "current-events");
     return `<div class="view-content">
       <div class="section-heading"><div><span class="section-label">${esc(local("FIELD GUIDE / WORLD EDITION", "世界版实用指南"))}</span><h2>${esc(local("Welcome to the field desk.", "欢迎来到洛克世界资料站。"))}</h2><p>${esc(local("Search the sourced creature index, browse the habitat atlas, compare type matchups, or open a practical article. Each fact carries a source and review date.", "搜索有来源的精灵索引、浏览栖息地目录、比较属性克制，或打开实用文章。每项资料都会注明来源和核对日期。"))}</p></div><div class="section-actions"><button class="button-secondary" data-go="dex">${esc(local("Browse the full Dex", "浏览完整图鉴"))} <span>→</span></button></div></div>
-      <div class="status-banner"><span class="mark" aria-hidden="true">✦</span><div><strong>${esc(local("Independent reference · checked 25 September 2026.", "独立资料 · 核对日期：2026年9月25日。"))}</strong><p>${esc(local("Community data is labeled. Unverified catch odds, complete S4 geography, and image-only patch details are not guessed.", "社区资料会清楚标明。未核实的捕捉概率、完整S4地理资料和只出现在图片里的更新内容，不会靠估计补上。"))} <a href="#sources" data-go="sources">${esc(local("Read the research notes", "阅读资料核对说明"))}</a>.</p></div></div>
+      <div class="status-banner"><span class="mark" aria-hidden="true">✦</span><div><strong>${esc(local("Edition dated 25 September 2026; current event notices rechecked 27 September.", "本版日期为 2026 年 9 月 25 日；最新活动公告于 9 月 27 日复核。"))}</strong><p>${esc(local("Community data is labeled. Unverified catch odds, complete S4 geography, and image-only patch details are not guessed.", "社区资料会清楚标明。未核实的捕捉概率、完整S4地理资料和只出现在图片里的更新内容，不会靠估计补上。"))} <a href="#sources" data-go="sources">${esc(local("Read the research notes", "阅读资料核对说明"))}</a>.</p></div></div>
       <section class="intro-layout home-section" aria-label="${esc(local("Field guide shortcuts", "指南快捷入口"))}">
         <article class="atlas-card"><span class="card-kicker">${esc(local("WORLD ATLAS", "世界目录"))}</span><h2>${esc(local("Named places, habitat labels, and an honest map limit.", "地名、栖息地标签，以及清楚说明的地图限制。"))}</h2><p>${esc(local("Search the 43 original S3 marker labels, 57 habitat labels, and three handbook index areas. The local sources do not provide verified coordinates or route geometry.", "搜索43个S3原始地图标签、57个栖息地标签和三个图鉴索引区域。本地资料没有已核实的坐标或路线几何数据。"))}</p><div class="section-actions"><button class="button-secondary" data-go="map">${esc(local("Open the location and habitat index", "打开地点与栖息地索引"))} <span>↗</span></button><a class="button-quiet" href="${esc(safeUrl(DB.locations?.externalMap || "https://rocokingdomworld.org/maps/"))}" target="_blank" rel="noopener noreferrer">${esc(local("Open the external coordinate map", "打开外部坐标地图"))} ↗</a></div></article>
         <div class="quick-stack"><div class="quick-stat"><strong>${statusCount(DB.creatures?.recordCount)}</strong><span>${esc(local("listed form rows", "条形态记录"))}</span><small>${esc(local("Across", "分属"))} ${statusCount(DB.creatures?.uniqueCatalogNumbers)} ${esc(local("catalog numbers", "个目录编号"))}</small></div><div class="quick-stat"><strong>${statusCount(Object.keys(DB.typeChart?.records || {}).length)}</strong><span>${esc(local("type combinations", "种属性组合"))}</span><small>${esc(local("Indexed from the dated snapshot", "来自注明日期的资料快照"))}</small></div><div class="quick-stat"><strong>${statusCount(DB.articles?.length)}</strong><span>${esc(local("field articles", "篇实用文章"))}</span><small>${esc(local("English and written Cantonese", "英文与书面粤语"))}</small></div></div>
       </section>
       <section class="home-section"><div class="inline-title"><h2>${esc(local("Start with a useful route", "从实用入口开始"))}</h2><a href="#guides" data-go="guides">${esc(local("All articles", "全部文章"))} ↗</a></div><div class="grid grid-3"><article class="card"><div class="card-body"><span class="card-kicker">${esc(local("625 FORM ROWS", "625条形态记录"))}</span><button class="card-link" type="button" data-go="dex"><span><h3>${esc(local("Find a creature", "查找精灵"))}</h3><p>${esc(local("Search catalog fields, handbook tasks, complete listed skills, evolutions, and habitat notes.", "搜索目录资料、图鉴任务、已收录技能、进化路线和栖息地说明。"))}</p></span><span class="arrow" aria-hidden="true">↗</span></button></div></article><article class="card"><div class="card-body"><span class="card-kicker">${esc(local("120 INDEXED COMBINATIONS", "120种已索引组合"))}</span><button class="card-link" type="button" data-go="types"><span><h3>${esc(local("Compare type matchups", "比较属性克制"))}</h3><p>${esc(local("Search listed weaknesses and resistances. The table is a reference, not a damage calculator.", "搜索已列出的弱点与抵抗。本表供查询，不是伤害计算器。"))}</p></span><span class="arrow" aria-hidden="true">↗</span></button></div></article>${articleCard(DB.articles.find(item => item.id === "starter-route") || DB.articles[0])}</div></section>
-      <section class="home-section"><div class="inline-title"><h2>${esc(local("On the noticeboard", "公告栏"))}</h2><button class="button-quiet" data-go="article:current-events">${esc(local("Open event desk", "打开活动台"))} ↗</button></div><div class="panel"><div class="card-label-row"><span class="badge official">${esc(local("Official notices", "官方公告"))}</span><span class="update-chip">${esc(local("As checked", "核对日期"))} 24 Sep 2026</span></div><h3 style="margin:.65rem 0 .35rem">${esc(local("Cocoa Harvest Festival announced for 25 September", "可可丰收节定于9月25日开始"))}</h3><p class="copy-block">${esc(local("The official forum index advertises up to 480 free Cocoa Fruit Balls. The extracted notice did not establish the end date or every reward condition, so check the live event panel before planning around that total.", "官方论坛索引称活动期间最多可取得480个可可果球。提取到的公告文字未确认结束日期和所有奖励条件，计划前请查看游戏内活动页面。"))}</p>${sourceChips(article?.sections.find(section => section.heading.startsWith("Cocoa"))?.sources || ["cocoa"])}</div></section>
+      <section class="home-section"><div class="inline-title"><h2>${esc(local("On the noticeboard", "公告栏"))}</h2><button class="button-quiet" data-go="article:current-events">${esc(local("Open event desk", "打开活动台"))} ↗</button></div><div class="panel"><div class="card-label-row"><span class="badge official">${esc(local("Official notices", "官方公告"))}</span><span class="update-chip">${esc(local("Cocoa last read", "可可公告最后核对"))} 26 Sep 2026</span></div><h3 style="margin:.65rem 0 .35rem">${esc(local("Cocoa Harvest Festival announced for 25 September", "可可丰收节定于9月25日开始"))}</h3><p class="copy-block">${esc(local("The official preview advertises up to 480 free Cocoa Fruit Balls. Its readable text does not establish the end date or every reward condition, so check the live event panel before planning around that total.", "官方预告称活动期间最多可取得480个可可果球。可读取的公告文字未确认结束日期和所有奖励条件，计划前请查看游戏内活动页面。"))}</p>${sourceChips(article?.sections.find(section => section.heading.startsWith("Cocoa"))?.sources || ["cocoa"])}</div></section>
       <section class="home-section"><div class="inline-title"><h2>${esc(local("One small field note", "一条小提示"))}</h2><button class="button-secondary button-small" data-random-tip>${esc(local("Surprise me", "给我一条随机提示"))} ✦</button></div><div id="random-tip" class="panel"><p class="copy-block">${esc(local("A form row is not necessarily a separate base creature. This Dex reports the source's row count and catalog-number count separately.", "一条形态记录未必代表一种不同的基础精灵。本图鉴分别列出来源记录行数和目录编号数。"))}</p><div class="field-actions"><a href="#article/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Why the indexes differ", "点解几个索引数量唔同"))} ↗</a></div></div></section>
     </div>`;
   }
@@ -765,6 +829,7 @@
   }
 
   function renderApp() {
+    syncDocumentLanguage();
     const view = $("#app-view");
     renderBuildProvenance();
     if (!view || !DB.creatures || !DB.locations || !DB.articles || !DB.sources) return;
@@ -774,6 +839,7 @@
     view.innerHTML = `${content}${locked ? `<div class="lock-screen"><div><span class="section-label">${esc(state.focusLabel || "Field school")}</span><h2>${esc(local("Take a breath, then continue.", "抖擻精神，再慢慢睇。"))}</h2><p>This is a local visual mask, not account security. Any visitor can remove it.</p><button class="button" data-unlock-page="${route.page}">Show this page</button></div></div>` : ""}`;
     if (state.focusMode) $$(".view-content", view).forEach(el => el.classList.add("focus-blurred"));
     document.title = `${route.page === "home" ? "Overview" : NAV.find(item => item.id === route.page)?.en || "Guide"} · Roco Kingdom: World`;
+    localizeBilingualTree(view);
   }
 
   function safeSearchAll(query) {
@@ -1306,5 +1372,7 @@
   }
   window.addEventListener("hashchange", syncRouteFromLocation);
   window.addEventListener("popstate", syncRouteFromLocation);
+  syncDocumentLanguage();
+  watchLocalizedContent();
   boot();
 })();

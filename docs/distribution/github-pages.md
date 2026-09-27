@@ -3,8 +3,9 @@
 ## Behavior
 
 The intended public guide address is
-<https://ding-ding-projects.github.io/roco-kingdom-world-guide/>. GitHub Pages publishes the
-contents of `dist/` using the Actions deployment source after that source is enabled. The guide uses relative URLs for its
+<https://ding-ding-projects.github.io/roco-kingdom-world-guide/>. As of 2026-09-27, the public
+repository has no Pages configuration and this address is not yet verified as live. Once enabled,
+GitHub Pages publishes the contents of `dist/` using the Actions deployment source. The guide uses relative URLs for its
 JavaScript, CSS, icon, and JSON data, so it works below the project path instead of assuming a
 custom-domain root. `.nojekyll` keeps underscore-prefixed files available to the static host.
 

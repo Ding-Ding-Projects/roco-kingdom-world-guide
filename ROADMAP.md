@@ -37,3 +37,11 @@
 - [ ] Enable GitHub Pages with the Actions source, push the completed source to `main`, and verify the live page plus its required same-origin data and assets.
 - [ ] Capture the current built page and desktop companion through the approved headless route. The route is unavailable in this session; the older narrow-view captures do not verify these changes.
 - [ ] Complete keyboard, accessibility, language, theme, and supported-scale review on the current built surfaces.
+
+## 2026-09-27 delivery status
+
+- [ ] Configure the repository's Pages source for the Actions deployment and publish the `dist/` edition to `https://ding-ding-projects.github.io/roco-kingdom-world-guide/`. The Pages API currently returns HTTP 404 and the repository homepage field is empty.
+- [ ] Build a fresh Squirrel.Windows installer package from the final main source and verify its names, sizes, hashes, and source provenance. Earlier local output is stale diagnostic material.
+- [ ] Publish a release only after its required reviewed image catalog is available; no qualifying tracked image catalog was found, so no release is claimed.
+- [ ] Capture the current browser and desktop surfaces with the approved headless route. That route is unavailable in this session, so existing captures do not verify these changes.
+- [ ] Finish current-source interaction, accessibility, language, theme, and supported-scale review. No tests were run for this task.

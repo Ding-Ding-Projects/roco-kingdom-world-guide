@@ -82,3 +82,37 @@ design remains the implementation source; no design prototype or parity result i
 The GitHub Pages and offline desktop delivery workflow is tracked in
 [`docs/distribution/README.md`](docs/distribution/README.md). Status-sharing scope and failure
 handling are in [`docs/tools/status-reporting.md`](docs/tools/status-reporting.md).
+
+## GitHub Pages and desktop companion update, 2026-09-27
+
+The current delivery work is on `codex/roco-pages-guide` at baseline source SHA
+`eaefae5715fc1a768b920c365037142ad21b9391`; the changes below are currently local and have no
+new source SHA yet. The intended GitHub Pages address is
+`https://ding-ding-projects.github.io/roco-kingdom-world-guide/`, but the repository has
+`has_pages: false`, the Pages API returns HTTP 404, no deployment run exists, and the homepage
+field is empty. The address is therefore planned, not live or verified.
+
+The current source changes cover `.github/workflows/pages.yml`,
+`desktop/status-hub-client/status-hub-client.mjs`, `dist/assets/app.js`,
+`dist/data/articles.json`, `dist/data/sources.json`, `dist/index.html`, `README.md`,
+`ROADMAP.md`, and the current-season and distribution articles. They pin the deployment actions,
+keep a missing desktop upload visible as a failed run, require HTTPS outside strict loopback for
+Status Hub connections, reject redirects on health and authenticated calls, render bilingual
+strings with language spans and update the document language, and distinguish source-specific
+review dates. The weekend and September 25 Flower Seed notices were rechecked on 2026-09-27;
+the Cocoa preview was last read on 2026-09-26. Event time zones, shiny odds, and unreadable or
+unstated reward details remain unknown.
+
+No test suite or new capture was run for these changes. The static build and desktop package
+have not yet been rebuilt from the final source. The cheap Lowlevel headless capture route and
+Material Designer handoff were unavailable. The historical public Sites address returned a TLS
+handshake error in the latest reachability probe, so its prior version-3 verification is not a
+current reachability claim.
+
+GitHub Pages setup and publication, current built-surface evidence, a fresh desktop package, and
+release publication remain open. Release publication is additionally blocked by the required
+reviewed image catalog not being present in the repository; no image will be invented. GitHub issue
+`#3` remains open. The wiki setting is enabled, but its Git endpoint returned `Repository not found`.
+The `gh` CLI has no wiki-content command, so no page was created. The Status Hub
+configuration is absent, so the local scratchpad remains the only live status surface and is not
+mobile-accessible.

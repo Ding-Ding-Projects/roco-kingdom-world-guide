@@ -125,6 +125,15 @@ function boundedId(value, max, warnings, field, fallback = '') {
 function ok(data = {}) { return { ok: true, ...data }; }
 function fail(code, error, extra = {}) { return { ok: false, code, error, ...extra }; }
 
+function isLoopbackHostname(hostname) {
+  const host = String(hostname || '').toLowerCase();
+  if (host === 'localhost' || host === '[::1]' || host === '::1') return true;
+  const octets = host.split('.');
+  return octets.length === 4
+    && octets[0] === '127'
+    && octets.every(part => /^(?:0|[1-9]\d{0,2})$/.test(part) && Number(part) <= 255);
+}
+
 function normalizeBaseUrl(value) {
   if (typeof value !== 'string') return '';
   const raw = value.trim();
@@ -132,6 +141,7 @@ function normalizeBaseUrl(value) {
   try {
     const parsed = new URL(raw);
     if (!['http:', 'https:'].includes(parsed.protocol) || parsed.username || parsed.password || parsed.search || parsed.hash) return '';
+    if (parsed.protocol === 'http:' && !isLoopbackHostname(parsed.hostname)) return '';
     return parsed.href.replace(/\/+$/, '');
   } catch {
     return '';
@@ -443,11 +453,11 @@ export async function resolveBaseUrl(options = {}) {
   const fetchImpl = typeof source.fetchImpl === 'function' ? source.fetchImpl : fetch;
   const timeoutMs = source.timeoutMs ?? DEFAULTS.timeoutMs;
   const candidate = normalizeBaseUrl(baseUrl);
-  if (!candidate) return fail('INVALID_BASE_URL', 'The hub base URL must be an http(s) URL without embedded credentials.', { baseUrl: '' });
+  if (!candidate) return fail('INVALID_BASE_URL', 'The hub base URL must use HTTPS, except for strict loopback HTTP, and contain no embedded credentials, query, or fragment.', { baseUrl: '' });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetchImpl(`${candidate}${PROTOCOL.HEALTH_PATH}`, { signal: controller.signal, headers: { accept: 'application/json' } });
+    const response = await fetchImpl(`${candidate}${PROTOCOL.HEALTH_PATH}`, { signal: controller.signal, redirect: 'error', headers: { accept: 'application/json' } });
     const body = await readBoundedResponse(response, LIMITS.MAX_RESPONSE_BYTES);
     if (!body.ok) return fail(body.tooLarge ? 'RESPONSE_TOO_LARGE' : 'HEALTH_FAILED', body.tooLarge ? 'The hub health response exceeded the bounded size.' : body.error || `The hub health route answered HTTP ${response.status}.`, { baseUrl: candidate, status: response.status });
     if (!response.ok) return fail('HEALTH_FAILED', `The hub health route answered HTTP ${response.status}.`, { baseUrl: candidate, status: response.status });
@@ -594,6 +604,7 @@ export class StatusHubClient {
         const response = await this.#options.fetchImpl(`${this.#options.baseUrl}${path}`, {
           method,
           signal: controller.signal,
+          redirect: 'error',
           headers: {
             accept: 'application/json',
             [PROTOCOL.INGEST_TOKEN_HEADER]: this.#options.ingestToken,
