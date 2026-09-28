@@ -43,8 +43,11 @@ claim is made.
 
 ## Verification
 
-Build the package with the repository wrapper, then record its source revision, file names, byte
-sizes, and SHA-256 values. Open the release asset links without authentication and verify that
-each downloaded file matches the uploaded hash. This checks package delivery, not installation,
-runtime behavior, update execution, or visual layout. No installer interaction or current UI
-capture has been completed for this delivery task.
+Workflow run
+<https://github.com/Ding-Ding-Projects/roco-kingdom-world-guide/actions/runs/36380472795>
+successfully built the Squirrel.Windows package from source commit
+`6cc57241bb139e2dcbfc705171eb88ba4c0667ba`. The generated package is named
+`roco-kingdom-world-guide-desktop-6cc57241bb139e2dcbfc705171eb88ba4c0667ba`. No GitHub release
+has been published, so downloadable release assets are not available yet. A successful package
+job verifies package creation, not installation, runtime behavior, update execution, or visual
+layout. No installer interaction or current UI capture has been completed for this delivery task.

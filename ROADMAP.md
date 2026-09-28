@@ -32,13 +32,26 @@
 ## GitHub Pages and desktop distribution
 
 - [ ] Complete interaction and accessibility review of the desktop-only, explicit opt-in Status Hub surface. The implementation and feature article are in place; the current built surface has no capture or interaction evidence.
-- [ ] Rebuild and verify the Squirrel.Windows installer from the clean task source. The lockfile and pinned toolchain are in place, while the only local package came from uncommitted source and is diagnostic only.
+- [x] Build the Squirrel.Windows package from `main` source commit `6cc57241bb139e2dcbfc705171eb88ba4c0667ba`; workflow run `36380472795` succeeded. This verifies package creation, not installation or runtime behavior.
 - [ ] Publish a unique non-draft desktop release with the installer, update package, and update manifest; verify every asset is downloadable.
-- [ ] Enable GitHub Pages with the Actions source, push the completed source to `main`, and verify the live page plus its required same-origin data and assets.
+- [x] Enable GitHub Pages with the Actions source, push the completed source to `main`, and verify the live page plus its required same-origin data and assets.
 - [ ] Capture the current built page and desktop companion through the approved headless route. The route is unavailable in this session; the older narrow-view captures do not verify these changes.
 - [ ] Complete keyboard, accessibility, language, theme, and supported-scale review on the current built surfaces.
 
-## 2026-09-27 delivery status
+## 2026-09-28 verified delivery
+
+- [x] Deploy the guide from `main` source commit `6cc57241bb139e2dcbfc705171eb88ba4c0667ba`; Pages job `publish-pages` succeeded in [workflow run 36380472795](https://github.com/Ding-Ding-Projects/roco-kingdom-world-guide/actions/runs/36380472795).
+- [x] Set the repository homepage to `https://ding-ding-projects.github.io/roco-kingdom-world-guide/` and verify the public address with unauthenticated HTTP requests.
+- [x] Verify HTTP 200 responses for `/`, `/assets/app.js`, `/assets/site.css`, and all eight `/data/*.json` resources. These requests verify file delivery only.
+- [x] Build the desktop package from the same source commit; `desktop-package` succeeded in workflow run `36380472795`. No installer launch, installation, or runtime verification is claimed.
+- [ ] Review and verify the historical-capture gallery preserved on `codex/roco-public-gallery` at commit `9b93d9edb0541134e31ebd54ee1e2b9e6835cd6e`, then integrate and deploy it only after the current UI and content checks pass.
+- [ ] Capture and inspect the current deployed UI through the approved headless route. The route is unavailable in this session; existing images are historical captures from source commit `bf90e1fd30e1bec271620479e03d95c353646633`.
+- [ ] Complete keyboard and accessibility review and the supported language, theme, and scale matrix on the current built surfaces.
+- [ ] Publish a unique non-draft desktop release with downloadable installer, update package, and update manifest.
+
+## Historical 2026-09-27 delivery snapshot
+
+The following unchecked items record the state on 2026-09-27 and are superseded where the 2026-09-28 verified delivery above says otherwise.
 
 - [ ] Configure the repository's Pages source for the Actions deployment and publish the `dist/` edition to `https://ding-ding-projects.github.io/roco-kingdom-world-guide/`. The Pages API currently returns HTTP 404 and the repository homepage field is empty.
 - [ ] Build a fresh Squirrel.Windows installer package from the final main source and verify its names, sizes, hashes, and source provenance. Earlier local output is stale diagnostic material.

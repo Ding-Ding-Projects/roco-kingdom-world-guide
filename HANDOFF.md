@@ -4,6 +4,20 @@
 
 Deliver a public Roco Kingdom: World guide with a map index, practical articles, and a detailed searchable creature Dex.
 
+## Current delivery state, 2026-09-28
+
+- The live GitHub Pages address is <https://ding-ding-projects.github.io/roco-kingdom-world-guide/>. The repository homepage field points to this address.
+- Source revision `6cc57241bb139e2dcbfc705171eb88ba4c0667ba` is on `main`. Workflow run [36380472795](https://github.com/Ding-Ding-Projects/roco-kingdom-world-guide/actions/runs/36380472795) completed successfully for both `publish-pages` and `desktop-package`.
+- Unauthenticated requests to `/`, `/assets/app.js`, `/assets/site.css`, and all eight `/data/*.json` resources returned HTTP 200. This verifies file delivery only. It does not verify browser rendering or interaction.
+- The workflow created the desktop Squirrel.Windows package from the same source revision. No desktop release has been published, and installation or runtime behavior has not been verified.
+- The historical-capture gallery change is preserved on `codex/roco-public-gallery` at commit `9b93d9edb0541134e31ebd54ee1e2b9e6835cd6e`, based on the deployed `main` revision above. It carries two unchanged, visually reviewed historical images from source revision `bf90e1fd30e1bec271620479e03d95c353646633`. The gallery change has not been integrated, built, or deployed; its runtime behavior remains unverified. The 320 × 568 capture time is unavailable. The 390 × 844 capture time is `2026-09-25T06:00:25.889Z`.
+- The UI repair change remains preserved on `codex/roco-ui-repairs` at commit `7467e61563cf20e567e97e29d166c8435592ad28`. It has not been integrated or verified.
+- The approved headless capture route was unavailable. No current-source screenshot exists. Keyboard use, accessibility, desktop layout, and the complete language, theme, and scale matrix remain unverified. No test suite was run for this delivery follow-up.
+- GitHub issue `#3` remains open because its completion comment requires a fresh capture of the current built surface. The capture route was unavailable, so no comment was added there.
+- The Status Hub enrollment route was unavailable in this session. No live Status Hub record was created.
+- This handoff update covers five documentation files: this file, `README.md`, `ROADMAP.md`, and the two distribution guides.
+- During recovery, agent-created Discussion `#4` comment `18634439` was replaced in place after a public-language scan found an invalid term. The edited comment was read back at `2026-09-28T05:56:26Z`; a complete scan of the repository's two issues, their three comments, two Discussions with six comments, releases, and pull requests found no remaining vocabulary matches. The tracked-file and commit-message scan also found none.
+
 ## Implemented locally
 
 - Added a bilingual roster comparison article and separately dated source records for the edition snapshot, the current BiliWiki result count, and the independent Roco Kingdom World index. The four local form keys `047-02`, `048-02`, `048-04`, and `162-02` remain in the data; unmatched identities are not presented as missing creatures.
@@ -25,7 +39,7 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 - Habitat and location labels do not provide local coordinates, route geometry, unlock order, spawn rates, or a complete current-season atlas. The external map is linked because reuse terms for its marker set were not identified.
 - The training sample is S3 community submission data and is not current official advice.
 
-## Verification and publication state
+## Historical verification and publication state before 2026-09-28
 
 - Public version 3 was saved from source commit `4fd2a35e94683079f98fec3cd7d99a9085615707` and deployed successfully at [Roco Kingdom: World Atlas & Dex](https://roco-kingdom-world-field-atlas.dewlook123.chatgpt.site). The public audience was left unchanged. The stored archive reports SHA-256 `sha256:8a8253957ed26f3c9c371950d41b946b7fe09e457c5869dc95cabe3993f6e663` and 5,304,320 bytes.
 - The bundled Sites source workflow read the configured `main` ref back at `4fd2a35e94683079f98fec3cd7d99a9085615707`, matching the source revision used for version 3. The production deployment returned `succeeded` for version 3.
@@ -38,7 +52,7 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 - No test suite was run for the latest source change. `git diff --check` reported no whitespace issue for the source commits. The fresh narrow review did not evaluate keyboard navigation, screen-reader behavior, desktop rendering, or the complete language, theme, and scale matrix.
 - Historical version 1 baseline only: source SHA `ecfc27f8ca5182465df891a0f516278f9af9fb7f` was verified before saving. At that baseline, unauthenticated GET requests returned HTTP 200 for `/`, the public assets, and all seven `/data/*.json` files; every JSON response parsed successfully without credentials or cookies.
 
-## Current responsive header adjustment
+## Historical responsive header adjustment
 
 - The compact-header CSS hides the repeated secondary wordmark up to 520 px, keeps the primary label on one line, and reduces the gaps around the brand and utility controls. The edition label remains in the context row. The global search placeholder is now shorter so it fits the narrow search field.
 - The built page was captured and visually inspected at 320×568 and 390×844, English, light theme, and 100% scale. Both pages measured exact body widths of 320/320 and 390/390 with no horizontal overflow. The global search field measured 141/141 and 211/211 respectively. Both accessibility-tree summaries reported zero unnamed interactive controls. No keyboard path was verified.
@@ -54,7 +68,7 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 2. Add coordinates and route geometry only when a reusable source provides verified data and reuse terms.
 3. Refresh time-sensitive season facts and the pinned community snapshot after material updates.
 
-## GitHub Pages and desktop companion task
+## Historical GitHub Pages and desktop companion task before 2026-09-28
 
 The active delivery work is on `codex/roco-pages-guide`. The planned public address is
 `https://ding-ding-projects.github.io/roco-kingdom-world-guide/`; the source workflow and
@@ -83,7 +97,7 @@ The GitHub Pages and offline desktop delivery workflow is tracked in
 [`docs/distribution/README.md`](docs/distribution/README.md). Status-sharing scope and failure
 handling are in [`docs/tools/status-reporting.md`](docs/tools/status-reporting.md).
 
-## GitHub Pages and desktop companion update, 2026-09-27
+## Historical GitHub Pages and desktop companion update, 2026-09-27
 
 The current delivery work is on `codex/roco-pages-guide` at baseline source SHA
 `eaefae5715fc1a768b920c365037142ad21b9391`; the changes below are currently local and have no

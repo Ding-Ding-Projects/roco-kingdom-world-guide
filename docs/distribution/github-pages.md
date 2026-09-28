@@ -2,12 +2,12 @@
 
 ## Behavior
 
-The intended public guide address is
-<https://ding-ding-projects.github.io/roco-kingdom-world-guide/>. As of 2026-09-27, the public
-repository has no Pages configuration and this address is not yet verified as live. Once enabled,
-GitHub Pages publishes the contents of `dist/` using the Actions deployment source. The guide uses relative URLs for its
-JavaScript, CSS, icon, and JSON data, so it works below the project path instead of assuming a
-custom-domain root. `.nojekyll` keeps underscore-prefixed files available to the static host.
+The live public guide is
+<https://ding-ding-projects.github.io/roco-kingdom-world-guide/>. GitHub Pages publishes the
+contents of `dist/` using the Actions deployment source from `main`. The guide uses relative URLs
+for its JavaScript, CSS, icon, and JSON data, so it works below the project path instead of
+assuming a custom-domain root. `.nojekyll` keeps underscore-prefixed files available to the static
+host.
 
 The workflow in `.github/workflows/pages.yml` builds the static edition from `main`. It generates
 the favicon and a small `data/build-info.json` record containing the version, build time, source
@@ -33,8 +33,13 @@ third-party scripts. The hosting provider can add infrastructure scripts outside
 
 ## Verification
 
-After a source change reaches `main`, verify the completed Pages workflow and request the public
-page, stylesheet, script, icon, build record, and every declared JSON file without credentials.
-Confirm that each response has the expected content type and that each JSON response parses.
-These requests verify delivery, not script execution, layout, keyboard use, or accessibility.
-Current built-surface capture and interaction review remain separate requirements.
+For source commit `6cc57241bb139e2dcbfc705171eb88ba4c0667ba`, workflow run
+<https://github.com/Ding-Ding-Projects/roco-kingdom-world-guide/actions/runs/36380472795>
+completed successfully, including the `publish-pages` job. Unauthenticated requests to `/`,
+`/assets/app.js`, `/assets/site.css`, and all eight `/data/*.json` resources returned HTTP 200.
+The repository homepage points to the live address. These requests verify delivery, not script
+execution, layout, keyboard use, or accessibility. The historical captures under
+`evidence/responsive-header/` were taken from source commit
+`bf90e1fd30e1bec271620479e03d95c353646633` and do not verify the current deployment. Current
+built-surface capture and interaction review remain separate requirements; the approved headless
+capture route was unavailable during the latest delivery work.

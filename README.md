@@ -16,11 +16,9 @@ The current event desk rechecked the September 25 weekend and Flower Seed notice
 
 ## Open the guide
 
-- **GitHub Pages status:** `https://ding-ding-projects.github.io/roco-kingdom-world-guide/` is the planned address. Pages is not configured yet, so the address is not live or verified.
-
-- **Planned public edition:** the guide will be available at `https://ding-ding-projects.github.io/roco-kingdom-world-guide/` after the first verified Pages deployment.
+- **Live public edition:** [Open the Roco Kingdom guide](https://ding-ding-projects.github.io/roco-kingdom-world-guide/). GitHub Pages is configured to deploy `dist/` from `main`. The production deployment and desktop package jobs both succeeded for source commit `6cc57241bb139e2dcbfc705171eb88ba4c0667ba` in [workflow run 36380472795](https://github.com/Ding-Ding-Projects/roco-kingdom-world-guide/actions/runs/36380472795). Unauthenticated HTTP requests to the page, JavaScript, stylesheet, and all eight data JSON files returned HTTP 200. This confirms delivery of those files, not current browser rendering or interaction.
 - **Local browser copy:** the static entry point is [`dist/index.html`](dist/index.html). Serve the `dist/` directory over HTTP so its JSON data can be fetched from the same origin. Opening the file directly with a `file:` URL is not supported by browser fetch rules. No package installation or build step is required.
-- **Offline desktop companion:** a Windows installer and update package will be linked here after a verified desktop release. It bundles the same `dist/` guide and keeps working without a network connection. Optional status reporting stays off until enabled by the user.
+- **Offline desktop companion:** the workflow built the Squirrel.Windows package from the same source commit. No desktop release has been published yet, so installer and update downloads are not linked here. The companion bundles the same `dist/` guide and keeps working without a network connection. Optional status reporting stays off until enabled by the user.
 
 ## Responsive review
 
