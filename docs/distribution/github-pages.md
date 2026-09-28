@@ -18,6 +18,7 @@ The same workflow independently builds the desktop package on a Windows runner.
 
 The browser edition has no account, server-side profile, analytics, or Status Hub connection.
 Search, local preferences, saved records, and reading history remain in the current browser.
+The historical capture gallery is part of the existing guide shell and serves two unchanged, reviewed images. Its captions identify their earlier source revision and date; the images do not establish current behavior.
 Every guide request uses same-origin project assets; there are no remote fonts or project-owned
 third-party scripts. The hosting provider can add infrastructure scripts outside this source.
 
