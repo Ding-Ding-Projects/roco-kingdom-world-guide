@@ -317,10 +317,10 @@
     "category": "Events",
     "title": "Event desk: September 2026 notices",
     "titleZh": "活动台：2026 年 9 月公告",
-    "summary": "Official Cocoa, Spiny Wheel, and Flower Seed notices checked September 26; unknown claim details, time zones, and encounter odds stay explicit.",
-    "summaryZh": "9 月 26 日核对可可丰收节、刺轮砣及命定花种官方公告；领取细节、时区同遭遇机率继续标示未知。",
-    "updatedOn": "2026-09-26",
-    "confidence": "Official Cocoa and Spiny Wheel notices checked 2026-09-26; current live status and unspecified details remain unverified",
+    "summary": "The Cocoa preview was last read on September 26; the weekend and September 25 Flower Seed notices were rechecked September 27. Missing time zones, live status, and encounter odds stay explicit.",
+    "summaryZh": "可可预告最后于 9 月 26 日核对；周末活动及 9 月 25 日命定花种公告于 9 月 27 日复核。时区、实时状态同遭遇机率继续标示未知。",
+    "updatedOn": "2026-09-27",
+    "confidence": "Cocoa preview last read 2026-09-26; weekend and September 25 Flower Seed notices rechecked 2026-09-27; current live status and unspecified details remain unverified",
     "sections": [
       {
         "heading": "Cocoa Harvest Festival",
@@ -334,26 +334,26 @@
       {
         "heading": "Weekend appearance: 刺轮砣",
         "headingZh": "周末大量出没：刺轮砣",
-        "text": "The official weekend notice checked 2026-09-26 lists the event from 2026-09-25 04:00 through 2026-09-28 04:00. It gives no time zone. Eligibility is Magic Level 20 and the rank 见习魔法生. The notice says the 刺轮砣 family appears in large numbers and that players may encounter two shiny appearances, 上弦 and 下弦. “May” is not a guarantee; the notice gives no odds. Check the in-game timer and event panel. Source: https://www.taptap.cn/moment/852303601920379188.",
-        "textZh": "官方周末公告于 2026-09-26 核对，列出活动时间为 2026-09-25 04:00 至 2026-09-28 04:00，但没有注明时区。参加条件为魔法等级 20 级并晋升「见习魔法生」。公告称刺轮砣家族会大量出现，运气好时「有可能」遇到上弦、下弦两种异色形态。「有可能」不等于保证；公告亦没有提供机率。请以游戏内倒数和活动页面为准。来源：https://www.taptap.cn/moment/852303601920379188。",
+        "text": "The official weekend notice was rechecked 2026-09-27. It lists 2026-09-25 04:00 through 2026-09-28 04:00 and gives no time zone. Eligibility is Magic Level 20 and rank 见习魔法生. The 刺轮砣 family appears in large numbers; 上弦 and 下弦 shiny appearances may be encountered. “May” is not a guarantee, and the notice gives no odds. Check the in-game timer and event panel.",
+        "textZh": "官方周末公告于 2026-09-27 复核，列出活动时间为 2026-09-25 04:00 至 2026-09-28 04:00，但没有注明时区。条件为魔法等级 20 级并晋升「见习魔法生」。公告称刺轮砣家族会大量出现，并可能遇到上弦、下弦异色形态。「可能」不等于保证，公告没有提供机率。请以游戏内倒数和活动页面为准。",
         "sources": [
-          "official-taptap"
+          "weekend-spiny-wheel-2026-09-25"
         ]
       },
       {
         "heading": "Destined Flower Seed: September 25 official notice",
         "headingZh": "命定花种：9 月 25 日官方公告",
-        "text": "The official notice checked 2026-09-26 lists the phase from 2026-09-25 04:00 through 2026-10-09 04:00. It requires Magic Level 40 and Spirit Scholar rank, names 星云旅者（胆小）, 玳塔（沉默）, 小皮球（胆小）, and 友爱星飞（沉默）, and lists 400 分光水晶 and 灵魂环印 among first-clear rewards. It also describes the solo-medal conditions: one creature, one real player, no creature changes, no exhaustion, and a win. The notice does not state a time zone. Verify the live challenge panel before relying on access or reset timing. Source: https://www.taptap.cn/moment/852563304999027834?group_id=228326.",
-        "textZh": "官方公告于 2026-09-26 核对，列出本期时间为 2026-09-25 04:00 至 2026-10-09 04:00。条件为魔法等级 40 级及精灵学士段位；名单包括星云旅者（胆小）、玳塔（沉默）、小皮球（胆小）和友爱星飞（沉默）；首通奖励包括 400 个分光水晶和灵魂环印等。公告亦列出单人奖牌条件：一只精灵、一位真人玩家、不更换精灵、不力竭并获胜。公告没有注明时区。请先核对游戏内挑战页面，再按实际条件和倒数安排。来源：https://www.taptap.cn/moment/852563304999027834?group_id=228326。",
+        "text": "The official September 25 notice was rechecked 2026-09-27. It lists 2026-09-25 04:00 through 2026-10-09 04:00, Magic Level 40, and Spirit Scholar rank. It names 星云旅者（胆小）, 玳塔（沉默）, 小皮球（胆小）, and 友爱星飞（沉默）, with 400 分光水晶 and 灵魂环印 among first-clear rewards. The solo-medal conditions require one creature, one real player, no creature changes, no exhaustion, and a win. The notice gives no time zone. Check the live challenge panel before relying on access or reset timing.",
+        "textZh": "9 月 25 日官方公告于 2026-09-27 复核，列出本期时间为 2026-09-25 04:00 至 2026-10-09 04:00，条件为魔法等级 40 级及精灵学士段位。名单包括星云旅者（胆小）、玳塔（沉默）、小皮球（胆小）和友爱星飞（沉默）；首通奖励包括 400 个分光水晶和灵魂环印等。单人奖牌条件为一只精灵、一位真人玩家、不更换精灵、不力竭并获胜。公告没有注明时区。请先核对游戏内挑战页面，再按实际条件和倒数安排。",
         "sources": [
-          "official-taptap"
+          "destined-flower-seed-2026-09-25"
         ]
       },
       {
         "heading": "Pika Photography Commission",
         "headingZh": "皮卡摄影委托",
-        "text": "The official notice lists this commission from the September 10 update through 2026-09-25 04:00. The extracted post does not state a time zone. Because the listed cutoff falls on this edition date, check the in-game timer instead of assuming the task is open or closed. This notice does not confirm a later window.",
-        "textZh": "官方公告列出本期委托由 9 月 10 日更新完成后开放，至 2026-09-25 04:00 截止。可读取的公告文字冇注明时区；截止时间正好落喺本版日期，请看游戏内倒数，唔好假设委托仍然开放或已经关闭。此公告亦冇确认下一期安排。",
+        "text": "The official notice lists this commission from the September 10 update through 2026-09-25 04:00. That listed cutoff had passed by this article's September 27 review. The extracted post does not state a time zone or confirm a later window. Check the in-game event panel for current availability.",
+        "textZh": "官方公告列出本期委托由 9 月 10 日更新完成后开放，至 2026-09-25 04:00 截止。到本文 9 月 27 日复核时，公告列出的截止日期已经过去。可读取的公告文字冇注明时区，亦冇确认下一期安排。请到游戏内活动页面核对目前安排。",
         "sources": [
           "pika-photo-window"
         ]

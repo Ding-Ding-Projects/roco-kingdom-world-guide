@@ -1,0 +1,8 @@
+node_modules/
+out/
+.tools/
+*.log
+dist/data/build-info.json
+dist/assets/favicon.ico
+desktop/assets/*.ico
+npm-debug.log*

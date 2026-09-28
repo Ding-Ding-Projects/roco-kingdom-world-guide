@@ -44,7 +44,7 @@
     "title": "Official Cocoa Harvest Festival preview",
     "kind": "Official TapTap post",
     "url": "https://www.taptap.cn/moment/849231723693606703",
-    "checkedOn": "2026-09-25",
+    "checkedOn": "2026-09-26",
     "scope": "Official preview announces a September 25 start, up to 480 free Cocoa Fruit Balls per player, and the Starfall encounter trigger when used to catch a creature during the event. The readable text does not state the end date or every reward condition."
   },
   {
@@ -54,6 +54,22 @@
     "url": "https://www.taptap.cn/moment/847120033397081827?group_id=228326",
     "checkedOn": "2026-09-25",
     "scope": "The September 10 official phase named 寂灭骨龙（固执）, 星星眼（沉默）, and 智辉章脑（胆小）; it stated Magic Level 40 and Spirit Scholar rank requirements, matching-creature and first-clear rewards including 400 分光水晶 and 灵魂环印, and a solo-medal condition. These are prior-phase details, not confirmation of the September 25 cycle."
+  },
+  {
+    "id": "weekend-spiny-wheel-2026-09-25",
+    "title": "Official weekend Spiny Wheel appearance notice",
+    "kind": "Official TapTap post",
+    "url": "https://www.taptap.cn/moment/852303601920379188",
+    "checkedOn": "2026-09-27",
+    "scope": "The official notice lists 2026-09-25 04:00 through 2026-09-28 04:00, Magic Level 20 and rank 见习魔法生, and possible 上弦 and 下弦 shiny appearances. It states no time zone or encounter odds; possible is not guaranteed."
+  },
+  {
+    "id": "destined-flower-seed-2026-09-25",
+    "title": "Official Destined Flower Seed notice, September 25 cycle",
+    "kind": "Official TapTap post",
+    "url": "https://www.taptap.cn/moment/852563304999027834?group_id=228326",
+    "checkedOn": "2026-09-27",
+    "scope": "The official notice lists 2026-09-25 04:00 through 2026-10-09 04:00, Magic Level 40 and Spirit Scholar rank, four named personality-specific creatures, first-clear rewards including 400 分光水晶 and 灵魂环印, and solo-medal conditions. It states no time zone."
   },
   {
     "id": "academy",
@@ -172,7 +188,7 @@
     "title": "Official Pika Photography Commission notice",
     "kind": "Official TapTap post",
     "url": "https://www.taptap.cn/moment/847117678085670466",
-    "checkedOn": "2026-09-25",
-    "scope": "Official notice lists a September 10 post-update opening through 2026-09-25 04:00. The extracted text does not state a time zone; the listed cutoff falls on this edition date, so live status is not independently confirmed. A later window is not confirmed."
+    "checkedOn": "2026-09-27",
+    "scope": "Official notice lists a September 10 post-update opening through 2026-09-25 04:00. That listed cutoff had passed by the September 27 review. The extracted text does not state a time zone or confirm a later window; current availability needs an in-game check."
   }
 ]

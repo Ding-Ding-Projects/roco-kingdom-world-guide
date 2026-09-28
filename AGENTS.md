@@ -11,7 +11,7 @@ names, code, code comments, test names, documentation, this file, issues, pull r
 discussions, release notes, published sites, logs, and every other file in this repository.
 Published writing uses ordinary professional English, and exact technical identifiers always
 keep their literal spelling. The single documented public-safe exception is named in those
-canonical instructions; do not infer another.
+canonical instructions; do not infer any other.
 
 Scan any text bound for a public surface against that vocabulary before publishing it. A
 reviewer cannot tell a correct release note from a leaking one by reading it, so the scan is a

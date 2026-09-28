@@ -2,6 +2,8 @@
   "use strict";
 
   const DB = { creatures: null, locations: null, articles: null, sources: null, creatureDetails: null, typeChart: null, trainingReference: null, creatureSearch: new Map() };
+  let BUILD_INFO = null;
+  let DESKTOP_STATUS = { desktop: false, configured: false, enabled: false, state: "checking", lastUpdated: null };
   const KEY = "roco-world-field-notes-v1";
   const NAV = [
     { id: "home", icon: "⌂", en: "Overview", zh: "总览", group: "Atlas" },
@@ -60,10 +62,105 @@
     try { const url = new URL(value, location.href); return url.protocol === "https:" ? url.href : "#"; }
     catch { return "#"; }
   }
+  const BILINGUAL_START = "\uE000";
+  const BILINGUAL_MIDDLE = "\uE001";
+  const BILINGUAL_END = "\uE002";
+  function syncDocumentLanguage() {
+    document.documentElement.lang = state.lang === "zh" ? "zh-Hans" : state.lang === "both" ? "mul" : "en";
+  }
+  function localizeBilingualTextNode(node) {
+    const text = node.nodeValue || "";
+    const pattern = /\uE000([\s\S]*?)\uE001([\s\S]*?)\uE002/gu;
+    const fragment = document.createDocumentFragment();
+    let match;
+    let offset = 0;
+    let found = false;
+    while ((match = pattern.exec(text))) {
+      found = true;
+      if (match.index > offset) fragment.append(document.createTextNode(text.slice(offset, match.index)));
+      const english = document.createElement("span");
+      english.lang = "en";
+      english.textContent = match[1];
+      const chinese = document.createElement("span");
+      chinese.lang = "zh-Hans";
+      chinese.textContent = match[2];
+      fragment.append(english, document.createTextNode(" · "), chinese);
+      offset = pattern.lastIndex;
+    }
+    if (!found) return;
+    if (offset < text.length) fragment.append(document.createTextNode(text.slice(offset)));
+    node.replaceWith(fragment);
+  }
+  function localizeBilingualTree(root) {
+    if (!root) return;
+    if (root.nodeType === Node.TEXT_NODE) {
+      localizeBilingualTextNode(root);
+      return;
+    }
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    for (const node of textNodes) localizeBilingualTextNode(node);
+    const elements = root.nodeType === Node.ELEMENT_NODE ? [root, ...root.querySelectorAll("*")] : [...(root.querySelectorAll?.("*") || [])];
+    for (const element of elements) {
+      for (const name of ["aria-label", "title", "placeholder", "alt", "value"]) {
+        const value = element.getAttribute(name);
+        if (!value || !value.includes(BILINGUAL_START)) continue;
+        const plain = value.replace(/\uE000([\s\S]*?)\uE001([\s\S]*?)\uE002/gu, "$1 · $2");
+        element.setAttribute(name, plain);
+      }
+    }
+  }
+  function watchLocalizedContent() {
+    if (!document.body || typeof MutationObserver !== "function") return;
+    const observer = new MutationObserver(records => {
+      const roots = new Set();
+      for (const record of records) {
+        if (record.type === "attributes" || record.type === "characterData") roots.add(record.target);
+        else for (const node of record.addedNodes) roots.add(node);
+      }
+      for (const root of roots) localizeBilingualTree(root);
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["aria-label", "title", "placeholder", "alt", "value"], characterData: true, childList: true, subtree: true });
+    localizeBilingualTree(document.body);
+  }
   function local(en, zh) {
     if (state.lang === "zh") return zh || en;
-    if (state.lang === "both") return `${en} · ${zh || en}`;
+    if (state.lang === "both") return `${BILINGUAL_START}${en}${BILINGUAL_MIDDLE}${zh || en}${BILINGUAL_END}`;
     return en;
+  }
+  function renderBuildProvenance() {
+    const label = $("#build-provenance");
+    if (!label) return;
+    const validVersion = typeof BUILD_INFO?.version === "string" && /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/u.test(BUILD_INFO.version);
+    const builtAt = typeof BUILD_INFO?.builtAt === "string" ? new Date(BUILD_INFO.builtAt) : null;
+    if (!validVersion || !builtAt || !Number.isFinite(builtAt.getTime())) {
+      label.textContent = local("Version and update time unavailable", "版本和更新时间未有记录");
+      return;
+    }
+    const updatedAt = formatLocalTimestamp(builtAt);
+    label.textContent = local(`Version ${BUILD_INFO.version} · Updated ${updatedAt}`, `版本 ${BUILD_INFO.version} · 更新於 ${updatedAt}`);
+  }
+  function formatLocalTimestamp(value) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (!Number.isFinite(date.getTime())) return local("time unavailable", "时间未有记录");
+    try {
+      return new Intl.DateTimeFormat(state.lang === "zh" ? "zh-HK" : "en-CA", {
+        year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short"
+      }).format(date);
+    } catch {
+      return date.toISOString();
+    }
+  }
+  async function loadBuildProvenance() {
+    try {
+      const response = await fetch("data/build-info.json", { credentials: "omit", cache: "no-cache" });
+      if (response.ok) {
+        const candidate = await response.json();
+        if (candidate?.schemaVersion === 1) BUILD_INFO = candidate;
+      }
+    } catch {}
+    renderBuildProvenance();
   }
   function statusCount(value) { return new Intl.NumberFormat("en").format(value || 0); }
   function recordText(value) { return value === null || value === undefined || value === "" ? local("Not documented in this index", "索引未有记录") : value; }
@@ -145,6 +242,7 @@
   }
 
   function renderNav() {
+    syncDocumentLanguage();
     const nav = $("#primary-nav");
     if (!nav) return;
     nav.classList.add("nav-bottom");
@@ -159,6 +257,7 @@
     }
     nav.innerHTML = [...groups.entries()].map(([group, entries]) => `<div class="nav-group-label">${esc(local(group, group === "Atlas" ? "索引" : group === "Field notes" ? "实用笔记" : "工具"))}</div>${entries.map(item => `<button class="nav-item" type="button" data-route="${item.id}" ${route.page === item.id ? 'aria-current="page"' : ""}><span class="nav-icon" aria-hidden="true">${esc(item.icon)}</span><span>${esc(navTitle(item))}</span>${state.pinned.includes(item.id) ? '<span class="pin" aria-label="Pinned">◆</span>' : ""}</button>`).join("")}`).join("");
     renderNotificationBadge();
+    localizeBilingualTree(nav);
   }
 
   function sourceById(id) { return DB.sources?.find(item => item.id === id); }
@@ -185,13 +284,13 @@
     const article = DB.articles?.find(item => item.id === "current-events");
     return `<div class="view-content">
       <div class="section-heading"><div><span class="section-label">${esc(local("FIELD GUIDE / WORLD EDITION", "世界版实用指南"))}</span><h2>${esc(local("Welcome to the field desk.", "欢迎来到洛克世界资料站。"))}</h2><p>${esc(local("Search the sourced creature index, browse the habitat atlas, compare type matchups, or open a practical article. Each fact carries a source and review date.", "搜索有来源的精灵索引、浏览栖息地目录、比较属性克制，或打开实用文章。每项资料都会注明来源和核对日期。"))}</p></div><div class="section-actions"><button class="button-secondary" data-go="dex">${esc(local("Browse the full Dex", "浏览完整图鉴"))} <span>→</span></button></div></div>
-      <div class="status-banner"><span class="mark" aria-hidden="true">✦</span><div><strong>${esc(local("Independent reference · checked 25 September 2026.", "独立资料 · 核对日期：2026年9月25日。"))}</strong><p>${esc(local("Community data is labeled. Unverified catch odds, complete S4 geography, and image-only patch details are not guessed.", "社区资料会清楚标明。未核实的捕捉概率、完整S4地理资料和只出现在图片里的更新内容，不会靠估计补上。"))} <a href="#sources" data-go="sources">${esc(local("Read the research notes", "阅读资料核对说明"))}</a>.</p></div></div>
+      <div class="status-banner"><span class="mark" aria-hidden="true">✦</span><div><strong>${esc(local("Edition dated 25 September 2026; current event notices rechecked 27 September.", "本版日期为 2026 年 9 月 25 日；最新活动公告于 9 月 27 日复核。"))}</strong><p>${esc(local("Community data is labeled. Unverified catch odds, complete S4 geography, and image-only patch details are not guessed.", "社区资料会清楚标明。未核实的捕捉概率、完整S4地理资料和只出现在图片里的更新内容，不会靠估计补上。"))} <a href="#sources" data-go="sources">${esc(local("Read the research notes", "阅读资料核对说明"))}</a>.</p></div></div>
       <section class="intro-layout home-section" aria-label="${esc(local("Field guide shortcuts", "指南快捷入口"))}">
         <article class="atlas-card"><span class="card-kicker">${esc(local("WORLD ATLAS", "世界目录"))}</span><h2>${esc(local("Named places, habitat labels, and an honest map limit.", "地名、栖息地标签，以及清楚说明的地图限制。"))}</h2><p>${esc(local("Search the 43 original S3 marker labels, 57 habitat labels, and three handbook index areas. The local sources do not provide verified coordinates or route geometry.", "搜索43个S3原始地图标签、57个栖息地标签和三个图鉴索引区域。本地资料没有已核实的坐标或路线几何数据。"))}</p><div class="section-actions"><button class="button-secondary" data-go="map">${esc(local("Open the location and habitat index", "打开地点与栖息地索引"))} <span>↗</span></button><a class="button-quiet" href="${esc(safeUrl(DB.locations?.externalMap || "https://rocokingdomworld.org/maps/"))}" target="_blank" rel="noopener noreferrer">${esc(local("Open the external coordinate map", "打开外部坐标地图"))} ↗</a></div></article>
         <div class="quick-stack"><div class="quick-stat"><strong>${statusCount(DB.creatures?.recordCount)}</strong><span>${esc(local("listed form rows", "条形态记录"))}</span><small>${esc(local("Across", "分属"))} ${statusCount(DB.creatures?.uniqueCatalogNumbers)} ${esc(local("catalog numbers", "个目录编号"))}</small></div><div class="quick-stat"><strong>${statusCount(Object.keys(DB.typeChart?.records || {}).length)}</strong><span>${esc(local("type combinations", "种属性组合"))}</span><small>${esc(local("Indexed from the dated snapshot", "来自注明日期的资料快照"))}</small></div><div class="quick-stat"><strong>${statusCount(DB.articles?.length)}</strong><span>${esc(local("field articles", "篇实用文章"))}</span><small>${esc(local("English and written Cantonese", "英文与书面粤语"))}</small></div></div>
       </section>
       <section class="home-section"><div class="inline-title"><h2>${esc(local("Start with a useful route", "从实用入口开始"))}</h2><a href="#guides" data-go="guides">${esc(local("All articles", "全部文章"))} ↗</a></div><div class="grid grid-3"><article class="card"><div class="card-body"><span class="card-kicker">${esc(local("625 FORM ROWS", "625条形态记录"))}</span><button class="card-link" type="button" data-go="dex"><span><h3>${esc(local("Find a creature", "查找精灵"))}</h3><p>${esc(local("Search catalog fields, handbook tasks, complete listed skills, evolutions, and habitat notes.", "搜索目录资料、图鉴任务、已收录技能、进化路线和栖息地说明。"))}</p></span><span class="arrow" aria-hidden="true">↗</span></button></div></article><article class="card"><div class="card-body"><span class="card-kicker">${esc(local("120 INDEXED COMBINATIONS", "120种已索引组合"))}</span><button class="card-link" type="button" data-go="types"><span><h3>${esc(local("Compare type matchups", "比较属性克制"))}</h3><p>${esc(local("Search listed weaknesses and resistances. The table is a reference, not a damage calculator.", "搜索已列出的弱点与抵抗。本表供查询，不是伤害计算器。"))}</p></span><span class="arrow" aria-hidden="true">↗</span></button></div></article>${articleCard(DB.articles.find(item => item.id === "starter-route") || DB.articles[0])}</div></section>
-      <section class="home-section"><div class="inline-title"><h2>${esc(local("On the noticeboard", "公告栏"))}</h2><button class="button-quiet" data-go="article:current-events">${esc(local("Open event desk", "打开活动台"))} ↗</button></div><div class="panel"><div class="card-label-row"><span class="badge official">${esc(local("Official notices", "官方公告"))}</span><span class="update-chip">${esc(local("As checked", "核对日期"))} 24 Sep 2026</span></div><h3 style="margin:.65rem 0 .35rem">${esc(local("Cocoa Harvest Festival announced for 25 September", "可可丰收节定于9月25日开始"))}</h3><p class="copy-block">${esc(local("The official forum index advertises up to 480 free Cocoa Fruit Balls. The extracted notice did not establish the end date or every reward condition, so check the live event panel before planning around that total.", "官方论坛索引称活动期间最多可取得480个可可果球。提取到的公告文字未确认结束日期和所有奖励条件，计划前请查看游戏内活动页面。"))}</p>${sourceChips(article?.sections.find(section => section.heading.startsWith("Cocoa"))?.sources || ["cocoa"])}</div></section>
+      <section class="home-section"><div class="inline-title"><h2>${esc(local("On the noticeboard", "公告栏"))}</h2><button class="button-quiet" data-go="article:current-events">${esc(local("Open event desk", "打开活动台"))} ↗</button></div><div class="panel"><div class="card-label-row"><span class="badge official">${esc(local("Official notices", "官方公告"))}</span><span class="update-chip">${esc(local("Cocoa last read", "可可公告最后核对"))} 26 Sep 2026</span></div><h3 style="margin:.65rem 0 .35rem">${esc(local("Cocoa Harvest Festival announced for 25 September", "可可丰收节定于9月25日开始"))}</h3><p class="copy-block">${esc(local("The official preview advertises up to 480 free Cocoa Fruit Balls. Its readable text does not establish the end date or every reward condition, so check the live event panel before planning around that total.", "官方预告称活动期间最多可取得480个可可果球。可读取的公告文字未确认结束日期和所有奖励条件，计划前请查看游戏内活动页面。"))}</p>${sourceChips(article?.sections.find(section => section.heading.startsWith("Cocoa"))?.sources || ["cocoa"])}</div></section>
       <section class="home-section"><div class="inline-title"><h2>${esc(local("One small field note", "一条小提示"))}</h2><button class="button-secondary button-small" data-random-tip>${esc(local("Surprise me", "给我一条随机提示"))} ✦</button></div><div id="random-tip" class="panel"><p class="copy-block">${esc(local("A form row is not necessarily a separate base creature. This Dex reports the source's row count and catalog-number count separately.", "一条形态记录未必代表一种不同的基础精灵。本图鉴分别列出来源记录行数和目录编号数。"))}</p><div class="field-actions"><a href="#article/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Why the indexes differ", "点解几个索引数量唔同"))} ↗</a></div></div></section>
     </div>`;
   }
@@ -276,7 +375,7 @@
   }
 
   function renderDex() {
-    if (!DB.creatures) return `<div class="empty-state">Creature data could not be loaded. Open <a href="/data/creatures.json">the data file</a> to see whether this copy is available.</div>`;
+    if (!DB.creatures) return `<div class="empty-state">Creature data could not be loaded. Open <a href="data/creatures.json">the data file</a> to see whether this copy is available.</div>`;
     const detailSnapshot = DB.creatureDetails?.snapshot;
     const { rows, regex } = getDexRows();
     visibleDex = rows;
@@ -495,7 +594,7 @@
 
   async function loadTrainingReference() {
     if (DB.trainingReference) return DB.trainingReference;
-    if (!DB.trainingReferencePromise) DB.trainingReferencePromise = fetch("/data/training-reference.json", { credentials: "omit", cache: "no-cache" }).then(response => {
+    if (!DB.trainingReferencePromise) DB.trainingReferencePromise = fetch("data/training-reference.json", { credentials: "omit", cache: "no-cache" }).then(response => {
       if (!response.ok) throw new Error("The historical training file could not be loaded.");
       return response.json();
     }).then(data => (DB.trainingReference = data));
@@ -665,12 +764,74 @@
         <section class="settings-section"><h3>Local vocabulary file</h3><div class="drop-zone"><p class="copy-block">Choose a version 1 JSON file shaped as <code>{"schemaVersion":1,"entries":{"phrase":"replacement"}}</code>. The file is checked in memory only. This public edition has no authenticated area, so it will <strong>not</strong> apply private wording to the page or persist the file. A future authenticated mode must pass the private upload contract first.</p><label class="field-label" style="margin-top:.7rem">Choose JSON file<input class="field-control" id="vocabulary-file" type="file" accept="application/json,.json"></label><div id="vocabulary-status" class="field-hint" role="status" style="margin-top:.5rem">${esc(state.vocab.notice || "No file loaded. Nothing leaves this browser.")}</div><div class="field-actions"><button class="button-secondary button-small" data-vocab-clear>Clear file status</button></div></div><p class="field-hint" style="margin-top:.6rem">The selected file contents are never stored, exported, logged, sent to a server, or added to recent-page history.</p></section>
         <section class="settings-section"><h3>Reading focus and schedule</h3><div class="settings-fields"><label class="field-label">Focus label<input class="field-control" maxlength="32" data-state="focusLabel" value="${esc(state.focusLabel)}"></label><label class="field-label">Reminder time (local)<input class="field-control" type="time" data-schedule-time value="${esc(state.schedule.time)}"></label></div><div class="control-row"><div><strong>Focus mask</strong><small>Presentation-only blur on chosen sections; it is not a privacy or account lock.</small></div><button class="switch" role="switch" aria-checked="${state.focusMode}" data-toggle="focusMode" aria-label="Enable focus mask"></button></div><div class="control-row"><div><strong>Reminder while this page is open</strong><small>No background schedule. The reminder stops when this page closes.</small></div><button class="switch" role="switch" aria-checked="${state.schedule.enabled}" data-toggle="schedule" aria-label="Enable local reminder"></button></div><label class="field-label" style="margin-top:.6rem">Reminder note<textarea class="field-control" rows="2" maxlength="180" data-schedule-note>${esc(state.schedule.note)}</textarea></label><div class="field-actions"><button class="button-secondary button-small" data-notification-test>Send a sample notice</button><button class="button-secondary button-small" data-random-tip>Random field note ✦</button></div></section>
         <section class="settings-section"><h3>Local field kit</h3><div class="field-actions"><button class="button-secondary button-small" data-export="bookmarks-json">Export saved notes</button><button class="button-secondary button-small" data-export="settings-json">Export settings</button><label class="button-secondary button-small">Import settings<input id="settings-file" type="file" accept="application/json,.json" hidden></label><button class="button-secondary button-small" data-export="print">Print current page</button></div><div class="control-row" style="margin-top:.6rem"><div><strong>Reset browser data</strong><small>Removes preferences, saved notes, and recent-page history from this browser. Guide data is not touched.</small></div><button class="button-warn button-small" data-reset-open>Reset…</button></div></section>
+        ${renderStatusReportingSettings()}
         <section class="settings-section"><h3>Accounts and protection</h3><p class="copy-block">This is an anonymous, static reference with no account, credentials, shared profile, or private content. Credential editing, account pairing, QR authenticators, and recovery codes do not apply to this edition. The focus mask is cosmetic only; do not enter passwords or secrets here.</p></section>
       </div></div>`;
   }
 
+  function renderStatusReportingSettings() {
+    const bridge = typeof window.rocoDesktop?.getStatus === "function" && typeof window.rocoDesktop?.setStatusEnabled === "function";
+    const current = bridge ? DESKTOP_STATUS : { state: "browser", configured: false, enabled: false, lastUpdated: null };
+    const copy = {
+      browser: ["The browser edition does not connect to Status Hub.", "浏览器版不会连接 Status Hub。"],
+      checking: ["Checking local status configuration…", "正在检查本机状态设定…"],
+      starting: ["Starting the optional status session…", "正在启动可选状态记录…"],
+      "configuration-required": ["Status Hub is not configured for this desktop. Nothing has been sent.", "此电脑尚未设定 Status Hub，未有资料传送。"],
+      off: ["Off. Nothing is sent.", "已关闭，不会传送资料。"],
+      reporting: ["The desktop session is being reported.", "正在报告桌面工作阶段。"],
+      unavailable: ["Status Hub has not confirmed this session. The guide remains available.", "Status Hub 尚未确认此工作阶段，指南仍可使用。"],
+      finishing: ["Finishing the status session…", "正在结束状态记录…"],
+      unconfirmed: ["The final update was not confirmed. The last record may remain open.", "未能确认最后更新，上一条记录可能仍然开启。"]
+    };
+    const [english, cantonese] = copy[current.state] || copy.unavailable;
+    const canChange = bridge && current.configured && !["checking", "starting", "finishing"].includes(current.state);
+    const toggle = bridge
+      ? `<button class="switch" type="button" role="switch" aria-checked="${Boolean(current.enabled)}" aria-label="${esc(local("Enable optional Status Hub reporting", "启用可选 Status Hub 状态报告"))}" data-status-hub-toggle ${canChange ? "" : "disabled"}></button>`
+      : `<span class="badge unavailable">${esc(local("Desktop only", "只限桌面版"))}</span>`;
+    const lastUpdated = current.lastUpdated
+      ? `<p class="field-hint" style="margin-top:.5rem">${esc(local("Last confirmed update: ", "最后确认更新："))}${esc(formatLocalTimestamp(current.lastUpdated))}</p>`
+      : "";
+    return `<section class="settings-section"><h3>${esc(local("Optional project status", "可选专案状态"))}</h3>
+      <div class="control-row"><span><strong>Status Hub reporting</strong><small role="status" aria-live="polite">${esc(local(english, cantonese))}</small></span>${toggle}</div>
+      <p class="field-hint" style="margin-top:.6rem">${esc(local("Status reporting starts off on every launch. When enabled, it sends the project and source ref, machine name, and any available local checkout paths, refs, commit IDs, dirty state, and measured size. A packaged build without repository metadata has no checkout inventory.", "每次启动时状态报告都会关闭。启用后会传送专案和来源 ref、电脑名称，以及可用的本机目录、ref、提交编号、修改状态和量度大小。没有专案资料的安装版本不会传送目录清单。"))}</p>
+      <p class="field-hint">${esc(local("Searches, bookmarks, notes, and reading history are never read or sent. The browser edition never connects to Status Hub. The Status Hub credential stays in the desktop process and is never exposed to this page.", "系统不会读取或传送搜寻、书签、笔记或浏览记录。浏览器版不会连接 Status Hub。Status Hub 凭证只保留在桌面程序内，本页面无法读取。"))}</p>${lastUpdated}</section>`;
+  }
+
+  async function refreshDesktopStatus() {
+    const bridge = window.rocoDesktop;
+    if (typeof bridge?.getStatus !== "function") {
+      DESKTOP_STATUS = { desktop: false, configured: false, enabled: false, state: "browser", lastUpdated: null };
+      return;
+    }
+    try {
+      DESKTOP_STATUS = await bridge.getStatus();
+    } catch {
+      DESKTOP_STATUS = { desktop: true, configured: false, enabled: false, state: "unavailable", lastUpdated: null };
+    }
+    if (route.page === "settings") renderApp();
+  }
+
+  async function setDesktopStatusEnabled(enabled) {
+    const bridge = window.rocoDesktop;
+    if (typeof bridge?.setStatusEnabled !== "function") return;
+    DESKTOP_STATUS = { ...DESKTOP_STATUS, enabled: enabled === true || DESKTOP_STATUS.enabled, state: enabled ? "starting" : "finishing" };
+    renderApp();
+    try {
+      DESKTOP_STATUS = await bridge.setStatusEnabled(enabled === true);
+    } catch {
+      DESKTOP_STATUS = { ...DESKTOP_STATUS, enabled: enabled === true, state: "unavailable" };
+    }
+    renderApp();
+    if (DESKTOP_STATUS.state === "reporting") toast(local("Status reporting is enabled.", "状态报告已启用。"));
+    else if (DESKTOP_STATUS.state === "unconfirmed") toast(local("Status reporting stopped, but the final update was not confirmed.", "状态报告已停止，但未能确认最后更新。"), "warning");
+    else if (DESKTOP_STATUS.state === "unavailable" || DESKTOP_STATUS.state === "configuration-required") toast(local("Status reporting is unavailable. The guide remains usable.", "状态报告暂时无法使用，指南仍可继续浏览。"), "warning");
+    else if (!enabled) toast(local("Status reporting is off.", "状态报告已关闭。"));
+  }
+
   function renderApp() {
+    syncDocumentLanguage();
     const view = $("#app-view");
+    renderBuildProvenance();
     if (!view || !DB.creatures || !DB.locations || !DB.articles || !DB.sources) return;
     view.setAttribute("aria-busy", "false");
     const content = route.page === "home" ? renderHome() : route.page === "dex" ? renderDex() : route.page === "types" ? renderTypeChart() : route.page === "map" ? renderMap() : route.page === "guides" ? renderGuides() : route.page === "sources" ? renderSources() : route.page === "updates" ? renderUpdates() : renderSettings();
@@ -678,6 +839,7 @@
     view.innerHTML = `${content}${locked ? `<div class="lock-screen"><div><span class="section-label">${esc(state.focusLabel || "Field school")}</span><h2>${esc(local("Take a breath, then continue.", "抖擻精神，再慢慢睇。"))}</h2><p>This is a local visual mask, not account security. Any visitor can remove it.</p><button class="button" data-unlock-page="${route.page}">Show this page</button></div></div>` : ""}`;
     if (state.focusMode) $$(".view-content", view).forEach(el => el.classList.add("focus-blurred"));
     document.title = `${route.page === "home" ? "Overview" : NAV.find(item => item.id === route.page)?.en || "Guide"} · Roco Kingdom: World`;
+    localizeBilingualTree(view);
   }
 
   function safeSearchAll(query) {
@@ -1003,6 +1165,11 @@
     if (target.id === "open-bookmarks") return renderQuickList("saved");
     if (target.id === "open-history") return renderQuickList("recent");
     if (target.id === "fieldkit-toggle") return renderQuickList("saved");
+    if (target.matches("[data-status-hub-toggle]")) {
+      if (target.disabled) return;
+      void setDesktopStatusEnabled(!DESKTOP_STATUS.enabled);
+      return;
+    }
     if (target.matches("[data-palette-mode]")) {
       state.paletteMode = target.dataset.paletteMode;
       $$("[data-palette-mode]").forEach(button => button.setAttribute("aria-pressed", String(button === target)));
@@ -1157,7 +1324,8 @@
 
   async function boot() {
     applyAppearance();
-    const urls = ["/data/creatures.json", "/data/creature-details.json", "/data/type-chart.json", "/data/locations.json", "/data/articles.json", "/data/sources.json"];
+    void loadBuildProvenance();
+    const urls = ["data/creatures.json", "data/creature-details.json", "data/type-chart.json", "data/locations.json", "data/articles.json", "data/sources.json"];
     try {
       const responses = await Promise.all(urls.map(url => fetch(url, { credentials: "omit", cache: "no-cache" })));
       if (responses.some(response => !response.ok)) throw new Error("One or more local data files could not be loaded.");
@@ -1182,6 +1350,7 @@
       const [page, articleId = ""] = initial.split("/");
       route = NAV.some(item => item.id === page) ? { page, articleId } : { page: "home", articleId: "" };
       renderNav(); renderApp();
+      void refreshDesktopStatus();
       scheduleReminder();
       if (!sessionStorage.getItem("roco-welcome-v1")) {
         sessionStorage.setItem("roco-welcome-v1", "seen");
@@ -1203,5 +1372,7 @@
   }
   window.addEventListener("hashchange", syncRouteFromLocation);
   window.addEventListener("popstate", syncRouteFromLocation);
+  syncDocumentLanguage();
+  watchLocalizedContent();
   boot();
 })();

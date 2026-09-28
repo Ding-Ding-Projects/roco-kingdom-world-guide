@@ -6,9 +6,11 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#111a2c">
   <meta name="description" content="An independently researched Roco Kingdom: World field guide with a sourced creature Dex, location index, season notes, and practical articles.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Roco Kingdom: World Field Guide</title>
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to guide</a>
@@ -41,6 +43,7 @@
         <button class="search-tool" id="regex-open" type="button" aria-label="Open regular expression builder" title="Pattern builder">.*</button>
       </form>
       <div class="search-foot"><span><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd> search all</span><span>English · 廣東話 · bilingual</span><span class="local-tag"><i></i> Runs in your browser</span></div>
+      <p class="build-provenance" id="build-provenance" aria-live="polite">Version and update time unavailable · 版本和更新时间未有记录</p>
       <div id="search-results" class="search-results" hidden aria-live="polite"></div>
     </section>
 
@@ -72,7 +75,7 @@
 
     <footer class="site-footer">
       <span>Independent fan-made reference · Not affiliated with Tencent or 4399</span>
-      <span>Sources checked 24 Sep 2026 · <a href="#sources" data-go="sources">Editorial notes</a></span>
+      <span>Individual source review dates · <a href="#sources" data-go="sources">Editorial notes</a></span>
     </footer>
   </div>
 
@@ -84,6 +87,6 @@
   <dialog id="notifications-dialog" class="modal small-modal" aria-labelledby="notifications-title"><div class="modal-top"><div><span class="eyebrow">LOCAL NOTICE CENTER</span><h2 id="notifications-title">Notifications</h2></div><button class="icon-button" data-close-dialog aria-label="Close notifications">×</button></div><div id="notifications-content"></div></dialog>
   <dialog id="quick-list-dialog" class="modal small-modal" aria-labelledby="quick-list-title"><div class="modal-top"><div><span class="eyebrow">YOUR FIELD KIT</span><h2 id="quick-list-title">Saved notes</h2></div><button class="icon-button" data-close-dialog aria-label="Close saved notes">×</button></div><div id="quick-list-content"></div></dialog>
   <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
-  <script src="/assets/app.js" defer></script>
+  <script src="assets/app.js" defer></script>
 </body>
 </html>

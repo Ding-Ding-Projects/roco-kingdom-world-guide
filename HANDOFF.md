@@ -53,3 +53,66 @@ Deliver a public Roco Kingdom: World guide with a map index, practical articles,
 1. Capture a desktop viewport and verify keyboard navigation. Complete the full language, theme, and scale review; the two narrow English captures do not cover those states.
 2. Add coordinates and route geometry only when a reusable source provides verified data and reuse terms.
 3. Refresh time-sensitive season facts and the pinned community snapshot after material updates.
+
+## GitHub Pages and desktop companion task
+
+The active delivery work is on `codex/roco-pages-guide`. The planned public address is
+`https://ding-ding-projects.github.io/roco-kingdom-world-guide/`; the source workflow and
+desktop Squirrel.Windows packaging are being added to the default-branch delivery path.
+The offline companion serves the same `dist/` content through a restricted local protocol.
+Its optional Status Hub integration is disabled until the user explicitly enables it and a
+private ingest configuration is present. No token is embedded in the public build or exposed to
+the page renderer. This checkout has no Status Hub configuration, so a live Hub record has not
+been created.
+
+The package and deployment work remain unverified until the final source is pushed to `main`,
+GitHub Actions finishes, the public address serves the expected page and data, and the desktop
+release assets are read back from GitHub. One local Squirrel build completed from the uncommitted
+task source, but its generated provenance identifies baseline revision
+`7d019d89e6c507261468c729c908b30c8dc14491` and `local-build`. It also predates the HTTPS lockfile
+correction. Those files are diagnostic output only and will not be published. A fresh build must
+run from the preserved final source. The Lowlevel headless capture route is unavailable in this
+session, so the historic 320×568 and 390×844 captures are not evidence for the current changes.
+Keyboard navigation, desktop layout,
+accessibility, and the complete language, theme, and scale matrix remain open.
+
+The Material Designer handoff is also unavailable in this session. The current HTML and CSS
+design remains the implementation source; no design prototype or parity result is claimed.
+
+The GitHub Pages and offline desktop delivery workflow is tracked in
+[`docs/distribution/README.md`](docs/distribution/README.md). Status-sharing scope and failure
+handling are in [`docs/tools/status-reporting.md`](docs/tools/status-reporting.md).
+
+## GitHub Pages and desktop companion update, 2026-09-27
+
+The current delivery work is on `codex/roco-pages-guide` at baseline source SHA
+`eaefae5715fc1a768b920c365037142ad21b9391`; the changes below are currently local and have no
+new source SHA yet. The intended GitHub Pages address is
+`https://ding-ding-projects.github.io/roco-kingdom-world-guide/`, but the repository has
+`has_pages: false`, the Pages API returns HTTP 404, no deployment run exists, and the homepage
+field is empty. The address is therefore planned, not live or verified.
+
+The current source changes cover `.github/workflows/pages.yml`,
+`desktop/status-hub-client/status-hub-client.mjs`, `dist/assets/app.js`,
+`dist/data/articles.json`, `dist/data/sources.json`, `dist/index.html`, `README.md`,
+`ROADMAP.md`, and the current-season and distribution articles. They pin the deployment actions,
+keep a missing desktop upload visible as a failed run, require HTTPS outside strict loopback for
+Status Hub connections, reject redirects on health and authenticated calls, render bilingual
+strings with language spans and update the document language, and distinguish source-specific
+review dates. The weekend and September 25 Flower Seed notices were rechecked on 2026-09-27;
+the Cocoa preview was last read on 2026-09-26. Event time zones, shiny odds, and unreadable or
+unstated reward details remain unknown.
+
+No test suite or new capture was run for these changes. The static build and desktop package
+have not yet been rebuilt from the final source. The cheap Lowlevel headless capture route and
+Material Designer handoff were unavailable. The historical public Sites address returned a TLS
+handshake error in the latest reachability probe, so its prior version-3 verification is not a
+current reachability claim.
+
+GitHub Pages setup and publication, current built-surface evidence, a fresh desktop package, and
+release publication remain open. Release publication is additionally blocked by the required
+reviewed image catalog not being present in the repository; no image will be invented. GitHub issue
+`#3` remains open. The wiki setting is enabled, but its Git endpoint returned `Repository not found`.
+The `gh` CLI has no wiki-content command, so no page was created. The Status Hub
+configuration is absent, so the local scratchpad remains the only live status surface and is not
+mobile-accessible.

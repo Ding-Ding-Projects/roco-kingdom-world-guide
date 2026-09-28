@@ -72,6 +72,7 @@
   .search-go:hover{background:#edcf91}
   .search-tool{width:39px;height:39px;border-radius:8px;background:#eeede7;color:#3d5064;font-family:ui-monospace,monospace}
   .search-foot{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:1rem 1.5rem;align-items:center;margin-top:.75rem;color:#9daab8;font-size:.71rem}
+  .build-provenance{position:relative;z-index:1;max-width:1300px;margin:.85rem auto 0;color:#c5ced8;font-size:.68rem;line-height:1.45;text-align:center;overflow-wrap:anywhere}
   .search-foot kbd{background:#202c3f;color:#c5d0da;border-color:#455167}
   .local-tag{display:flex;gap:.42rem;align-items:center}
   .app-layout{display:grid;grid-template-columns:242px minmax(0,1fr);min-height:calc(100vh - 330px);border-bottom:1px solid var(--line)}
