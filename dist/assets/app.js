@@ -16,10 +16,112 @@
     { id: "updates", icon: "◷", en: "Edition log", zh: "版本记录", group: "Tools" },
     { id: "settings", icon: "⚙", en: "Settings", zh: "设定", group: "Tools" }
   ];
+  const SETTINGS_COMMANDS = [
+    { en: "English reading mode", zh: "英文阅读模式", selector: '[data-lang="en"]' },
+    { en: "Cantonese reading mode", zh: "广东话阅读模式", selector: '[data-lang="zh"]' },
+    { en: "Bilingual reading mode", zh: "双语阅读模式", selector: '[data-lang="both"]' },
+    { en: "English playful tone", zh: "英文语气", selector: '[data-state="funnyEn"]' },
+    { en: "Cantonese playful tone", zh: "广东话语气", selector: '[data-state="funnyZh"]' },
+    { en: "Theme", zh: "主题", selector: '[data-state="theme"]' },
+    { en: "Accent", zh: "强调色", selector: '[data-state="accent"]' },
+    { en: "Text scale", zh: "文字大小", selector: '[data-state="scale"]' },
+    { en: "Corner shape", zh: "圆角", selector: '[data-state="radius"]' },
+    { en: "Reading density", zh: "阅读密度", selector: '[data-state="density"]' },
+    { en: "Contrast", zh: "对比度", selector: '[data-toggle="contrast"]' },
+    { en: "Tab groups", zh: "分页群组", selector: '[data-tab-group]' },
+    { en: "Reorder tabs", zh: "调整分页次序", selector: '[data-tab-move]' },
+    { en: "Pin tabs", zh: "固定分页", selector: '[data-tab-pin]' },
+    { en: "Choose personal wording file", zh: "选择个人用语档案", selector: '#vocabulary-file' },
+    { en: "Personal wording file status", zh: "个人用语档案状态", selector: '#vocabulary-status' },
+    { en: "Replace personal wording file", zh: "更换个人用语档案", selector: '#vocabulary-file' },
+    { en: "Clear personal wording file status", zh: "清除个人用语档案状态", selector: '[data-vocab-clear]' },
+    { en: "Focus label", zh: "专注标签", selector: '[data-state="focusLabel"]' },
+    { en: "Focus mask", zh: "专注遮罩", selector: '[data-toggle="focusMode"]' },
+    { en: "Reminder time", zh: "提醒时间", selector: '[data-schedule-time]' },
+    { en: "Enable reminder", zh: "启用提醒", selector: '[data-toggle="schedule"]' },
+    { en: "Reminder note", zh: "提醒内容", selector: '[data-schedule-note]' },
+    { en: "Sample notice", zh: "示范通知", selector: '[data-notification-test]' },
+    { en: "Export saved notes", zh: "汇出已储存笔记", selector: '[data-export="bookmarks-json"]' },
+    { en: "Export settings", zh: "汇出设定", selector: '[data-export="settings-json"]' },
+    { en: "Import settings", zh: "导入设定", selector: '[data-import-settings]' },
+    { en: "Print current page", zh: "列印目前页面", selector: '[data-export="print"]' },
+    { en: "Reset browser data", zh: "重设浏览器资料", selector: '[data-reset-open]' },
+    { en: "Status Hub reporting status", zh: "Status Hub 状态报告状况", selector: '#status-hub-state' },
+    { en: "Enable Status Hub reporting", zh: "启用 Status Hub 状态报告", selector: '[data-status-hub-toggle]' }
+  ];
   const LOCALES = {
     "en": { search: "Search", open: "Open", read: "Read article", saved: "Saved", save: "Save", all: "All", more: "Load more", empty: "No matches yet.", source: "Source", checked: "Checked", unknown: "Not documented in this index", local: "Stored on this device only", filter: "Filter", reset: "Reset local settings", export: "Export", clear: "Clear", close: "Close", records: "records", forms: "forms", locations: "locations", guides: "articles", official: "Official", community: "Community" },
     "zh": { search: "搜寻", open: "打开", read: "阅读文章", saved: "已储存", save: "储存", all: "全部", more: "继续载入", empty: "暂时搵唔到结果。", source: "资料来源", checked: "核对日期", unknown: "索引未有记录", local: "只储存在此装置", filter: "筛选", reset: "重设本机设定", export: "汇出", clear: "清除", close: "关闭", records: "条记录", forms: "个形态", locations: "个位置名称", guides: "篇文章", official: "官方", community: "社区" }
   };
+  const STATIC_COPY = new Map(Object.entries({
+    "Skip to guide": "跳到指南內容", "Roco Kingdom field guide home": "洛克王國指南首頁",
+    "FIELD NOTES": "野外筆記", "ROCO KINGDOM · WORLD": "洛克王國 · 世界", "COMMUNITY EDITION · 25 SEP 2026": "社群版本 · 2026 年 9 月 25 日",
+    "Choose a local vocabulary JSON file": "選擇本機個人用語 JSON 檔案", "Choose local vocabulary JSON": "選擇本機個人用語 JSON",
+    "Open saved notes": "開啟已儲存筆記", "Open notifications": "開啟通知", "Open command palette": "開啟指令選單",
+    "Saved notes": "已儲存筆記", "Recent places": "最近瀏覽", "How sources are checked": "資料來源核對方式",
+    "EXPLORE": "探索", "CURRENT SEASON": "當前賽季", "Open season notes": "開啟賽季筆記", "Your settings stay on this device.": "你嘅設定只留喺呢部裝置。",
+    "ATLAS / INDEX / FIELD MANUAL": "地圖 / 索引 / 野外手冊", "Know the world.": "認識呢個世界。", "Find your next move.": "搵到下一步。",
+    "A detailed, source-linked companion for": "一份附有來源嘅詳細指南，介紹", ". Search creatures, forms, locations, and practical guides in one place.": "。喺同一個地方搜尋精靈、形態、地點同實用文章。",
+    "Ctrl Shift F search all": "Ctrl Shift F 搜尋全部", "English · 廣東話 · bilingual": "英文 · 廣東話 · 雙語",
+    "Search the field guide": "搜尋指南", "Search creatures, locations, and articles": "搜尋精靈、地點同文章",
+    "Search the guide…": "搜尋指南…", "Search": "搜尋", "Open regular expression builder": "開啟正規表示式建立器", "Pattern builder": "模式建立器",
+    "Runs in your browser": "只喺瀏覽器運作", "Guide navigation": "指南導覽", "Primary": "主要導覽",
+    "Opening the field notebook…": "正在開啟野外筆記…", "Independent fan-made reference · Not affiliated with Tencent or 4399": "獨立同人參考資料 · 與騰訊或 4399 無關",
+    "Individual source review dates ·": "各資料來源均列出核對日期 ·", "Editorial notes": "編輯說明",
+    "FIELD RECORD": "精靈記錄", "Close details": "關閉詳細資料", "PERSONALIZE THIS NOTEBOOK": "自訂野外筆記",
+    "Settings": "設定", "Close settings": "關閉設定", "SEARCH TOOL": "搜尋工具", "Close pattern builder": "關閉模式建立器",
+    "QUICK JUMP": "快速跳轉", "Find a page": "尋找頁面", "Close quick jump": "關閉快速跳轉",
+    "Search tabs, articles, and saved notes": "搜尋分頁、文章同已儲存筆記", "Search four ways: pages, guides, saved, recent…": "搜尋頁面、文章、已儲存同最近記錄…",
+    "Pages": "頁面", "Guides": "文章", "Saved": "已儲存", "Recent": "最近", "Pattern search": "模式搜尋",
+    "LOCAL SETTINGS ONLY": "只影響本機設定", "Confirm reset": "確認重設", "Close confirmation": "關閉確認視窗",
+    "LOCAL NOTICE CENTER": "本機通知中心", "Notifications": "通知", "Close notifications": "關閉通知",
+    "YOUR FIELD KIT": "你嘅野外工具", "Close saved notes": "關閉已儲存筆記",
+    "EDITION HISTORY": "版本記錄", "Edition log": "版本記錄",
+    "Facts are tied to the date on which their source was reviewed. Changes to source data are not represented as official game patches.": "每項資料都以來源核對日期為準。來源資料嘅改動唔代表官方遊戲更新。",
+    "Added a roster-count comparison": "新增精靈數量比較",
+    "Expanded the guide to 21 articles and added a bilingual comparison plus separate source records for this edition's 625 saved form rows, the current BiliWiki page's 621 results, and the independent index's 644 entries. The row-level mismatch remains unresolved; no creature data was added or removed.": "指南擴充至 21 篇文章，新增雙語數量比較，同埋分別記錄本版 625 條形態資料、BiliWiki 頁面嘅 621 條結果，同獨立索引嘅 644 條記錄。逐條對應仍未核實；冇新增或者刪除精靈資料。",
+    "First World field edition": "首個世界野外指南版本",
+    "Added the 625-row community form index, 43 named S3 marker labels, 20 sourced articles, official S4 notes, English and Cantonese reading modes, and local export tools. Current season and event notices carry their review date and evidence limits.": "新增 625 條社群形態索引、43 個第三季地圖名稱、20 篇有來源嘅文章、官方第四季筆記、英文同廣東話閱讀模式，以及本機匯出工具。當季同活動公告均列明核對日期及證據限制。",
+    "LOCAL CONTROLS / DEVICE ONLY": "本機控制 / 只喺呢部裝置", "Settings and tools": "設定同工具",
+    "Preferences, bookmarks, recent pages, and reminder schedules stay in this browser. This public reference has no account or server-side profile.": "偏好設定、書籤、最近頁面同提醒時間都只留喺呢個瀏覽器。呢份公開參考資料冇帳戶或者伺服器個人檔案。",
+    "Language and tone": "語言同語氣", "Reading mode": "閱讀模式", "Original creature names remain in their source language.": "精靈原名會保留來源語言。",
+    "English": "英文", "Bilingual": "雙語", "English playful tone": "英文趣味語氣", "Cantonese playful tone": "廣東話趣味語氣",
+    "Adjusts helper notices, never source facts.": "只調整提示語氣，唔會改動來源事實。", "Separate from the English setting.": "同英文設定分開。",
+    "English playful tone level": "英文趣味語氣級別", "Cantonese playful tone level": "廣東話趣味語氣級別",
+    "Appearance": "外觀", "Theme": "主題", "System": "跟隨系統", "Light": "淺色", "Dark": "深色", "Accent": "強調色",
+    "Amber": "琥珀", "Harbor teal": "海港青", "Rosewood": "玫瑰木", "Night violet": "夜紫",
+    "Text scale": "文字大小", "Corner shape": "圓角形狀", "Corner roundness": "圓角程度", "Reading density": "閱讀密度", "Contrast": "對比度", "High contrast": "高對比度",
+    "Tabs, pins, and groups": "分頁、固定同群組",
+    "Use the arrows to reorder. Pins stay visible in the left rail. Change a group to collect related tabs; groups become sections in the navigation.": "用箭嘴調整次序。固定項目會留喺左側導覽。你可以將相關分頁編入同一群組，導覽會按群組分段。",
+    "Atlas": "索引", "Field notes": "野外筆記", "Tools": "工具", "Favorites": "收藏",
+    "Local vocabulary file": "本機個人用語檔案", "Choose JSON file": "選擇 JSON 檔案", "Clear file status": "清除檔案狀態",
+    "Choose a version 1 JSON file shaped as": "請選擇符合版本 1 格式嘅 JSON 檔案：",
+    ". The file is checked in memory only. This public edition has no authenticated area, so it will": "。檔案只喺記憶體內檢查。呢個公開版本冇登入區域，所以",
+    "not": "唔會", "apply private wording to the page or persist the file. A future authenticated mode must pass the private upload contract first.": "將私人用語套用到頁面或者儲存檔案。將來嘅登入模式必須先符合私人檔案載入規格。",
+    "The selected file contents are never stored, exported, logged, sent to a server, or added to recent-page history.": "所選檔案內容唔會被儲存、匯出、記錄、傳送到伺服器，亦唔會加入最近頁面。",
+    "No file loaded. Nothing leaves this browser.": "未載入檔案。冇資料離開呢個瀏覽器。",
+    "Reading focus and schedule": "專注閱讀同提醒時間", "Focus label": "專注標籤", "Reminder time (local)": "提醒時間（本機）",
+    "Focus mask": "專注遮罩", "Presentation-only blur on chosen sections; it is not a privacy or account lock.": "只會模糊選定內容，唔係私隱或者帳戶鎖。",
+    "Enable focus mask": "啟用專注遮罩", "Reminder while this page is open": "只喺頁面開啟時提醒",
+    "No background schedule. The reminder stops when this page closes.": "冇背景排程；關閉頁面後提醒就會停止。",
+    "Enable local reminder": "啟用本機提醒", "Reminder note": "提醒內容", "Send a sample notice": "發送示範通知", "Random field note ✦": "隨機野外筆記 ✦",
+    "Local field kit": "本機野外工具", "Export saved notes": "匯出已儲存筆記", "Export settings": "匯出設定", "Import settings": "匯入設定", "Print current page": "列印目前頁面",
+    "Reset browser data": "重設瀏覽器資料", "Removes preferences, saved notes, and recent-page history from this browser. Guide data is not touched.": "會移除呢個瀏覽器嘅偏好設定、筆記同最近頁面；指南資料唔受影響。",
+    "Reset…": "重設…", "Optional project status": "可選專案狀態", "Status Hub reporting": "Status Hub 狀態報告",
+    "Accounts and protection": "帳戶同保護", "This is an anonymous, static reference with no account, credentials, shared profile, or private content. Credential editing, account pairing, QR authenticators, and recovery codes do not apply to this edition. The focus mask is cosmetic only; do not enter passwords or secrets here.": "呢份匿名靜態參考資料冇帳戶、登入資料、共用個人檔案或者私人內容。本版唔支援編輯登入資料、配對帳戶、QR 驗證器或者復原碼。專注遮罩只係外觀效果，唔好喺呢度輸入密碼或者秘密。",
+    "Build a bounded search pattern. Names and titles only are searched in pattern mode. Nested unlimited quantifiers, lookarounds, and backreferences are blocked to keep searches responsive.": "建立有限長度嘅搜尋模式。模式搜尋只查名稱同標題。為咗保持回應速度，巢狀無限量詞、前後查找同反向參照都唔接受。",
+    "Search phrase": "搜尋字句", "Match style": "比對方式", "Contains phrase": "包含字句", "Starts with phrase": "以字句開頭", "Ends with phrase": "以字句結尾", "Whole phrase": "完整字句",
+    "Ignore letter case": "忽略英文字母大小寫", "Use pattern": "使用模式", "Turn pattern search off": "關閉模式搜尋",
+    "This removes saved notes, preferences, and recent pages from this browser. Guide data and published content remain unchanged.": "呢個操作會移除瀏覽器內嘅筆記、偏好設定同最近頁面。指南資料同已發佈內容唔受影響。",
+    "Type RESET to confirm": "輸入 RESET 確認", "Reset local data": "重設本機資料", "Close": "關閉",
+    "No local notices yet.": "暫時冇本機通知。", "Updates and reminders appear here.": "更新同提醒會喺呢度顯示。",
+    "Mark all as read": "全部標記為已讀", "Clear notice history": "清除通知記錄",
+    "No recent places yet.": "暫時冇最近頁面。", "Pages you visit appear here, stored only in this browser.": "你睇過嘅頁面會喺呢度顯示，只儲存喺呢個瀏覽器。",
+    "No saved notes yet.": "暫時冇已儲存筆記。", "Save a creature, article, or location label to keep it here.": "儲存精靈、文章或者地點名稱，就可以喺呢度搵返。",
+    "Export list": "匯出清單", "Clear recent places": "清除最近頁面"
+  }));
+  const originalInterfaceText = new WeakMap();
+  const originalInterfaceAttributes = new WeakMap();
   const DEFAULTS = {
     lang: "en", theme: "system", scale: 1, density: 1, radius: 16, accent: "gold", contrast: false,
     funnyEn: 1, funnyZh: 1, focusLabel: "Field school", focusMode: false, locked: {},
@@ -67,7 +169,7 @@
   const BILINGUAL_MIDDLE = "\uE001";
   const BILINGUAL_END = "\uE002";
   function syncDocumentLanguage() {
-    document.documentElement.lang = state.lang === "zh" ? "zh-Hans" : state.lang === "both" ? "mul" : "en";
+    document.documentElement.lang = state.lang === "zh" ? "yue-Hant-HK" : state.lang === "both" ? "mul" : "en";
   }
   function localizeBilingualTextNode(node) {
     const text = node.nodeValue || "";
@@ -83,7 +185,7 @@
       english.lang = "en";
       english.textContent = match[1];
       const chinese = document.createElement("span");
-      chinese.lang = "zh-Hans";
+      chinese.lang = "yue-Hant-HK";
       chinese.textContent = match[2];
       fragment.append(english, document.createTextNode(" · "), chinese);
       offset = pattern.lastIndex;
@@ -112,6 +214,40 @@
       }
     }
   }
+  function localizeInterfaceTree(root) {
+    if (!root) return;
+    const nodes = [];
+    if (root.nodeType === Node.TEXT_NODE) nodes.push(root);
+    else {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+    }
+    for (const node of nodes) {
+      if (node.parentElement?.closest("code,kbd,time,script,style,span[lang]")) continue;
+      const original = originalInterfaceText.get(node) || node.nodeValue || "";
+      const translated = STATIC_COPY.get(original.trim());
+      if (!translated) continue;
+      originalInterfaceText.set(node, original);
+      const leading = original.match(/^\s*/u)?.[0] || "";
+      const trailing = original.match(/\s*$/u)?.[0] || "";
+      const replacement = state.lang === "zh" ? translated : state.lang === "both" ? `${original.trim()} · ${translated}` : original.trim();
+      const next = `${leading}${replacement}${trailing}`;
+      if (node.nodeValue !== next) node.nodeValue = next;
+    }
+    const elements = root.nodeType === Node.ELEMENT_NODE ? [root, ...root.querySelectorAll("*")] : [...(root.querySelectorAll?.("*") || [])];
+    for (const element of elements) {
+      const originals = originalInterfaceAttributes.get(element) || {};
+      for (const name of ["aria-label", "title", "placeholder"]) {
+        const original = originals[name] || element.getAttribute(name);
+        const translated = STATIC_COPY.get(original);
+        if (!translated) continue;
+        originals[name] = original;
+        const next = state.lang === "zh" ? translated : state.lang === "both" ? `${original} · ${translated}` : original;
+        if (element.getAttribute(name) !== next) element.setAttribute(name, next);
+      }
+      if (Object.keys(originals).length) originalInterfaceAttributes.set(element, originals);
+    }
+  }
   function watchLocalizedContent() {
     if (!document.body || typeof MutationObserver !== "function") return;
     const observer = new MutationObserver(records => {
@@ -120,10 +256,14 @@
         if (record.type === "attributes" || record.type === "characterData") roots.add(record.target);
         else for (const node of record.addedNodes) roots.add(node);
       }
-      for (const root of roots) localizeBilingualTree(root);
+      for (const root of roots) {
+        localizeBilingualTree(root);
+        localizeInterfaceTree(root);
+      }
     });
     observer.observe(document.body, { attributes: true, attributeFilter: ["aria-label", "title", "placeholder", "alt", "value"], characterData: true, childList: true, subtree: true });
     localizeBilingualTree(document.body);
+    localizeInterfaceTree(document.body);
   }
   function local(en, zh) {
     if (state.lang === "zh") return zh || en;
@@ -244,9 +384,8 @@
 
   function renderNav() {
     syncDocumentLanguage();
-    const nav = $("#primary-nav");
-    if (!nav) return;
-    nav.classList.add("nav-bottom");
+    const navs = [$("#primary-nav"), $("#mobile-nav")].filter(Boolean);
+    if (!navs.length) return;
     const lookup = new Map(NAV.map(item => [item.id, item]));
     const groups = new Map();
     for (const id of state.order) {
@@ -256,9 +395,13 @@
       if (!groups.has(group)) groups.set(group, []);
       groups.get(group).push(item);
     }
-    nav.innerHTML = [...groups.entries()].map(([group, entries]) => `<div class="nav-group-label">${esc(local(group, group === "Atlas" ? "索引" : group === "Field notes" ? "实用笔记" : "工具"))}</div>${entries.map(item => `<button class="nav-item" type="button" data-route="${item.id}" ${route.page === item.id ? 'aria-current="page"' : ""}><span class="nav-icon" aria-hidden="true">${esc(item.icon)}</span><span>${esc(navTitle(item))}</span>${state.pinned.includes(item.id) ? '<span class="pin" aria-label="Pinned">◆</span>' : ""}</button>`).join("")}`).join("");
+    const content = [...groups.entries()].map(([group, entries]) => `<div class="nav-group-label">${esc(local(group, group === "Atlas" ? "索引" : group === "Field notes" ? "实用笔记" : "工具"))}</div>${entries.map(item => `<button class="nav-item" type="button" data-route="${item.id}" ${route.page === item.id ? 'aria-current="page"' : ""}><span class="nav-icon" aria-hidden="true">${esc(item.icon)}</span><span>${esc(navTitle(item))}</span>${state.pinned.includes(item.id) ? '<span class="pin" aria-label="Pinned">◆</span>' : ""}</button>`).join("")}`).join("");
+    for (const nav of navs) {
+      nav.innerHTML = content;
+      localizeBilingualTree(nav);
+      localizeInterfaceTree(nav);
+    }
     renderNotificationBadge();
-    localizeBilingualTree(nav);
   }
 
   function sourceById(id) { return DB.sources?.find(item => item.id === id); }
@@ -292,7 +435,7 @@
       </section>
       <section class="home-section"><div class="inline-title"><h2>${esc(local("Start with a useful route", "从实用入口开始"))}</h2><a href="#guides" data-go="guides">${esc(local("All articles", "全部文章"))} ↗</a></div><div class="grid grid-3"><article class="card"><div class="card-body"><span class="card-kicker">${esc(local("625 FORM ROWS", "625条形态记录"))}</span><button class="card-link" type="button" data-go="dex"><span><h3>${esc(local("Find a creature", "查找精灵"))}</h3><p>${esc(local("Search catalog fields, handbook tasks, complete listed skills, evolutions, and habitat notes.", "搜索目录资料、图鉴任务、已收录技能、进化路线和栖息地说明。"))}</p></span><span class="arrow" aria-hidden="true">↗</span></button></div></article><article class="card"><div class="card-body"><span class="card-kicker">${esc(local("120 INDEXED COMBINATIONS", "120种已索引组合"))}</span><button class="card-link" type="button" data-go="types"><span><h3>${esc(local("Compare type matchups", "比较属性克制"))}</h3><p>${esc(local("Search listed weaknesses and resistances. The table is a reference, not a damage calculator.", "搜索已列出的弱点与抵抗。本表供查询，不是伤害计算器。"))}</p></span><span class="arrow" aria-hidden="true">↗</span></button></div></article>${articleCard(DB.articles.find(item => item.id === "starter-route") || DB.articles[0])}</div></section>
       <section class="home-section"><div class="inline-title"><h2>${esc(local("On the noticeboard", "公告栏"))}</h2><button class="button-quiet" data-go="article:current-events">${esc(local("Open event desk", "打开活动台"))} ↗</button></div><div class="panel"><div class="card-label-row"><span class="badge official">${esc(local("Official notices", "官方公告"))}</span><span class="update-chip">${esc(local("Cocoa last read", "可可公告最后核对"))} 26 Sep 2026</span></div><h3 style="margin:.65rem 0 .35rem">${esc(local("Cocoa Harvest Festival announced for 25 September", "可可丰收节定于9月25日开始"))}</h3><p class="copy-block">${esc(local("The official preview advertises up to 480 free Cocoa Fruit Balls. Its readable text does not establish the end date or every reward condition, so check the live event panel before planning around that total.", "官方预告称活动期间最多可取得480个可可果球。可读取的公告文字未确认结束日期和所有奖励条件，计划前请查看游戏内活动页面。"))}</p>${sourceChips(article?.sections.find(section => section.heading.startsWith("Cocoa"))?.sources || ["cocoa"])}</div></section>
-      <section class="home-section"><div class="inline-title"><h2>${esc(local("One small field note", "一条小提示"))}</h2><button class="button-secondary button-small" data-random-tip>${esc(local("Surprise me", "给我一条随机提示"))} ✦</button></div><div id="random-tip" class="panel"><p class="copy-block">${esc(local("A form row is not necessarily a separate base creature. This Dex reports the source's row count and catalog-number count separately.", "一条形态记录未必代表一种不同的基础精灵。本图鉴分别列出来源记录行数和目录编号数。"))}</p><div class="field-actions"><a href="#article/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Why the indexes differ", "点解几个索引数量唔同"))} ↗</a></div></div></section>
+      <section class="home-section"><div class="inline-title"><h2>${esc(local("One small field note", "一条小提示"))}</h2><button class="button-secondary button-small" data-random-tip>${esc(local("Surprise me", "给我一条随机提示"))} ✦</button></div><div id="random-tip" class="panel"><p class="copy-block">${esc(local("A form row is not necessarily a separate base creature. This Dex reports the source's row count and catalog-number count separately.", "一条形态记录未必代表一种不同的基础精灵。本图鉴分别列出来源记录行数和目录编号数。"))}</p><div class="field-actions"><a href="#guides/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Why the indexes differ", "点解几个索引数量唔同"))} ↗</a></div></div></section>
     </div>`;
   }
 
@@ -364,10 +507,10 @@
     const selected = state.selected.includes(row.recordId);
     const saved = state.bookmarks.includes(`creature:${row.recordId}`);
     const icon = row.types?.[0] ? row.types[0].slice(0, 1) : "✦";
-    return `<div class="dex-row" role="button" tabindex="0" data-open-creature="${esc(row.recordId)}" aria-label="Open ${esc(row.name)}, catalog ${esc(row.catalogNumber)}">
+    return `<div class="dex-row" role="listitem">
       <input class="check-control" type="checkbox" data-select-creature="${esc(row.recordId)}" aria-label="Select ${esc(row.name)}" ${selected ? "checked" : ""}>
-      <span class="dex-number">${esc(row.catalogNumber)}</span><span class="specimen-mark" aria-hidden="true">${esc(icon)}</span>
-      <span><span class="creature-name">${esc(row.name)}</span><span class="creature-form">${esc(recordText(row.form))}</span></span>
+      <span class="dex-number">${esc(row.catalogNumber)}</span>
+      <button class="dex-open" type="button" data-open-creature="${esc(row.recordId)}" aria-label="${esc(local("Open", "打开"))} ${esc(row.name)}, ${esc(local("catalog", "目录编号"))} ${esc(row.catalogNumber)}"><span class="specimen-mark" aria-hidden="true">${esc(icon)}</span><span><span class="creature-name">${esc(row.name)}</span><span class="creature-form">${esc(recordText(row.form))}</span></span></button>
       <span class="type-col type-stack">${(row.types || []).slice(0, 2).map(type => `<span class="type-pill">${esc(type)}</span>`).join("") || `<span class="type-pill">${esc(local("Unknown", "未知"))}</span>`}</span>
       <span class="total-col"><span class="card-kicker">TOTAL</span><br><span class="stat-total">${esc(recordText(row.stats.total))}</span></span>
       <span class="season-col">${esc(recordText(row.season))}</span>
@@ -387,7 +530,7 @@
     return `<div class="view-content">
       <div class="section-heading"><div><span class="section-label">${esc(local("THE CREATURE AND FORM INDEX", "精灵与形态索引"))}</span><h2>${esc(local("Creature Dex", "精灵图鉴"))}</h2><p>${esc(local("Search names, skills, handbook tasks, habitats, evolution conditions, and every imported form. Open a record for its original catalog fields and fully joined references.", "搜索名称、技能、图鉴任务、栖息地、进化条件和全部已导入形态。打开记录可查看原始目录字段与完整关联资料。"))}</p></div><div class="section-actions"><button class="button-secondary button-small" data-export="filtered-json">${esc(local("Export detailed results", "导出完整资料"))} ↗</button></div></div>
       <div class="status-banner"><span class="mark">✳</span><div><strong>${esc(local("Community data, not an official game export.", "社区资料，并非游戏官方导出。"))}</strong><p>${statusCount(DB.creatures.recordCount)} ${esc(local("form rows across", "条形态记录，分属"))} ${statusCount(DB.creatures.uniqueCatalogNumbers)} ${esc(local("catalog numbers. Snapshot", "个目录编号。资料快照"))} ${esc(detailSnapshot?.version || "unavailable")} ${esc(local("adds 824 skills, 311 learnsets, 275 evolution groups, 466 handbook entries, 2,342 task topics, and 120 type combinations. No creature artwork is included.", "补充824项技能、311份学习表、275组进化路线、466条图鉴记录、2,342项任务主题和120种属性组合。本资料没有精灵美术。"))}</p></div></div>
-      <div class="panel" style="margin:1rem 0"><h3>${esc(local("How other indexes count", "其他索引的计算方式"))}</h3><p class="copy-block">${esc(local("The current BiliWiki list page reports 621 results (page update: 13 September 2026). The independent Roco Kingdom World index reports 644 entries (checked 25 September 2026). Different snapshots and numbering rules mean these counts do not identify missing creatures.", "目前BiliWiki列表页显示621条结果（页面更新：2026年9月13日）。独立的Roco Kingdom World索引显示644条记录（核对日期：2026年9月25日）。由于快照日期和编号方式不同，这些数字不能用来判断有精灵缺失。"))}</p>${sourceChips(["creature-list-live", "roco-dex-index"])}<p class="field-hint">${esc(local("See the roster comparison article for the four local form keys and unresolved matches.", "四个本地形态编号同未解决配对，请看精灵数量比较文章。"))} <a href="#article/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Open article", "打开文章"))} ↗</a></p></div>
+      <div class="panel" style="margin:1rem 0"><h3>${esc(local("How other indexes count", "其他索引的计算方式"))}</h3><p class="copy-block">${esc(local("The current BiliWiki list page reports 621 results (page update: 13 September 2026). The independent Roco Kingdom World index reports 644 entries (checked 25 September 2026). Different snapshots and numbering rules mean these counts do not identify missing creatures.", "目前BiliWiki列表页显示621条结果（页面更新：2026年9月13日）。独立的Roco Kingdom World索引显示644条记录（核对日期：2026年9月25日）。由于快照日期和编号方式不同，这些数字不能用来判断有精灵缺失。"))}</p>${sourceChips(["creature-list-live", "roco-dex-index"])}<p class="field-hint">${esc(local("See the roster comparison article for the four local form keys and unresolved matches.", "四个本地形态编号同未解决配对，请看精灵数量比较文章。"))} <a href="#guides/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Open article", "打开文章"))} ↗</a></p></div>
       <div class="dex-toolbar">
         <label class="sr-only" for="dex-query">${esc(local("Search the creature Dex", "搜索精灵图鉴"))}</label><input id="dex-query" class="field-control dex-search" type="search" value="${esc($("#dex-query")?.value || "")}" placeholder="${esc(local("Name, skill, habitat, task, number…", "名称、技能、栖息地、任务或编号…"))}">
         <label class="sr-only" for="dex-type">${esc(local("Filter by type", "按属性筛选"))}</label><select id="dex-type" class="field-control">${typeOptions()}</select>
@@ -727,16 +870,16 @@
     const query = $("#guide-query")?.value || state.articleQuery || "";
     const regex = regexFor(query, "guides");
     const articles = DB.articles.filter(item => fieldMatches(`${item.title} ${item.titleZh} ${item.category}`, query, regex));
-    const selected = DB.articles.find(item => item.id === route.articleId) || articles[0] || DB.articles[0];
-    const body = selected ? `<article class="article-content"><span class="section-label">${esc(selected.category)} / EDITION CHECKED ${esc(selected.updatedOn)}</span><h2>${esc(titleForArticle(selected))}</h2><p class="article-deck">${esc(introForArticle(selected))}</p><div class="article-meta"><span class="badge ${selected.confidence.startsWith("Official") ? "official" : "community"}">${esc(selected.confidence)}</span><span class="badge">Last checked ${esc(selected.updatedOn)}</span><button class="button-quiet button-small" data-bookmark="article:${esc(selected.id)}">${state.bookmarks.includes(`article:${selected.id}`) ? "◆ Saved" : "◇ Save article"}</button></div><div class="article-copy">${selected.sections.map(section => `<section><h3>${esc(local(section.heading, section.headingZh))}</h3><p>${esc(local(section.text, section.textZh))}</p><div class="article-sources">${sourceChips(section.sources)}</div></section>`).join("")}</div><div class="source-note" style="margin-top:1rem"><strong>Editorial limit:</strong> This article separates official dated statements from community advice. Recheck current in-game prompts for live conditions.</div></article>` : `<div class="empty-state">No article is selected.</div>`;
-    return `<div class="view-content"><div class="section-heading"><div><span class="section-label">GUIDES / STRATEGY / SEASON NOTES</span><h2>Field articles</h2><p>${DB.articles.length} original articles, each with source links, a review date, and written Cantonese alongside English.</p></div><div class="section-actions"><button class="button-secondary button-small" data-export="article-md" data-article="${esc(selected?.id || "")}">Export current article</button></div></div>
+    const selected = articles.find(item => item.id === route.articleId) || articles[0] || null;
+    const body = selected ? `<article class="article-content"><span class="section-label">${esc(selected.category)} / EDITION CHECKED ${esc(selected.updatedOn)}</span><h2>${esc(titleForArticle(selected))}</h2><p class="article-deck">${esc(introForArticle(selected))}</p><div class="article-meta"><span class="badge ${selected.confidence.startsWith("Official") ? "official" : "community"}">${esc(selected.confidence)}</span><span class="badge">Last checked ${esc(selected.updatedOn)}</span><button class="button-quiet button-small" data-bookmark="article:${esc(selected.id)}">${state.bookmarks.includes(`article:${selected.id}`) ? "◆ Saved" : "◇ Save article"}</button></div><div class="article-copy">${selected.sections.map(section => `<section><h3>${esc(local(section.heading, section.headingZh))}</h3><p>${esc(local(section.text, section.textZh))}</p><div class="article-sources">${sourceChips(section.sources)}</div></section>`).join("")}</div><div class="source-note" style="margin-top:1rem"><strong>Editorial limit:</strong> This article separates official dated statements from community advice. Recheck current in-game prompts for live conditions.</div></article>` : `<div class="empty-state"><strong>${esc(local("No matching articles.", "搵唔到符合条件嘅文章。"))}</strong>${esc(local("Try another title or turn off pattern search.", "试下其他标题，或者关闭模式搜索。"))}</div>`;
+    return `<div class="view-content"><div class="section-heading"><div><span class="section-label">GUIDES / STRATEGY / SEASON NOTES</span><h2>Field articles</h2><p>${DB.articles.length} original articles, each with source links, a review date, and written Cantonese alongside English.</p></div><div class="section-actions"><button class="button-secondary button-small" data-export="article-md" data-article="${esc(selected?.id || "")}" ${selected ? "" : "disabled"}>Export current article</button></div></div>
       <div class="guide-layout"><aside class="article-index" aria-label="Article index"><label class="sr-only" for="guide-query">Search article titles</label><input id="guide-query" class="field-control" type="search" value="${esc(query)}" placeholder="Find an article…"><button class="button-quiet button-small" data-open-regex="guides">${state.regex.guides ? ".* Pattern on" : ".* Pattern"}</button>${articles.map(item => `<button type="button" data-go="article:${esc(item.id)}" ${selected?.id === item.id ? 'aria-current="true"' : ""}>${esc(titleForArticle(item))}<small style="display:block;color:var(--muted)">${esc(item.category)}</small></button>`).join("")}</aside>${body}</div></div>`;
   }
 
   function renderSources() {
     return `<div class="view-content"><div class="section-heading"><div><span class="section-label">CITATION / FRESHNESS / REUSE</span><h2>Source desk</h2><p>Official notices support dated event claims. Community indexes support discovery, not official completeness. Each record below states what its source can and cannot establish.</p></div><div class="section-actions"><button class="button-secondary button-small" data-export="sources-json">Export source register ↗</button></div></div>
       <div class="status-banner"><span class="mark">◎</span><div><strong>${esc(local("Reviewed 25 September 2026.", "核对日期：2026年9月25日。"))}</strong><p>${esc(local("The BiliWiki list reports 621 results and carries a September 13 update date. The independent Roco Kingdom World index reports 644 entries. The separate detail snapshot is pinned to commit 71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2, version s4-2026-09-24, and uses CC BY-NC-SA 4.0. These community counts use different snapshots and keys, and none is an official total. This independent fan reference is not affiliated with Tencent or 4399.", "BiliWiki列表显示621条结果，页面更新日期为9月13日。独立的Roco Kingdom World索引显示644条记录。另一份详情快照固定于提交编号71eba6e4cd5e0f01a5cda60ec5560f58aae2a1c2，版本为s4-2026-09-24，采用CC BY-NC-SA 4.0授权。这些社区数字来自不同快照和编号方式，没有一个是官方总数。本独立粉丝资料与腾讯或4399无关。"))}</p></div></div>
-      <div class="panel" style="margin:1rem 0"><h3>${esc(local("Counting and coverage", "数量与收录范围"))}</h3><p class="copy-block" style="margin-top:.4rem">${esc(local("This edition's saved snapshot has ", "本版保存快照共有"))}<strong>625 ${esc(local("form rows", "条形态记录"))}</strong> ${esc(local("across", "分属"))} <strong>466 ${esc(local("catalog numbers", "个目录编号"))}</strong>${esc(local(". The current BiliWiki list shows 621 results; the Roco Kingdom World fan index shows 644 entries. These figures do not share a proven one-to-one row mapping. Joined fields add 824 skills, 311 learnsets, 275 evolution groups, 466 handbook entries, 2,342 task topics, and 120 type combinations.", "。目前BiliWiki列表显示621条结果；Roco Kingdom World粉丝索引显示644条记录。现未证明这些数字可以逐行一对一配对。关联资料另有824项技能、311份学习表、275组进化路线、466条图鉴记录、2,342项任务主题和120种属性组合。"))}</p><p class="copy-block" style="margin-top:.45rem">${esc(local("The source files include text and structured community reference data. They do not include creature portraits or map artwork. Missing values remain undocumented here; a source row is not proof that the live client has the same current rule.", "资料文件包含文字和结构化社区参考数据，没有精灵肖像或地图美术。未提供的字段会保留为未记录；来源条目不能证明当前客户端仍采用相同规则。"))}</p><p class="field-hint">${esc(local("The local-only keys and unresolved differences are listed in the roster comparison article.", "本地编号同未解决差异列于精灵数量比较文章。"))} <a href="#article/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Open article", "打开文章"))} ↗</a></p></div>
+      <div class="panel" style="margin:1rem 0"><h3>${esc(local("Counting and coverage", "数量与收录范围"))}</h3><p class="copy-block" style="margin-top:.4rem">${esc(local("This edition's saved snapshot has ", "本版保存快照共有"))}<strong>625 ${esc(local("form rows", "条形态记录"))}</strong> ${esc(local("across", "分属"))} <strong>466 ${esc(local("catalog numbers", "个目录编号"))}</strong>${esc(local(". The current BiliWiki list shows 621 results; the Roco Kingdom World fan index shows 644 entries. These figures do not share a proven one-to-one row mapping. Joined fields add 824 skills, 311 learnsets, 275 evolution groups, 466 handbook entries, 2,342 task topics, and 120 type combinations.", "。目前BiliWiki列表显示621条结果；Roco Kingdom World粉丝索引显示644条记录。现未证明这些数字可以逐行一对一配对。关联资料另有824项技能、311份学习表、275组进化路线、466条图鉴记录、2,342项任务主题和120种属性组合。"))}</p><p class="copy-block" style="margin-top:.45rem">${esc(local("The source files include text and structured community reference data. They do not include creature portraits or map artwork. Missing values remain undocumented here; a source row is not proof that the live client has the same current rule.", "资料文件包含文字和结构化社区参考数据，没有精灵肖像或地图美术。未提供的字段会保留为未记录；来源条目不能证明当前客户端仍采用相同规则。"))}</p><p class="field-hint">${esc(local("The local-only keys and unresolved differences are listed in the roster comparison article.", "本地编号同未解决差异列于精灵数量比较文章。"))} <a href="#guides/roster-snapshots" data-go="article:roster-snapshots">${esc(local("Open article", "打开文章"))} ↗</a></p></div>
       <div class="sources-list">${DB.sources.map(item => `<article class="source-row"><span class="badge ${item.kind.startsWith("Official") ? "official" : "community"}">${esc(item.kind)}</span><div><h3>${esc(item.title)}</h3><p>${esc(item.scope)}</p><small class="field-hint">Checked ${esc(item.checkedOn)}</small></div><a href="${esc(safeUrl(item.url))}" target="_blank" rel="noopener noreferrer">Open source ↗</a></article>`).join("")}</div>
       <section class="home-section"><div class="panel"><h3>Reuse and licensing</h3><p class="copy-block" style="margin-top:.4rem">The creature list and S3 map index state CC BY-NC-SA 4.0. This site credits those sources, limits derivative use to listed text fields and exact marker names, makes no artwork claim, and carries the same terms for those data derivatives. The external interactive map is linked, not embedded or copied, because a reuse license for its marker set was not identified.</p><p class="copy-block" style="margin-top:.45rem">Article prose is original and cited per section. Official notices and community guide links remain the property of their publishers.</p></div></section>
     </div>`;
@@ -762,9 +905,9 @@
           <label class="field-label">Reading density <span class="range-line"><span class="range-value">${Math.round(state.density * 100)}%</span><input type="range" min="0.82" max="1.2" step="0.04" data-state="density" value="${state.density}" aria-label="Reading density"></span></label><div class="field-label">Contrast <button class="switch" role="switch" aria-checked="${state.contrast}" data-toggle="contrast" aria-label="High contrast"></button></div>
         </div></section>
         <section class="settings-section"><h3>Tabs, pins, and groups</h3><p class="field-hint" style="margin-bottom:.65rem">Use the arrows to reorder. Pins stay visible in the left rail. Change a group to collect related tabs; groups become sections in the navigation.</p><div class="tab-settings-list">${state.order.map((id,index) => { const item=NAV.find(x=>x.id===id); return `<div class="tab-setting"><span>${esc(navTitle(item))} ${state.pinned.includes(id) ? "◆" : ""}</span><select class="field-control" data-tab-group="${id}" aria-label="Group ${esc(navTitle(item))}">${groupOptions.map(group=>`<option value="${group}" ${(state.groups[id] || item.group) === group ? "selected" : ""}>${esc(local(group, group))}</option>`).join("")}</select><span><button class="button-secondary button-small" data-tab-move="${id}" data-direction="-1" aria-label="Move ${esc(navTitle(item))} earlier" ${index === 0 ? "disabled" : ""}>↑</button> <button class="button-secondary button-small" data-tab-move="${id}" data-direction="1" aria-label="Move ${esc(navTitle(item))} later" ${index === state.order.length - 1 ? "disabled" : ""}>↓</button> <button class="button-quiet button-small" data-tab-pin="${id}" aria-label="${state.pinned.includes(id) ? "Unpin" : "Pin"} ${esc(navTitle(item))}">${state.pinned.includes(id) ? "Unpin" : "Pin"}</button></span></div>`; }).join("")}</div></section>
-        <section class="settings-section"><h3>Local vocabulary file</h3><div class="drop-zone"><p class="copy-block">Choose a version 1 JSON file shaped as <code>{"schemaVersion":1,"entries":{"phrase":"replacement"}}</code>. The file is checked in memory only. This public edition has no authenticated area, so it will <strong>not</strong> apply private wording to the page or persist the file. A future authenticated mode must pass the private upload contract first.</p><label class="field-label" style="margin-top:.7rem">Choose JSON file<input class="field-control" id="vocabulary-file" type="file" accept="application/json,.json"></label><div id="vocabulary-status" class="field-hint" role="status" style="margin-top:.5rem">${esc(state.vocab.notice || "No file loaded. Nothing leaves this browser.")}</div><div class="field-actions"><button class="button-secondary button-small" data-vocab-clear>Clear file status</button></div></div><p class="field-hint" style="margin-top:.6rem">The selected file contents are never stored, exported, logged, sent to a server, or added to recent-page history.</p></section>
+        <section class="settings-section"><h3>Local vocabulary file</h3><div class="drop-zone"><p class="copy-block">Choose a version 1 JSON file shaped as <code>{"schemaVersion":1,"entries":{"phrase":"replacement"}}</code>. The file is checked in memory only. This public edition has no authenticated area, so it will <strong>not</strong> apply private wording to the page or persist the file. A future authenticated mode must pass the private upload contract first.</p><label class="field-label" style="margin-top:.7rem">Choose JSON file<input class="field-control" id="vocabulary-file" type="file" accept="application/json,.json"></label><div id="vocabulary-status" class="field-hint" role="status" tabindex="-1" style="margin-top:.5rem">${esc(state.vocab.notice || "No file loaded. Nothing leaves this browser.")}</div><div class="field-actions"><button class="button-secondary button-small" data-vocab-clear>Clear file status</button></div></div><p class="field-hint" style="margin-top:.6rem">The selected file contents are never stored, exported, logged, sent to a server, or added to recent-page history.</p></section>
         <section class="settings-section"><h3>Reading focus and schedule</h3><div class="settings-fields"><label class="field-label">Focus label<input class="field-control" maxlength="32" data-state="focusLabel" value="${esc(state.focusLabel)}"></label><label class="field-label">Reminder time (local)<input class="field-control" type="time" data-schedule-time value="${esc(state.schedule.time)}"></label></div><div class="control-row"><div><strong>Focus mask</strong><small>Presentation-only blur on chosen sections; it is not a privacy or account lock.</small></div><button class="switch" role="switch" aria-checked="${state.focusMode}" data-toggle="focusMode" aria-label="Enable focus mask"></button></div><div class="control-row"><div><strong>Reminder while this page is open</strong><small>No background schedule. The reminder stops when this page closes.</small></div><button class="switch" role="switch" aria-checked="${state.schedule.enabled}" data-toggle="schedule" aria-label="Enable local reminder"></button></div><label class="field-label" style="margin-top:.6rem">Reminder note<textarea class="field-control" rows="2" maxlength="180" data-schedule-note>${esc(state.schedule.note)}</textarea></label><div class="field-actions"><button class="button-secondary button-small" data-notification-test>Send a sample notice</button><button class="button-secondary button-small" data-random-tip>Random field note ✦</button></div></section>
-        <section class="settings-section"><h3>Local field kit</h3><div class="field-actions"><button class="button-secondary button-small" data-export="bookmarks-json">Export saved notes</button><button class="button-secondary button-small" data-export="settings-json">Export settings</button><label class="button-secondary button-small">Import settings<input id="settings-file" type="file" accept="application/json,.json" hidden></label><button class="button-secondary button-small" data-export="print">Print current page</button></div><div class="control-row" style="margin-top:.6rem"><div><strong>Reset browser data</strong><small>Removes preferences, saved notes, and recent-page history from this browser. Guide data is not touched.</small></div><button class="button-warn button-small" data-reset-open>Reset…</button></div></section>
+        <section class="settings-section"><h3>Local field kit</h3><div class="field-actions"><button class="button-secondary button-small" data-export="bookmarks-json">Export saved notes</button><button class="button-secondary button-small" data-export="settings-json">Export settings</button><button class="button-secondary button-small" type="button" data-import-settings>Import settings</button><input id="settings-file" type="file" accept="application/json,.json" hidden tabindex="-1"><button class="button-secondary button-small" data-export="print">Print current page</button></div><div class="control-row" style="margin-top:.6rem"><div><strong>Reset browser data</strong><small>Removes preferences, saved notes, and recent-page history from this browser. Guide data is not touched.</small></div><button class="button-warn button-small" data-reset-open>Reset…</button></div></section>
         ${renderStatusReportingSettings()}
         <section class="settings-section"><h3>Accounts and protection</h3><p class="copy-block">This is an anonymous, static reference with no account, credentials, shared profile, or private content. Credential editing, account pairing, QR authenticators, and recovery codes do not apply to this edition. The focus mask is cosmetic only; do not enter passwords or secrets here.</p></section>
       </div></div>`;
@@ -793,7 +936,7 @@
       ? `<p class="field-hint" style="margin-top:.5rem">${esc(local("Last confirmed update: ", "最后确认更新："))}${esc(formatLocalTimestamp(current.lastUpdated))}</p>`
       : "";
     return `<section class="settings-section"><h3>${esc(local("Optional project status", "可选专案状态"))}</h3>
-      <div class="control-row"><span><strong>Status Hub reporting</strong><small role="status" aria-live="polite">${esc(local(english, cantonese))}</small></span>${toggle}</div>
+      <div class="control-row"><span><strong>Status Hub reporting</strong><small id="status-hub-state" role="status" aria-live="polite" tabindex="-1">${esc(local(english, cantonese))}</small></span>${toggle}</div>
       <p class="field-hint" style="margin-top:.6rem">${esc(local("Status reporting starts off on every launch. When enabled, it sends the project and source ref, machine name, and any available local checkout paths, refs, commit IDs, dirty state, and measured size. A packaged build without repository metadata has no checkout inventory.", "每次启动时状态报告都会关闭。启用后会传送专案和来源 ref、电脑名称，以及可用的本机目录、ref、提交编号、修改状态和量度大小。没有专案资料的安装版本不会传送目录清单。"))}</p>
       <p class="field-hint">${esc(local("Searches, bookmarks, notes, and reading history are never read or sent. The browser edition never connects to Status Hub. The Status Hub credential stays in the desktop process and is never exposed to this page.", "系统不会读取或传送搜寻、书签、笔记或浏览记录。浏览器版不会连接 Status Hub。Status Hub 凭证只保留在桌面程序内，本页面无法读取。"))}</p>${lastUpdated}</section>`;
   }
@@ -841,6 +984,7 @@
     if (state.focusMode) $$(".view-content", view).forEach(el => el.classList.add("focus-blurred"));
     document.title = `${route.page === "home" ? "Overview" : NAV.find(item => item.id === route.page)?.en || "Guide"} · Roco Kingdom: World`;
     localizeBilingualTree(view);
+    localizeInterfaceTree(document.body);
   }
 
   function renderHistoricalCaptures() {
@@ -893,12 +1037,25 @@
     const q = query.trim();
     const regex = regexFor(q, "palette");
     const tabMatches = NAV.filter(item => fieldMatches(`${item.en} ${item.zh} ${state.groups[item.id] || item.group}`, q, regex)).map(item => ({ title: navTitle(item), sub: "Page", open: item.id }));
+    const settingsMatches = SETTINGS_COMMANDS.map((item, index) => ({ item, index })).filter(({ item }) => fieldMatches(`${item.en} ${item.zh} settings preferences`, q, regex)).map(({ item, index }) => ({ title: local(item.en, item.zh), sub: local("Settings control", "设定控制项"), focus: index }));
     const articleMatches = DB.articles.filter(item => fieldMatches(`${item.title} ${item.titleZh} ${item.category}`, q, regex)).map(item => ({ title: titleForArticle(item), sub: "Guide", open: `article:${item.id}` }));
     const savedMatches = state.bookmarks.map(key => ({ key, title: bookmarkLabel(key) })).filter(item => fieldMatches(item.title, q, regex)).map(item => ({ title: item.title, sub: "Saved", open: item.key }));
     const recentMatches = state.history.map(item => ({ title: bookmarkLabel(item.route), sub: "Recent", open: item.route })).filter(item => fieldMatches(item.title, q, regex));
-    const byMode = { pages: tabMatches, guides: articleMatches, saved: savedMatches, recent: recentMatches };
-    const list = (byMode[state.paletteMode] || tabMatches).slice(0, 30);
-    target.innerHTML = regex?.error ? `<div class="empty-state">${esc(regex.error)}</div>` : list.map(item => `<button class="palette-result" type="button" data-go="${esc(item.open)}"><span>${esc(item.title)}</span><small>${esc(item.sub)}</small></button>`).join("") || `<div class="empty-state">Search tabs, guide titles, saved records, and recent pages.</div>`;
+    const byMode = { pages: [...tabMatches, ...settingsMatches], guides: articleMatches, saved: savedMatches, recent: recentMatches };
+    const list = (byMode[state.paletteMode] || tabMatches).slice(0, 60);
+    target.innerHTML = regex?.error ? `<div class="empty-state">${esc(regex.error)}</div>` : list.map(item => `<button class="palette-result" type="button" ${item.focus === undefined ? `data-go="${esc(item.open)}"` : `data-settings-focus="${item.focus}"`}><span>${esc(item.title)}</span><small>${esc(item.sub)}</small></button>`).join("") || `<div class="empty-state">${esc(local("Search tabs, settings controls, guide titles, saved records, and recent pages.", "搜寻分页、设定控制项、文章标题、已储存记录同最近页面。"))}</div>`;
+  }
+
+  function focusSettingsControl(index) {
+    const command = SETTINGS_COMMANDS[Number(index)];
+    if (!command) return;
+    $("#palette-dialog")?.close();
+    setRoute("settings");
+    const control = $(command.selector, $("#app-view"));
+    if (!control) return;
+    const destination = control.matches(":disabled") ? control.closest(".control-row")?.querySelector("[role='status']") || control : control;
+    destination.scrollIntoView({ block: "center", behavior: "auto" });
+    destination.focus({ preventScroll: true });
   }
 
   function bookmarkLabel(key) {
@@ -1156,6 +1313,7 @@
     if (target.matches("a[data-go]")) event.preventDefault();
     const go = target.dataset.go;
     if (go) return navigate(go);
+    if (target.dataset.settingsFocus !== undefined) return focusSettingsControl(target.dataset.settingsFocus);
     if (target.dataset.route) return navigate(target.dataset.route);
     if (target.id === "palette-open") return openPalette();
     if (target.id === "regex-open") return openRegex("global");
@@ -1179,6 +1337,7 @@
       void setDesktopStatusEnabled(!DESKTOP_STATUS.enabled);
       return;
     }
+    if (target.matches("[data-import-settings]")) return $("#settings-file")?.click();
     if (target.matches("[data-palette-mode]")) {
       state.paletteMode = target.dataset.paletteMode;
       $$("[data-palette-mode]").forEach(button => button.setAttribute("aria-pressed", String(button === target)));
@@ -1325,10 +1484,6 @@
       event.preventDefault(); openPalette();
     }
     if (event.key === "Escape") $("#search-results").hidden = true;
-    const row = event.target.closest?.("[data-open-creature]");
-    if (row && (event.key === "Enter" || event.key === " ") && event.target === row) {
-      event.preventDefault(); openCreature(DB.creatures.records.find(item => item.recordId === row.dataset.openCreature));
-    }
   }
 
   async function boot() {
@@ -1345,10 +1500,6 @@
       document.addEventListener("change", handleChange);
       document.addEventListener("input", handleInput);
       document.addEventListener("keydown", handleKeydown);
-      document.addEventListener("click", event => {
-        const creatureRow = event.target.closest(".dex-row[data-open-creature]");
-        if (creatureRow && !event.target.closest("button,input,a")) openCreature(DB.creatures.records.find(row => row.recordId === creatureRow.dataset.openCreature));
-      });
       $("#global-search-form").addEventListener("submit", event => { event.preventDefault(); renderGlobalSearch($("#global-search").value); });
       $("#palette-search").addEventListener("input", event => renderPalette(event.target.value));
       $$("[data-close-dialog]").forEach(button => button.addEventListener("click", () => button.closest("dialog")?.close()));
