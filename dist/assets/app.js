@@ -12,6 +12,7 @@
     { id: "map", icon: "⌖", en: "World index", zh: "世界索引", group: "Atlas" },
     { id: "guides", icon: "▤", en: "Field articles", zh: "实用文章", group: "Field notes" },
     { id: "sources", icon: "↗", en: "Source desk", zh: "资料来源", group: "Field notes" },
+    { id: "history", icon: "▧", en: "Historical captures", zh: "历史画面", group: "Field notes" },
     { id: "updates", icon: "◷", en: "Edition log", zh: "版本记录", group: "Tools" },
     { id: "settings", icon: "⚙", en: "Settings", zh: "设定", group: "Tools" }
   ];
@@ -834,12 +835,20 @@
     renderBuildProvenance();
     if (!view || !DB.creatures || !DB.locations || !DB.articles || !DB.sources) return;
     view.setAttribute("aria-busy", "false");
-    const content = route.page === "home" ? renderHome() : route.page === "dex" ? renderDex() : route.page === "types" ? renderTypeChart() : route.page === "map" ? renderMap() : route.page === "guides" ? renderGuides() : route.page === "sources" ? renderSources() : route.page === "updates" ? renderUpdates() : renderSettings();
+    const content = route.page === "home" ? renderHome() : route.page === "dex" ? renderDex() : route.page === "types" ? renderTypeChart() : route.page === "map" ? renderMap() : route.page === "guides" ? renderGuides() : route.page === "sources" ? renderSources() : route.page === "history" ? renderHistoricalCaptures() : route.page === "updates" ? renderUpdates() : renderSettings();
     const locked = state.locked[route.page];
     view.innerHTML = `${content}${locked ? `<div class="lock-screen"><div><span class="section-label">${esc(state.focusLabel || "Field school")}</span><h2>${esc(local("Take a breath, then continue.", "抖擻精神，再慢慢睇。"))}</h2><p>This is a local visual mask, not account security. Any visitor can remove it.</p><button class="button" data-unlock-page="${route.page}">Show this page</button></div></div>` : ""}`;
     if (state.focusMode) $$(".view-content", view).forEach(el => el.classList.add("focus-blurred"));
     document.title = `${route.page === "home" ? "Overview" : NAV.find(item => item.id === route.page)?.en || "Guide"} · Roco Kingdom: World`;
     localizeBilingualTree(view);
+  }
+
+  function renderHistoricalCaptures() {
+    const title = local("Historical field guide captures", "舊版實用指南畫面", "歷史版實用指南畫面");
+    const intro = local("These genuine captures document an earlier edition of the guide. They are not current views.", "呢兩張真實畫面記錄咗較早版本，唔代表目前畫面。", "These genuine captures document an earlier edition of the guide. 呢兩張畫面屬舊版本，並非目前畫面。");
+    const caveat = local("Capture times are unavailable for the 320 × 568 image. These images do not establish current-source behavior, keyboard accessibility, or other language, theme, and scale combinations.", "320 × 568 畫面嘅擷取時間未有資料。呢啲畫面唔能證明目前版本、鍵盤操作，或者其他語言、主題同縮放組合嘅表現。", "Capture time for 320 × 568 is unavailable. 呢啲畫面唔能證明目前版本、鍵盤操作，或其他語言、主題同縮放組合嘅表現。");
+    const card = (file, size) => `<figure class="panel"><a href="assets/historical/${file}"><img src="assets/historical/${file}" alt="${esc(local(`Historical field guide header at ${size} pixels, light theme, English`, `${size} 像素寬、淺色主題、英文嘅舊版實用指南頁首`, `${size} 像素寬、淺色主題、英文嘅歷史版實用指南頁首`))}"></a><figcaption><strong>${size} · English · light · 100%</strong><p>${esc(local("Historical capture from 2026-09-25 (UTC). Source revision: ", "畫面於 2026-09-25 (UTC) 擷取，屬舊版。來源版本：", "Historical capture from 2026-09-25 (UTC). 來源版本："))}<code>bf90e1fd30e1bec271620479e03d95c353646633</code>. ${esc(local("Keyboard path was not verified.", "鍵盤操作未經驗證。", "Keyboard path was not verified。鍵盤操作未經驗證。"))}</p></figcaption></figure>`;
+    return `<section class="view-content"><div class="section-heading"><div><span class="section-label">ARCHIVE / RESPONSIVE HEADER</span><h2>${esc(title)}</h2><p>${esc(intro)}</p></div></div><div class="capture-gallery">${card("roco-320x568-light.png", "320 × 568")}${card("roco-390x844-light.png", "390 × 844")}</div><p class="field-hint">${esc(caveat)}</p></section>`;
   }
 
   function safeSearchAll(query) {

@@ -313,3 +313,4 @@
     .topbar-right{flex:none;gap:.12rem}
   }
 }
+ .capture-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;margin:1rem 0}.capture-gallery figure{margin:0;overflow:hidden}.capture-gallery img{display:block;width:100%;height:auto;border-radius:var(--radius-sm,12px);background:#fff}.capture-gallery figcaption{padding:1rem}.capture-gallery figcaption p{margin:.55rem 0 0;color:var(--muted,#667085);line-height:1.55}.capture-gallery code{overflow-wrap:anywhere}
